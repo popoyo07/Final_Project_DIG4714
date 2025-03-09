@@ -13,9 +13,10 @@ public class EnemyBehavior : MonoBehaviour
     float thisHelath;
     float thisDMG;
 
+    private UIBars uiBars;
 
     //prevent form overriding values 
-   void Start()
+    void Start()
     {
         GettingComponents();
 
@@ -23,6 +24,7 @@ public class EnemyBehavior : MonoBehaviour
         thisHelath = Enemy.theInstance.TheEnemyHealth(typeOfEnemy);
         thisDMG = Enemy.theInstance.TheEnemyDMG(typeOfEnemy);
 
+        uiBars = player.GetComponent<UIBars>(); // Get UI reference
 
     }
 
@@ -47,5 +49,18 @@ public class EnemyBehavior : MonoBehaviour
         agent.SetDestination(player.transform.position);
         agent.speed = enemySpeed;
         Debug.Log("enemy speed is: " + enemySpeed);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player")) // Ensure enemy only affects player
+        {
+            uiBars.LoseHealth(thisDMG);
+            Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
+            Destroy(gameObject);
+            uiBars.GainXPbar(2f);
+            uiBars.GainUltBar(2f);
+
+        }
     }
 }

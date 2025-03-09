@@ -29,7 +29,7 @@ public class UIBars : MonoBehaviour
             MaxXP = 100f;
         }
 
-        if (MaxUlt < 0f)
+        if (MaxUlt <= 0f)
         {
             MaxUlt = 100f;
         }
@@ -40,7 +40,9 @@ public class UIBars : MonoBehaviour
         }
 
         currentXP = 0f;
+        XPImage.fillAmount = currentXP / MaxXP;
         currentUlt = 0f;
+        UltImage.fillAmount = currentUlt / MaxUlt;
         currentHealth = MaxHealth;
 
 
@@ -57,21 +59,24 @@ public class UIBars : MonoBehaviour
 
 
 
-    public void LevelUP(float xp) 
+    public void GainXPbar(float xp)
     {
         currentXP += xp;
+        XPImage.fillAmount = currentXP / MaxXP;
     }
 
-    public void UltReady(float xp)
+
+    public void GainUltBar(float xp)
     {
-        currentUlt += xp/5;
+        currentUlt += xp/2;
+        UltImage.fillAmount = currentUlt/MaxUlt;
 
     }
 
     public void LoseHealth(float attackDamage) 
     {
         currentHealth -= attackDamage;
-
+        HealthImage.fillAmount = currentHealth/MaxHealth;
     }
 
 }
