@@ -45,9 +45,9 @@ public class EnemyBehavior : MonoBehaviour
         //Debug.Log("enemy speed is: " + enemySpeed);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter (Collider other)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player hit!");
             playerController.health -= dmg;
@@ -59,7 +59,7 @@ public class EnemyBehavior : MonoBehaviour
             uiBars.GainUltBar(4f);
         }
 
-        if(collision.gameObject.CompareTag("Weapon"))
+        if(other.gameObject.CompareTag("Weapon"))
         {
             Debug.Log("Enemy hit!");
             // Subtract enemy health by weapon's damage
