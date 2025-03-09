@@ -10,20 +10,20 @@ public class Enemy : MonoBehaviour
     
 
     [Header(" Elf Enemy")]
-    public float elfHealth;
-    public float elfDMG;
+    public int elfHealth;
+    public int elfDMG;
     public float elfSpeed;
 
     [Header(" Strong Elf Enemy")]
     public int strElfHealth;
-    public float strElfDMG;
+    public int strElfDMG;
     public float strElfSpeed;
 
     // WIll add more enemies later 
 
     public Dictionary<string, float> EnemySpeed = new();  // Enemy Speed Dictionary
-    public Dictionary<string, float> EnemyHealth = new(); // Enemy Health Dictionary
-    public Dictionary<string, float> EnemyDMG = new(); // Enemy Damage Dictionary
+    public Dictionary<string, int> EnemyHealth = new(); // Enemy Health Dictionary
+    public Dictionary<string, int> EnemyDMG = new(); // Enemy Damage Dictionary
 
 
     private void Awake()
@@ -45,11 +45,11 @@ public class Enemy : MonoBehaviour
     {
         return EnemySpeed[enemyType];
     }
-    public float TheEnemyHealth(string enemyType)
+    public int TheEnemyHealth(string enemyType)
     {
         return EnemyHealth[enemyType];
     }
-    public float TheEnemyDMG(string enemyType)
+    public int TheEnemyDMG(string enemyType)
     {
         return EnemyDMG[enemyType];
     }
