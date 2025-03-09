@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //these numbers just feel least explosive in movement
     public float moveSpeed = 3f;
     public float rotationSpeed = 45f;
+    public int health = 10;
 
     private Rigidbody rb;
 
