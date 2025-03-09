@@ -9,9 +9,9 @@ public class EnemyBehavior : MonoBehaviour
     public NavMeshAgent agent;
     public string typeOfEnemy;
 
-    int thisSpeed;
-    int thisHelath;
-    int thisDMG;
+    float thisSpeed;
+    float thisHelath;
+    float thisDMG;
 
 
     //prevent form overriding values 
@@ -42,7 +42,7 @@ public class EnemyBehavior : MonoBehaviour
        
     }
 
-    public void Chase(int enemySpeed)
+    public void Chase(float enemySpeed)
     {
         agent.SetDestination(player.transform.position);
         agent.speed = enemySpeed;
