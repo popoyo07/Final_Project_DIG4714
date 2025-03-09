@@ -1796,11 +1796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78210d4bd27c1d40b0fe5b3613631cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elfHealth: 1
-  elfDMG: 1
+  elfHealth: 0
+  elfDMG: 0
   elfSpeed: 4
   strElfHealth: 1
-  strElfDMG: 2
+  strElfDMG: 0
   strElfSpeed: 3
 --- !u!4 &1446994079
 Transform:
