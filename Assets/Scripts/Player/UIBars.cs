@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 
 public class UIBars : MonoBehaviour
@@ -18,6 +19,7 @@ public class UIBars : MonoBehaviour
     public float MaxUlt;
     public float MaxHealth;
 
+    public int PlayerLevel = 0;
 
 
 
@@ -51,18 +53,29 @@ public class UIBars : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
 
     }
 
 
+
+    public void LevelUP ()
+    {
+        currentXP -= MaxXP;
+        MaxXP = MaxXP * 1.5f;
+        Debug.Log("MaxXP:" + MaxXP);
+    }
 
 
     public void GainXPbar(float xp)
     {
         currentXP += xp;
         XPImage.fillAmount = currentXP / MaxXP;
+        if (XPImage.fillAmount >= 1f)
+        {
+            PlayerLevel++;
+            LevelUP();
+            Debug.Log("Player's level: "+ PlayerLevel);
+        }
     }
 
 

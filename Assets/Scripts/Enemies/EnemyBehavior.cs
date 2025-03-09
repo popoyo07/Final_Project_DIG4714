@@ -48,18 +48,18 @@ public class EnemyBehavior : MonoBehaviour
     {
         agent.SetDestination(player.transform.position);
         agent.speed = enemySpeed;
-        Debug.Log("enemy speed is: " + enemySpeed);
+        //Debug.Log("enemy speed is: " + enemySpeed);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player")) // Ensure enemy only affects player
         {
-            uiBars.LoseHealth(thisDMG);
-            Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
+            uiBars.LoseHealth(2f);
+            //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
             Destroy(gameObject);
-            uiBars.GainXPbar(2f);
-            uiBars.GainUltBar(2f);
+            uiBars.GainXPbar(4f);
+            uiBars.GainUltBar(4f);
 
         }
     }
