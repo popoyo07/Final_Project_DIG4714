@@ -39,7 +39,7 @@ public class EnemyBehavior : MonoBehaviour
         // add any componnets you need in here
         player = GameObject.Find("Santa");
         agent = GetComponent<NavMeshAgent>();
-       // Debug.Log("Enemy " + EnemySpeed["Elf"]);
+       
     }
 
     public void Chase(int enemySpeed)
