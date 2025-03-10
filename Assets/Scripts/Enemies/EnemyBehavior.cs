@@ -49,10 +49,9 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player hit!");
             playerController.health -= dmg;
-
-            uiBars.LoseHealth(2f);
+            Debug.Log("Health:" + playerController.health);
+            uiBars.LoseHealthBar(playerController.health);
             //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
             Destroy(gameObject);
             uiBars.GainXPbar(4f);

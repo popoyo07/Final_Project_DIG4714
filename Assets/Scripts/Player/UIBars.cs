@@ -13,7 +13,7 @@ public class UIBars : MonoBehaviour
 
     public float currentXP;
     public float currentUlt;
-    public float currentHealth;
+    private float currentHealth;
 
     public float MaxXP;
     public float MaxUlt;
@@ -85,9 +85,8 @@ public class UIBars : MonoBehaviour
 
     }
 
-    public void LoseHealth(float attackDamage) 
+    public void LoseHealthBar(float currentHealth) 
     {
-        currentHealth -= attackDamage;
         HealthImage.fillAmount = currentHealth/MaxHealth;
     }
 

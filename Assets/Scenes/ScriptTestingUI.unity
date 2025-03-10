@@ -837,7 +837,7 @@ MonoBehaviour:
   HealthImage: {fileID: 1216330628}
   currentXP: 0
   currentUlt: 0
-  currentHealth: 10
+  currentHealth: 0
   MaxXP: 10
   MaxUlt: 10
   MaxHealth: 10
@@ -1002,6 +1002,7 @@ GameObject:
   - component: {fileID: 1005050693}
   - component: {fileID: 1005050692}
   - component: {fileID: 1005050691}
+  - component: {fileID: 1005050694}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1092,6 +1093,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1005050694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005050689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef827880c7a78054f892e8675b454b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010346100
 GameObject:
   m_ObjectHideFlags: 0
