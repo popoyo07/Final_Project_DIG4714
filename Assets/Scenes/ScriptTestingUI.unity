@@ -659,7 +659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vcam: {fileID: 44782322}
   player: {fileID: 792529198}
-  moveSpeed: 20
+  moveSpeed: 50
   zoomSpeed: 5
   minZoom: 5
   maxZoom: 10
@@ -677,6 +677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 45
+  health: 10
 --- !u!136 &792529193
 CapsuleCollider:
   m_ObjectHideFlags: 0
