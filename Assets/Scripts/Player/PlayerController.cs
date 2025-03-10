@@ -11,9 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
 
+    private UIBars UIBars;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        UIBars = GetComponent<UIBars>();
     }
 
     void Update()
@@ -35,5 +38,10 @@ public class PlayerController : MonoBehaviour
             Quaternion targetRotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.fixedDeltaTime, 0);
             rb.MoveRotation(rb.rotation * targetRotation);
         }
+    }
+
+    public void UseUlt()
+    {
+
     }
 }

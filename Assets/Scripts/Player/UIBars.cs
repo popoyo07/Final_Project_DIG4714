@@ -82,7 +82,6 @@ public class UIBars : MonoBehaviour
     {
         currentUlt += xp/2;
         UltImage.fillAmount = currentUlt/MaxUlt;
-
     }
 
     public void LoseHealthBar(float currentHealth) 
