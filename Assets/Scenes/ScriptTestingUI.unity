@@ -1105,6 +1105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef827880c7a78054f892e8675b454b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {x: 0, y: 0, z: 0}
 --- !u!1 &1010346100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,10 +1873,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elfHealth: 0
-  elfDMG: 0
+  elfDMG: 2
   elfSpeed: 4
   strElfHealth: 1
-  strElfDMG: 0
+  strElfDMG: 2
   strElfSpeed: 3
 --- !u!4 &1446994079
 Transform:
