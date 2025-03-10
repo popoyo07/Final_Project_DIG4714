@@ -15,6 +15,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private PlayerController playerController;
     private NavMeshAgent agent;
+    private UIBars uiBars;
 
     //prevent form overriding values 
     void Start()
@@ -24,6 +25,7 @@ public class EnemyBehavior : MonoBehaviour
         // add any componnets you need in here
         playerController = player.GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
+        uiBars = player.GetComponent<UIBars>(); // Get UI reference
 
         speed = Enemy.theInstance.TheEnemySpeed(typeOfEnemy);
         health = Enemy.theInstance.TheEnemyHealth(typeOfEnemy);
@@ -43,15 +45,21 @@ public class EnemyBehavior : MonoBehaviour
         //Debug.Log("enemy speed is: " + enemySpeed);
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter (Collider other)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Player hit!");
             playerController.health -= dmg;
+
+            uiBars.LoseHealth(2f);
+            //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
+            Destroy(gameObject);
+            uiBars.GainXPbar(4f);
+            uiBars.GainUltBar(4f);
         }
 
-        if(collision.gameObject.CompareTag("Weapon"))
+        if(other.gameObject.CompareTag("Weapon"))
         {
             Debug.Log("Enemy hit!");
             // Subtract enemy health by weapon's damage
