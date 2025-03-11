@@ -31,19 +31,13 @@ public class PlayerController : MonoBehaviour
         if (movement != Vector3.zero)
         {
             rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
-            transform.rotation = Quaternion.LookRotation(movement);
-
         }
 
-
-        /*
-                if (horizontalInput != 0)
-                {
-                    Quaternion targetRotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.fixedDeltaTime, 0);
-                    rb.MoveRotation(rb.rotation * targetRotation);
-
-                }
-        */
+        if (horizontalInput != 0)
+        {
+            Quaternion targetRotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.fixedDeltaTime, 0);
+            rb.MoveRotation(rb.rotation * targetRotation);
+        }
     }
 
     public void UseUlt()
