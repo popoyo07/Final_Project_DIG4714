@@ -60,7 +60,7 @@ public class UIBars : MonoBehaviour
     public void LevelUP ()
     {
         currentXP -= MaxXP;
-        MaxXP = MaxXP * 1.5f;
+        MaxXP = MaxXP * 2f;
         Debug.Log("MaxXP:" + MaxXP);
     }
 
@@ -68,14 +68,16 @@ public class UIBars : MonoBehaviour
     public void GainXPbar(float xp)
     {
         currentXP += xp;
-        XPImage.fillAmount = currentXP / MaxXP;
-        if (XPImage.fillAmount >= 1f)
+        if (currentXP >= MaxXP) // Check if XP exceeds required amount
         {
             PlayerLevel++;
             LevelUP();
-            Debug.Log("Player's level: "+ PlayerLevel);
         }
+
+        XPImage.fillAmount = currentXP / MaxXP; // Update XP bar after leveling
+        Debug.Log("Player's level: " + PlayerLevel + "Fill Amount: " + XPImage.fillAmount);
     }
+
 
 
     public void GainUltBar(float xp)
