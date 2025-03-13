@@ -5,26 +5,26 @@ using UnityEngine.VFX;
 
 public class Weapons : MonoBehaviour
 {
-    [Header(" The Default Attk")]
-    GameObject baseAttk;// base attk game object (their children should have the vfx and collider)
-    Collider c1;   // to later add collider info into it 
+    [Header(" The Default Attk")]   
     public float bAttackRateSec; // how often in seconds the attack is happening
     public float bAttackDMG; // how much dmg
+    GameObject baseAttk;// base attk game object (their children should have the vfx and collider)
+    Collider c1;   // to later add collider info into it 
 
     [Header(" weapon 2 Attk")] // might reuse or not 
-    GameObject weapon2;
-    Collider c2;
     public float w2AttackRateSec;
     public float w2AttackDMG;
+    GameObject weapon2;
+    Collider c2;
 
 
     [Header(" weapon 3 Attk")]
-    GameObject weapon3;
-    Collider c3;
     public float w3AttackRateSec;
     public float w3AttackDMG;
+    GameObject weapon3;
+    Collider c3;
 
-
+    [Header("Health Settings")]
     VisualEffect bAttk;
     bool canAttk;
     void Start()
