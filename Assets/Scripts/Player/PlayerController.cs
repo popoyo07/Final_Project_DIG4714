@@ -6,40 +6,30 @@ public class PlayerController : MonoBehaviour
 {   
     //these numbers just feel least explosive in movement
     public float moveSpeed = 3f;
-    public float rotationSpeed = 45f;
-    public float health;
+    public float health = 10;
+
+    float horizontal;
+    float vertical;
 
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        GetComponent<Renderer>().material.color = Color.red; // Temp
     }
 
     void Update()
     {
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+    }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector3(horizontal * moveSpeed, 0, vertical * moveSpeed);
+        Quaternion lookDirection = Quaternion.LookRotation(rb.velocity);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, Time.deltaTime);    
 
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput) * moveSpeed;
-
-        // this rotates the model to some way cause camera moves but player never rotates, but may need to hard code what is forward cause gets finnicky when moving right and left or moving camera around
-        if (movement != Vector3.zero)
-        {
-            rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
-            transform.rotation = Quaternion.LookRotation(movement);
-
-        }
-
-
-        /*
-                if (horizontalInput != 0)
-                {
-                    Quaternion targetRotation = Quaternion.Euler(0, horizontalInput * rotationSpeed * Time.fixedDeltaTime, 0);
-                    rb.MoveRotation(rb.rotation * targetRotation);
-
-                }
-        */
     }
 }
