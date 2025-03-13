@@ -5,64 +5,39 @@ using UnityEngine.VFX;
 
 public class Weapons : MonoBehaviour
 {
-    [Header(" The Default Attk")]   
+    [Header(" BaseAttk ")]   
     public float bAttackRateSec; // how often in seconds the attack is happening
     public float bAttackDMG; // how much dmg
-    GameObject baseAttk;// base attk game object (their children should have the vfx and collider)
-    Collider c1;   // to later add collider info into it 
-
+    
     [Header(" weapon 2 Attk")] // might reuse or not 
     public float w2AttackRateSec;
     public float w2AttackDMG;
-    GameObject weapon2;
-    Collider c2;
+    //GameObject weapon2;
+   // Collider c2;
 
 
     [Header(" weapon 3 Attk")]
     public float w3AttackRateSec;
     public float w3AttackDMG;
-    GameObject weapon3;
-    Collider c3;
+    // GameObject weapon3;
+    //  Collider c3;
 
     [Header("Health Settings")]
-    VisualEffect bAttk;
-    bool canAttk;
-    void Start()
+
+    public Dictionary<string, float> WeaponDMG = new Dictionary<string, float>();
+    public Dictionary<string, float> WeaponRateSec = new Dictionary<string, float>();
+    void Awake()
     {
-        canAttk = true;
+        WeaponDMG["BaseAttack"] = bAttackDMG;
+        WeaponDMG["placeNameHere2"] = w2AttackDMG;
+        WeaponDMG["PlaceNameHere3"] = w3AttackDMG;
 
-        baseAttk = GameObject.Find("BaseAttack");
-        bAttk = baseAttk.GetComponentInChildren<VisualEffect>();
-        c1 = baseAttk.GetComponentInChildren<Collider>();
-       
 
+        WeaponRateSec["BaseAttack"] = bAttackRateSec;
+        WeaponRateSec["placeNameHere2"] = w2AttackRateSec;
+        WeaponRateSec["placeNameHere3"] = w3AttackRateSec;
+
+        Debug.Log("Weapon Rate for BaseAttack: " + WeaponRateSec["BaseAttack"]);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(canAttk)
-        {
-            StartCoroutine(attckRate(bAttackRateSec));
-
-        }
-    }
-
-    IEnumerator attckRate(float waitSeconds)
-    {
-        canAttk = false;
-
-        bAttk.Play();
-        // Debug.Log("Play vfx");
-
-        yield return new WaitForSeconds(waitSeconds);
-        bAttk.Stop();
-       // Debug.Log("Stop vfx");
-        canAttk = true;
-
-        //yield return new WaitForSeconds(1f);
-
-
-
-    }
 }
