@@ -64,7 +64,10 @@ public class EnemyBehavior : MonoBehaviour
 
         if(other.gameObject.CompareTag("Weapon"))
         {
+            
             WeaponBehavior weaponBehavior = other.gameObject.GetComponent<WeaponBehavior>();
+            Debug.Log("Remaining health: " + weaponBehavior.theDMG);
+
             health -= weaponBehavior.theDMG;
             Debug.Log("Remaining health: " + health);
 

@@ -5,9 +5,7 @@ using UnityEngine.VFX;
 
 public class WeaponBehavior : MonoBehaviour
 {
-
-   
-    SphereCollider c1;   // to later add collider info into it 
+    public Collider c1;   // to later add collider info into it 
     bool canAttk;
     VisualEffect bAttk;
     public GameObject player;
@@ -15,22 +13,22 @@ public class WeaponBehavior : MonoBehaviour
     public float theDMG;
     string attk;
 
+    Coroutine attackCoroutine;
+
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         attk = gameObject.name;
         player = GameObject.Find("Santa");
         w = player.GetComponent<Weapons>();
        
-        bAttk = GetComponentInChildren<VisualEffect>();
-        c1 = GetComponentInChildren<SphereCollider>();
-        canAttk = true;
+        bAttk = GetComponent<VisualEffect>();
+        c1 = GetComponent<Collider>();
+        canAttk = true; 
 
         theDMG = w.WeaponDMG[attk];
 
-        Debug.Log("Weapon name: " + attk); // Debugging output
-        Debug.Log("Weapon Damage: " + theDMG); // Debugging output
-        Debug.Log("Player name: " + player.name);
+     
 
     }
 
@@ -40,27 +38,30 @@ public class WeaponBehavior : MonoBehaviour
 
         if (canAttk)
         {
-            StartCoroutine(attckRate(w.WeaponRateSec[attk]));
+            StartCoroutine(AttckRate(w.WeaponRateSec[attk]));
 
         }
         theDMG = w.WeaponDMG[attk];
 
     }
-    IEnumerator attckRate(float waitSeconds)
+    IEnumerator AttckRate(float waitSeconds)
     {
         canAttk = false;
         c1.enabled = true;
 
+        Debug.Log(" The Collider for the weapon is " + c1.enabled); 
         bAttk.Play();
-        Debug.Log("Play vfx");
-        
-        yield return new WaitForSeconds(waitSeconds);
+
+
+        yield return new WaitForSeconds(0.3f); // how long the attack will last 
+
         bAttk.Stop();
-        Debug.Log("Stop vfx");
-        canAttk = true;
         c1.enabled = false;
 
-        //yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(waitSeconds); // attack cool down 
+        canAttk = true;
+
+        Debug.Log(" The Collider for the weapon is " + c1.enabled);
 
 
 

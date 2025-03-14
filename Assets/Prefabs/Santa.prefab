@@ -1,37 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1881130135240173127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 718188853290700468}
-  m_Layer: 7
-  m_Name: BaseAttack
-  m_TagString: Weapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &718188853290700468
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881130135240173127}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 985449853727757892}
-  m_Father: {fileID: 5732294150376314600}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2407103877563956557
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +238,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 718188853290700468}
+  - {fileID: 985449853727757892}
   m_Father: {fileID: 8324995209465217069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -288,11 +256,12 @@ GameObject:
   m_Component:
   - component: {fileID: 985449853727757892}
   - component: {fileID: 8744731793352627139}
+  - component: {fileID: 3177314688353472272}
   - component: {fileID: 7150247462097020795}
   - component: {fileID: 5163797456674110032}
   m_Layer: 7
-  m_Name: Slash_graph
-  m_TagString: Untagged
+  m_Name: BaseAttack
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,7 +278,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 718188853290700468}
+  m_Father: {fileID: 5732294150376314600}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -354,6 +323,21 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
+--- !u!114 &3177314688353472272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4053055136602846898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bda020dce64e94f83a8f622d5174a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c1: {fileID: 5163797456674110032}
+  player: {fileID: 0}
+  theDMG: 0
 --- !u!73398921 &7150247462097020795
 VFXRenderer:
   serializedVersion: 1
@@ -411,7 +395,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 3.27
   m_Center: {x: 0, y: 0, z: 0}
@@ -905,7 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6812eafd7c9284e972dcfe180cc6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bAttackRateSec: 1
+  bAttackRateSec: 2
   bAttackDMG: 1
   w2AttackRateSec: 0
   w2AttackDMG: 0
