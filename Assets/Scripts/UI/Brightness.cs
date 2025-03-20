@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Brightness : MonoBehaviour
 {
     public GameObject brightness;
-    float brightnessValue;
+    public Slider BrightSlider;
 
     // Start is called before the first frame update
     void Start()
