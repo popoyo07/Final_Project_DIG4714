@@ -49,7 +49,7 @@ public class WeaponBehavior : MonoBehaviour
         canAttk = false;
         c1.enabled = true;
 
-        Debug.Log(" The Collider for the weapon is " + c1.enabled); 
+        //Debug.Log(" The Collider for the weapon is " + c1.enabled); 
         bAttk.Play();
 
 
@@ -61,7 +61,7 @@ public class WeaponBehavior : MonoBehaviour
         yield return new WaitForSeconds(waitSeconds); // attack cool down 
         canAttk = true;
 
-        Debug.Log(" The Collider for the weapon is " + c1.enabled);
+        //Debug.Log(" The Collider for the weapon is " + c1.enabled);
 
 
 
