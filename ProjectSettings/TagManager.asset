@@ -8,6 +8,8 @@ TagManager:
   - Elf
   - StrongElf
   - Weapon
+  - Enemy
+  - enemy
   layers:
   - Default
   - TransparentFX

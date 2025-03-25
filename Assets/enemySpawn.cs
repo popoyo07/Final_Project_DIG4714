@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 public class enemySpawn : MonoBehaviour
-{
+{//CHANGE TO SPAWN ALWAYS OUTSIDE CAMERA RADIUS
     public Transform spawnpoint;
     public GameObject Enemy1;
     public GameObject Enemy2;
