@@ -187,7 +187,7 @@ Transform:
   m_GameObject: {fileID: 44782321}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18077667, y: 0, z: 0, w: 0.9835242}
-  m_LocalPosition: {x: 0, y: 10.77022, z: -25.33808}
+  m_LocalPosition: {x: 0, y: 10.64022, z: -25.33808}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -297,10 +297,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 792529198}
-  playerTilePosition: {x: 0, y: 0, z: 0}
+  playerTilePosition: {x: 0, y: 1, z: 0}
   tileSize: 25
   terrainTileHorizontalCount: 3
   terrainTileVerticalCount: 3
+  fieldOfVisionHeight: 3
+  fieldOfVisionWidth: 3
 --- !u!1 &139824540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,7 +3406,7 @@ Transform:
   m_GameObject: {fileID: 1546083128}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18077667, y: 0, z: 0, w: 0.9835242}
-  m_LocalPosition: {x: 0, y: 10.77022, z: -25.33808}
+  m_LocalPosition: {x: 0, y: 10.64022, z: -25.33808}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5461,7 +5463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324995209465217069, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.13
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8324995209465217069, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_LocalPosition.z
