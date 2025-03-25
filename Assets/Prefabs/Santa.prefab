@@ -321,6 +321,7 @@ Transform:
   m_Children:
   - {fileID: 985449853727757892}
   - {fileID: 1291922051997621038}
+  - {fileID: 9013571285128394984}
   m_Father: {fileID: 8324995209465217069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4053055136602846898
@@ -337,7 +338,7 @@ GameObject:
   - component: {fileID: 7150247462097020795}
   - component: {fileID: 5163797456674110032}
   m_Layer: 7
-  m_Name: BaseAttack
+  m_Name: AreaAttack
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,7 +412,7 @@ MonoBehaviour:
   c1: {fileID: 5163797456674110032}
   player: {fileID: 0}
   theDMG: 0
-  child: {fileID: 0}
+  projectile: {fileID: 0}
   rotationAxis: {x: 0, y: 1, z: 0}
   rotationSpeed: 0
 --- !u!73398921 &7150247462097020795
@@ -704,7 +705,7 @@ MonoBehaviour:
   c1: {fileID: 1888112295522943714}
   player: {fileID: 0}
   theDMG: 0
-  child: {fileID: 0}
+  projectile: {fileID: 0}
   rotationAxis: {x: 0, y: 2, z: 0}
   rotationSpeed: 100
 --- !u!65 &1888112295522943714
@@ -1045,9 +1046,59 @@ MonoBehaviour:
   w2AttackRateSec: 3
   w2AttackDMG: 5
   w2AttkDuration: 5
-  w3AttackRateSec: 0
-  w3AttackDMG: 0
-  w3AttkDuration: 0
+  w3AttackRateSec: 1
+  w3AttackDMG: 1
+  w3AttkDuration: 0.1
+--- !u!1 &8732844343590331078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9013571285128394984}
+  - component: {fileID: 2063293721467954933}
+  m_Layer: 7
+  m_Name: ProjectileAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9013571285128394984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732844343590331078}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.87}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5732294150376314600}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2063293721467954933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732844343590331078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82bda020dce64e94f83a8f622d5174a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c1: {fileID: 0}
+  player: {fileID: 0}
+  theDMG: 0
+  projectile: {fileID: 0}
+  rotationAxis: {x: 0, y: 2, z: 0}
+  rotationSpeed: 100
 --- !u!1 &8856491236510264725
 GameObject:
   m_ObjectHideFlags: 0

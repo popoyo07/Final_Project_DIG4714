@@ -12,7 +12,7 @@ public class WeaponBehavior : MonoBehaviour
     Weapons w;
     public float theDMG;
     string attk;
-    public GameObject child;
+    public GameObject projectile;
     public Vector3 rotationAxis = Vector3.up;
 
 
@@ -56,14 +56,17 @@ public class WeaponBehavior : MonoBehaviour
     {
         switch (attackName)
         {
-            case "BaseAttack":
+            case "AreaAttack":
                 Attacking();
                 break;
+
             case "BookAttack":
                 Attacking();
                 rotating = true; // enable rotation
+                break;
 
-                Debug.Log("rotating around player");
+            case "ProjectileAttack":
+
                 break;
         }      
 
@@ -74,13 +77,13 @@ public class WeaponBehavior : MonoBehaviour
             vfxAttk.Stop();
         }
 
-        rotating = false; // desable rotation 
+        rotating = false; // desable rotation
+
+        if(c1 != null)
         c1.enabled = false;
 
         yield return new WaitForSeconds(waitSeconds); // attack cool down 
         canAttk = true;
-
-        Debug.Log(" The Collider for the weapon is " + c1.enabled);
 
 
 

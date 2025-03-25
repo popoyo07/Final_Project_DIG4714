@@ -5,12 +5,12 @@ using UnityEngine.VFX;
 
 public class Weapons : MonoBehaviour
 {
-    [Header(" BaseAttk ")]   
+    [Header(" Area Attk ")]   
     public float w1AttackRateSec; // how often in seconds the attack is happening
     public float w1AttackDMG; // how much dmg
     public float w1AttkDuration; // how long will the attack last
     
-    [Header(" weapon 2 Attk")] // might reuse or not 
+    [Header(" Snow flake Attk")] // might reuse or not 
     public float w2AttackRateSec;
     public float w2AttackDMG;
     public float w2AttkDuration;
@@ -18,7 +18,7 @@ public class Weapons : MonoBehaviour
     // Collider c2;
 
 
-    [Header(" weapon 3 Attk")]
+    [Header(" Projectile Attk")]
     public float w3AttackRateSec;
     public float w3AttackDMG;
     public float w3AttkDuration;
@@ -33,21 +33,19 @@ public class Weapons : MonoBehaviour
     void Awake()
     {
         //DMG
-        WeaponDMG["BaseAttack"] = w1AttackDMG;
+        WeaponDMG["AreaAttack"] = w1AttackDMG;
         WeaponDMG["BookAttack"] = w2AttackDMG;
-        WeaponDMG["PlaceNameHere3"] = w3AttackDMG;
+        WeaponDMG["ProjectileAttack"] = w3AttackDMG;
 
         // Rate in seconds
-        WeaponRateSec["BaseAttack"] = w1AttackRateSec;
+        WeaponRateSec["AreaAttack"] = w1AttackRateSec;
         WeaponRateSec["BookAttack"] = w2AttackRateSec;
-        WeaponRateSec["placeNameHere3"] = w3AttackRateSec;
+        WeaponRateSec["ProjectileAttack"] = w3AttackRateSec;
 
         // Attack duration
-        WeaponAttDuration["BaseAttack"] = w1AttkDuration;
+        WeaponAttDuration["AreaAttack"] = w1AttkDuration;
         WeaponAttDuration["BookAttack"] = w2AttkDuration;
-        WeaponAttDuration["placeNameHere3"] = w3AttkDuration;
-
-        Debug.Log("Weapon Rate for BaseAttack: " + WeaponRateSec["BaseAttack"]);
+        WeaponAttDuration["ProjectileAttack"] = w3AttkDuration;
     }
 
 }
