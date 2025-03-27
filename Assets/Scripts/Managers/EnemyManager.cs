@@ -1,32 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static WaveSetting;
 
 public class EnemyManager : MonoBehaviour
 {
     [Header("Wave Settings:")]
-    public List<WaveSetting> waves;
+    public List<WaveData> waves; // 
     private int currentWaveIndex = 0;
 
     private void OnEnable()
     {
-        EventManager.Instance.OnStateChanged += HandleStateChange;
+        if (EventManager.Instance != null)
+        {
+            EventManager.Instance.OnStateChanged += HandleStateChange;
+        }
+        else
+        {
+            Debug.LogWarning("EventManager.Instance is null");
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (EventManager.Instance != null)
+        {
+            EventManager.Instance.OnStateChanged -= HandleStateChange;
+        }
     }
 
     // BeginPhase, Preparing, Active, Cooldown
-    private void HandleStateChange(EnemyWaveStates state) //using event manager states to change it
+    private void HandleStateChange(EnemyWaveStates state)
     {
         if (state == EnemyWaveStates.Preparing)
         {
             StartCoroutine(StartRush());
         }
+        Debug.Log("State changed to: " + state);
     }
-    
+
     private IEnumerator StartRush()
     {
         EventManager.Instance.ChangeState(EnemyWaveStates.Active);
-        WaveData currentWave = waves[currentWaveIndex];
+        WaveData currentWave = waves[currentWaveIndex]; // Use WaveData to get properties
+
+        Debug.Log($"Starting wave {currentWaveIndex + 1} with {currentWave.enemyCount} enemies");
 
         for (int i = 0; i < currentWave.enemyCount; i++)
         {
@@ -37,10 +54,12 @@ public class EnemyManager : MonoBehaviour
         EventManager.Instance.ChangeState(EnemyWaveStates.Cooldown);
         yield return new WaitForSeconds(currentWave.cooldownTime);
 
-        currentWaveIndex = (currentWaveIndex + 1) % waves.Count;
-        EventManager.Instance.ChangeState(EnemyWaveStates.BeginPhase);
+        Debug.Log($"Wave {currentWaveIndex + 1} complete, moving to next wave");
 
+        currentWaveIndex = (currentWaveIndex + 1) % waves.Count; // Move to the next wave
+        EventManager.Instance.ChangeState(EnemyWaveStates.BeginPhase);
     }
+
     private void SpawnEnemy(GameObject enemyPrefab)
     {
         Vector3 spawnPosition = transform.position + Random.insideUnitSphere * 10f;
