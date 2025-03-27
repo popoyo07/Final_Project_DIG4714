@@ -8,6 +8,7 @@ public class WeaponBehavior : MonoBehaviour
     public Collider c1;   // to later add collider info into it 
     bool canAttk;
     VisualEffect vfxAttk;
+    VisualEffect vfxAttk2; //snowflakes
     public GameObject player;
     Weapons w;
     public float theDMG;
@@ -27,6 +28,7 @@ public class WeaponBehavior : MonoBehaviour
         w = player.GetComponent<Weapons>();
        
         vfxAttk = GetComponent<VisualEffect>();
+        vfxAttk2 = GetComponent<VisualEffect>();
         c1 = GetComponent<Collider>();
         canAttk = true; 
 
@@ -75,6 +77,7 @@ public class WeaponBehavior : MonoBehaviour
         if (vfxAttk != null)
         {
             vfxAttk.Stop();
+            vfxAttk2.Stop();
         }
 
         rotating = false; // desable rotation
@@ -97,6 +100,7 @@ public class WeaponBehavior : MonoBehaviour
         if (vfxAttk != null)
         {
             vfxAttk.Play();
+            vfxAttk2.Play();
 
         }
 
