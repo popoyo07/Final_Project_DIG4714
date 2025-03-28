@@ -35,17 +35,17 @@ public class Weapons : MonoBehaviour
         //DMG
         WeaponDMG["AreaAttack"] = w1AttackDMG;
         WeaponDMG["BookAttack"] = w2AttackDMG;
-        WeaponDMG["ProjectileAttack"] = w3AttackDMG;
+        WeaponDMG["SpearAttack"] = w3AttackDMG;
 
         // Rate in seconds
         WeaponRateSec["AreaAttack"] = w1AttackRateSec;
         WeaponRateSec["BookAttack"] = w2AttackRateSec;
-        WeaponRateSec["ProjectileAttack"] = w3AttackRateSec;
+        WeaponRateSec["SpearAttack"] = w3AttackRateSec;
 
         // Attack duration
         WeaponAttDuration["AreaAttack"] = w1AttkDuration;
         WeaponAttDuration["BookAttack"] = w2AttkDuration;
-        WeaponAttDuration["ProjectileAttack"] = w3AttkDuration;
+        WeaponAttDuration["SpearAttack"] = w3AttkDuration;
     }
 
 }

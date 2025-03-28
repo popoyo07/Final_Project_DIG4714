@@ -8,13 +8,15 @@ public class WeaponBehavior : MonoBehaviour
     public Collider c1;   // to later add collider info into it 
     bool canAttk;
     VisualEffect vfxAttk;
-    VisualEffect vfxAttk2; //snowflakes
     public GameObject player;
     Weapons w;
     public float theDMG;
     string attk;
-    public GameObject projectile;
     public Vector3 rotationAxis = Vector3.up;
+
+    [Header("projectile Weapon Spawner")]
+    public GameObject Spear;
+    public GameObject SomethingElse;
 
 
     bool rotating;
@@ -28,14 +30,10 @@ public class WeaponBehavior : MonoBehaviour
         w = player.GetComponent<Weapons>();
        
         vfxAttk = GetComponent<VisualEffect>();
-        vfxAttk2 = GetComponent<VisualEffect>();
         c1 = GetComponent<Collider>();
         canAttk = true; 
 
         theDMG = w.WeaponDMG[attk];
-
-     
-
     }
 
     // Update is called once per frame
@@ -67,7 +65,7 @@ public class WeaponBehavior : MonoBehaviour
                 rotating = true; // enable rotation
                 break;
 
-            case "ProjectileAttack":
+            case "SpearAttack":
 
                 break;
         }      
@@ -77,7 +75,7 @@ public class WeaponBehavior : MonoBehaviour
         if (vfxAttk != null)
         {
             vfxAttk.Stop();
-            vfxAttk2.Stop();
+            vfxAttk.enabled = false;
         }
 
         rotating = false; // desable rotation
@@ -96,12 +94,26 @@ public class WeaponBehavior : MonoBehaviour
     {
         canAttk = false;
         c1.enabled = true;
-        Debug.Log(" The Collider for the weapon is " + c1.enabled);
+       
         if (vfxAttk != null)
         {
+            vfxAttk.enabled = true;
             vfxAttk.Play();
-            vfxAttk2.Play();
+        
+        }
 
+    }
+
+    void ProjectileSpawn()
+    {
+        if (Spear != null)
+        {
+            Instantiate(Spear);
+            GameObject.Find("Spear").GetComponent<Projectile>().dmg = theDMG; // not fully optimal for future   
+        }
+        if (SomethingElse != null)
+        {
+            Instantiate(SomethingElse); // place holder name
         }
 
     }
