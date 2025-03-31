@@ -21,17 +21,21 @@ public class EventManager : MonoBehaviour
     // Ensure only one instance of the EventManager exists
     private void Awake()
     {
-        // If an instance already exists, destroy the new one
+     
+        {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Ensure the EventManager is not destroyed when loading a new scene
+            DontDestroyOnLoad(gameObject);
+          
         }
         else
         {
-            Destroy(gameObject); // Destroy this instance if another exists
+           
+            Destroy(gameObject);
         }
     }
+}
 
     // Update is called once per frame
     public void Update()

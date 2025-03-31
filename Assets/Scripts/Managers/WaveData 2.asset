@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d813cc86e16e564d88f2a2fc8c0b087, type: 3}
   m_Name: WaveData 2
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4040545918539713344, guid: f36d7a4bcf190fc4a9a811acc4f91b37, type: 3}
+  enemyPrefab: {fileID: 7932586142320658870, guid: 4139439e68a1d4642bf1b65437849c9a, type: 3}
   enemyCount: 10
   spawnInterval: 1
   cooldownTime: 5
