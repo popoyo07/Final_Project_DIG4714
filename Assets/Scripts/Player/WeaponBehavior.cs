@@ -64,6 +64,9 @@ public class WeaponBehavior : MonoBehaviour
                 Attacking();
                 rotating = true; // enable rotation
                 break;
+            case "SpikesAttack":
+                Attacking();
+                break;
 
             case "SpearAttack":
 
