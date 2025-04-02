@@ -18,8 +18,18 @@ public class Collectable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+           
+            if (this.gameObject.CompareTag("coin"))
+            {
+                CM.AddCount();
+            }
+
+            if (this.gameObject.CompareTag("XP"))
+            {
+                CM.AddXP();
+            }
+
             Destroy(this.gameObject);
-            CM.AddCount();
         }
     }
 }
