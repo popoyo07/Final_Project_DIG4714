@@ -8,15 +8,36 @@ public class EnemyManager : MonoBehaviour
     public List<WaveData> waves; // 
     private int currentWaveIndex = 0;
 
-    private void OnEnable()
+    private void Awake()
+    {
+        // Try to subscribe immediately if EventManager is already initialized
+        SubscribeToEventManager();
+
+        // Also subscribe to the ready event in case EventManager isn't initialized yet
+        EventManager.OnEventManagerReady += OnEventManagerReady;
+    }
+
+    private void OnEventManagerReady()
+    {
+        Debug.Log("[EnemyManager] EventManager is now ready, attempting to subscribe");
+        SubscribeToEventManager();
+    }
+
+    private void SubscribeToEventManager()
     {
         if (EventManager.Instance != null)
         {
+            Debug.Log("[EnemyManager] Successfully subscribed to EventManager events");
             EventManager.Instance.OnStateChanged += HandleStateChange;
+
+            if (waves == null || waves.Count == 0)
+            {
+                Debug.LogError("[EnemyManager] No waves configured! Please set up waves in the Unity Inspector");
+            }
         }
         else
         {
-            Debug.LogWarning("EventManager.Instance is null");
+            Debug.LogWarning("[EnemyManager] Cannot subscribe yet - EventManager.Instance is still null");
         }
     }
 
@@ -26,13 +47,30 @@ public class EnemyManager : MonoBehaviour
         {
             EventManager.Instance.OnStateChanged -= HandleStateChange;
         }
+        // Clean up the ready event subscription
+        EventManager.OnEventManagerReady -= OnEventManagerReady;
     }
 
     // BeginPhase, Preparing, Active, Cooldown
     private void HandleStateChange(EnemyWaveStates state)
     {
+        Debug.Log($"[EnemyManager] Received state change event: {state}");
+
         if (state == EnemyWaveStates.Preparing)
         {
+            if (waves == null || waves.Count == 0)
+            {
+                Debug.LogError("[EnemyManager] Cannot start wave - no waves configured!");
+                return;
+            }
+
+            if (waves[currentWaveIndex].enemyPrefab == null)
+            {
+                Debug.LogError($"[EnemyManager] Wave {currentWaveIndex + 1} has no enemy prefab assigned!");
+                return;
+            }
+
+            Debug.Log($"[EnemyManager] Starting wave coroutine for wave {currentWaveIndex + 1}");
             StartCoroutine(StartRush());
         }
         Debug.Log("State changed to: " + state);
@@ -40,10 +78,12 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator StartRush()
     {
+        Debug.Log("[EnemyManager] Starting wave sequence");
+        yield return new WaitForSeconds(2f); // Short preparation time
         EventManager.Instance.ChangeState(EnemyWaveStates.Active);
         WaveData currentWave = waves[currentWaveIndex]; // Use WaveData to get properties
 
-        Debug.Log($"Starting wave {currentWaveIndex + 1} with {currentWave.enemyCount} enemies");
+        Debug.Log($"[EnemyManager] Starting wave {currentWaveIndex + 1} with {currentWave.enemyCount} enemies");
 
         for (int i = 0; i < currentWave.enemyCount; i++)
         {
@@ -51,11 +91,11 @@ public class EnemyManager : MonoBehaviour
             yield return new WaitForSeconds(currentWave.spawnInterval);
         }
 
+        Debug.Log($"[EnemyManager] Wave {currentWaveIndex + 1} complete, entering cooldown");
         EventManager.Instance.ChangeState(EnemyWaveStates.Cooldown);
         yield return new WaitForSeconds(currentWave.cooldownTime);
 
-        Debug.Log($"Wave {currentWaveIndex + 1} complete, moving to next wave");
-
+        Debug.Log($"[EnemyManager] Cooldown complete, moving to next wave");
         currentWaveIndex = (currentWaveIndex + 1) % waves.Count; // Move to the next wave
         EventManager.Instance.ChangeState(EnemyWaveStates.BeginPhase);
     }

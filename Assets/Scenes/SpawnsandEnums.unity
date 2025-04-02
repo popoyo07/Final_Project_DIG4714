@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 149666393}
+  - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
 --- !u!1 &186141968
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3318f7dd489daf649b3c8fd44a0f4206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveIntervals: 75
+  waveIntervals: 10
 --- !u!4 &796860760
 Transform:
   m_ObjectHideFlags: 0
