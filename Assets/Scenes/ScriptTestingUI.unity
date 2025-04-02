@@ -419,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
+  playerTarget: {fileID: 792529190}
 --- !u!4 &378482202
 Transform:
   m_ObjectHideFlags: 0
@@ -647,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3318f7dd489daf649b3c8fd44a0f4206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveIntervals: 2
+  waveIntervals: 100
 --- !u!4 &459494403
 Transform:
   m_ObjectHideFlags: 0
@@ -719,6 +720,22 @@ PrefabInstance:
     - target: {fileID: 4122471317667498663, guid: 1872bb3d55d03ff48a165875cd940566, type: 3}
       propertyPath: m_Name
       value: SpawnHere 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142177792680789691, guid: 1872bb3d55d03ff48a165875cd940566, type: 3}
+      propertyPath: Enemy1
+      value: 
+      objectReference: {fileID: 9149082200056853833, guid: e917db5323fd7f44fa87980061457394, type: 3}
+    - target: {fileID: 4142177792680789691, guid: 1872bb3d55d03ff48a165875cd940566, type: 3}
+      propertyPath: Enemy2
+      value: 
+      objectReference: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
+    - target: {fileID: 4142177792680789691, guid: 1872bb3d55d03ff48a165875cd940566, type: 3}
+      propertyPath: maxSpawnDistance
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142177792680789691, guid: 1872bb3d55d03ff48a165875cd940566, type: 3}
+      propertyPath: minSpawnDistance
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8408548831732831112, guid: 1872bb3d55d03ff48a165875cd940566, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2253,7 +2270,7 @@ GameObject:
   - component: {fileID: 1546083133}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

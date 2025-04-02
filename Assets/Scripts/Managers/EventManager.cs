@@ -19,7 +19,7 @@ public class EventManager : MonoBehaviour
     public float waveIntervals = 75f; // Time between waves
     private float elapsedTime = 0f;
 
-    // Ensure only one instance of the EventManager exists
+   
     private void Awake()
     {
         if (Instance == null)

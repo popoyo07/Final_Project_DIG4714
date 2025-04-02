@@ -5,12 +5,15 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [Header("Wave Settings:")]
-    public List<WaveData> waves; // 
+    public List<WaveData> waves;
     private int currentWaveIndex = 0;
+
+    [Header("Target Settings")]
+    public GameObject playerTarget;
 
     private void Awake()
     {
-        // Try to subscribe immediately if EventManager is already initialized
+        // Try to subscribe immediately if EventManager is already initialized 
         SubscribeToEventManager();
 
         // Also subscribe to the ready event in case EventManager isn't initialized yet
@@ -102,8 +105,20 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemy(GameObject enemyPrefab)
     {
+        if (playerTarget == null)
+        {
+            Debug.LogError("[EnemyManager] Player target not set! Please assign in Inspector");
+            return;
+        }
+
         Vector3 spawnPosition = transform.position + Random.insideUnitSphere * 10f;
-        spawnPosition.y = 0; // Ensure enemies spawn on the ground
-        Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        spawnPosition.y = 0;
+        GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+
+        EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
+        if (enemyBehavior != null)
+        {
+            enemyBehavior.player = playerTarget;
+        }
     }
 }
