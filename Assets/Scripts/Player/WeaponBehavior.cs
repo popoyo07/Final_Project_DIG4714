@@ -1,0 +1,124 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.VFX;
+
+public class WeaponBehavior : MonoBehaviour
+{
+    public Collider c1;   // to later add collider info into it 
+    bool canAttk;
+    VisualEffect vfxAttk;
+    public GameObject player;
+    Weapons w;
+    public float theDMG;
+    string attk;
+    public Vector3 rotationAxis = Vector3.up;
+
+    [Header("projectile Weapon Spawner")]
+    public GameObject Spear;
+    public GameObject SomethingElse;
+
+
+    bool rotating;
+    public float rotationSpeed;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        attk = gameObject.name;
+        player = GameObject.FindWithTag("Player");
+        w = player.GetComponent<Weapons>();
+       
+        vfxAttk = GetComponent<VisualEffect>();
+        c1 = GetComponent<Collider>();
+        canAttk = true; 
+
+        theDMG = w.WeaponDMG[attk];
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (rotating) 
+        {
+            transform.RotateAround(player.transform.position, rotationAxis, rotationSpeed * Time.deltaTime);
+        }
+
+        if (canAttk)
+        {
+            canAttk = false;
+            StartCoroutine(AttckRate(w.WeaponRateSec[attk], attk, w.WeaponAttDuration[attk]));
+
+        }
+        theDMG = w.WeaponDMG[attk]; // the keep up to date in case it increases
+
+    }
+    IEnumerator AttckRate(float waitSeconds, string attackName, float attackDuuration)
+    {
+        switch (attackName)
+        {
+            case "AreaAttack":
+                Attacking();
+                break;
+
+            case "BookAttack":
+                Attacking();
+                rotating = true; // enable rotation
+                break;
+            case "SpikesAttack":
+                Attacking();
+                break;
+
+            case "SpearAttack":
+                Instantiate(Spear, transform.position, transform.rotation); // spawns the spear     
+                break;
+        }      
+
+        yield return new WaitForSeconds(attackDuuration); // how long the attack will last 
+
+        if (vfxAttk != null)
+        {
+            vfxAttk.Stop();
+            vfxAttk.enabled = false;
+        }
+
+        rotating = false; // desable rotation
+
+        if(c1 != null)
+        c1.enabled = false;
+
+        yield return new WaitForSeconds(waitSeconds); // attack cool down 
+        canAttk = true;
+
+
+
+    }
+
+    void Attacking()
+    {
+        canAttk = false;
+        c1.enabled = true;
+       
+        if (vfxAttk != null)
+        {
+            vfxAttk.enabled = true;
+            vfxAttk.Play();
+        
+        }
+
+    }
+
+    void ProjectileSpawn()
+    {
+        if (Spear != null)
+        {
+            Instantiate(Spear);
+            GameObject.Find("Spear").GetComponent<Projectile>().dmg = theDMG; // not fully optimal for future   
+        }
+        if (SomethingElse != null)
+        {
+            Instantiate(SomethingElse); // place holder name
+        }
+
+    }
+}

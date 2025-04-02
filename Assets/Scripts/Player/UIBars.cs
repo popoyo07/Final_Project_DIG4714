@@ -23,6 +23,9 @@ public class UIBars : MonoBehaviour
 
     private PlayerController playerController;
 
+    public bool leveledUp = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +64,7 @@ public class UIBars : MonoBehaviour
     {
         currentXP -= MaxXP;
         MaxXP = MaxXP * 2f;
+        leveledUp = true;
         Debug.Log("MaxXP:" + MaxXP);
     }
 
