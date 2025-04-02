@@ -46,6 +46,7 @@ public class WeaponBehavior : MonoBehaviour
 
         if (canAttk)
         {
+            canAttk = false;
             StartCoroutine(AttckRate(w.WeaponRateSec[attk], attk, w.WeaponAttDuration[attk]));
 
         }
@@ -69,7 +70,7 @@ public class WeaponBehavior : MonoBehaviour
                 break;
 
             case "SpearAttack":
-
+                Instantiate(Spear, transform.position, transform.rotation); // spawns the spear     
                 break;
         }      
 

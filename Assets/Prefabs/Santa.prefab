@@ -1336,7 +1336,7 @@ MonoBehaviour:
   player: {fileID: 0}
   theDMG: 0
   rotationAxis: {x: 0, y: 2, z: 0}
-  Spear: {fileID: 0}
+  Spear: {fileID: 8940695175009323077, guid: 1616da33abb470a4a9ec041430e0d61f, type: 3}
   SomethingElse: {fileID: 0}
   rotationSpeed: 100
 --- !u!1 &8856491236510264725

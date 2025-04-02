@@ -7,32 +7,70 @@ public class Projectile : MonoBehaviour
     public GameObject[] AllObjects;
     public GameObject nearestEnemy;
     float distance;
-    float nearestDistance = 1000;
+   // float nearestDistance = 1000;
 
     public float dmg;
-    public WeaponBehavior weapon;
+    public GameObject weapon;
     // Start is called before the first frame update
     void Start()
     {
-        AllObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        weapon = GameObject.Find("SoearAttack");
+        dmg = weapon.GetComponent<WeaponBehavior>().theDMG;
+        FindNearestEnemy();
 
-        for (int i = 0; i < AllObjects.Length; i++)
+        if (nearestEnemy != null)
         {
-            distance = Vector3.Distance(this.transform.position, AllObjects[i].transform.position);
+            StartCoroutine(moveToTarget());
+        }
+
+        StartCoroutine(waitToDstroy(1.5f));
+
+    }
+
+    private void FindNearestEnemy()
+    {
+        int enemyLayer = LayerMask.GetMask("Enemy"); // Make sure the Enemy Layer exists
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1000f, enemyLayer); // Adjust range as needed
+
+        float nearestDistance = Mathf.Infinity;
+
+        foreach (Collider collider in colliders)
+        {
+            float distance = Vector3.Distance(transform.position, collider.transform.position);
 
             if (distance < nearestDistance)
             {
-                nearestEnemy = AllObjects[i];
                 nearestDistance = distance;
+                nearestEnemy = collider.gameObject;
             }
-
         }
     }
 
-    // Update is called once per frame
-    void Update()
+   private IEnumerator moveToTarget()
     {
-        
+        while (nearestEnemy != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, 10f * Time.deltaTime);
+            if (Vector3.Distance(transform.position, nearestEnemy.transform.position) < 0.1f)
+            {
+               
+                Destroy(gameObject);
+            }
+            yield return null;
+        }
     }
+    IEnumerator waitToDstroy(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        Destroy(gameObject);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 }

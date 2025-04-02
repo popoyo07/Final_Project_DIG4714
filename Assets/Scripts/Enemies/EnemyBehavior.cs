@@ -74,6 +74,7 @@ public class EnemyBehavior : MonoBehaviour
             }
             else
             {
+
                 Projectile p = other.gameObject.GetComponent<Projectile>();
                 health -= p.dmg;
             }
