@@ -12,10 +12,6 @@ public class CoinCountUI : MonoBehaviour
     
     public TextMeshProUGUI ctext;
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
