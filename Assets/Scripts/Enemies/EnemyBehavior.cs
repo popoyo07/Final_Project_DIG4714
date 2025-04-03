@@ -27,12 +27,13 @@ public class EnemyBehavior : MonoBehaviour
         // add any componnets you need in here
         playerController = player.GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
-        uiBars = player.GetComponent<UIBars>(); // Get UI reference
+        uiBars = player.GetComponent<UIBars>();
         weapon = player.GetComponent<Weapons>();
         
         speed = Enemy.theInstance.TheEnemySpeed(typeOfEnemy);
         health = Enemy.theInstance.TheEnemyHealth(typeOfEnemy);
         dmg = Enemy.theInstance.TheEnemyDMG(typeOfEnemy);
+
     }
 
     // Update is called once per frame
@@ -58,15 +59,13 @@ public class EnemyBehavior : MonoBehaviour
             Debug.Log("Health:" + playerController.health);
             uiBars.LoseHealthBar(playerController.health);
             //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
-            uiBars.GainXPbar(2f);
-            uiBars.GainUltBar(2f);
         }
 
         if(other.gameObject.CompareTag("Weapon"))
         {
             
             WeaponBehavior weaponBehavior = other.gameObject.GetComponent<WeaponBehavior>();
-            Debug.Log("Remaining health: " + weaponBehavior.theDMG);
+            //Debug.Log("Remaining health: " + weaponBehavior.theDMG);
             if (weaponBehavior != null)
             {
                 health -= weaponBehavior.theDMG;
@@ -78,22 +77,22 @@ public class EnemyBehavior : MonoBehaviour
                 Projectile p = other.gameObject.GetComponent<Projectile>();
                 health -= p.dmg;
             }
-            
-
 
             Debug.Log("Enemy hit!");
             // Subtract enemy health by weapon's damage
         }
-
-        
-       
     }
 
     void CheckHealth()
     {
 
         if (health <= 0)
-        Destroy(this.gameObject);
+        {
+            uiBars.GainUltBar(2f);
+            uiBars.GainXPbar(2f);
+            Destroy(this.gameObject);
+        }
+
         
 
     }
