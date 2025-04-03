@@ -15,15 +15,17 @@ public class Weapons : MonoBehaviour
     public float w2AttackDMG;
     public float w2AttkDuration;
     //GameObject weapon2;
-    // Collider c2;
-
 
     [Header(" Projectile Attk")]
     public float w3AttackRateSec;
     public float w3AttackDMG;
     public float w3AttkDuration;
     // GameObject weapon3;
-    //  Collider c3;
+
+    [Header(" Ice Spikes attack")] 
+    public float w4AttackRateSec;
+    public float w4AttackDMG;
+    public float w4AttkDuration;
 
     [Header("Health Settings")]
 
@@ -35,17 +37,37 @@ public class Weapons : MonoBehaviour
         //DMG
         WeaponDMG["AreaAttack"] = w1AttackDMG;
         WeaponDMG["BookAttack"] = w2AttackDMG;
-        WeaponDMG["ProjectileAttack"] = w3AttackDMG;
+        WeaponDMG["SpearAttack"] = w3AttackDMG;
+        WeaponDMG["SpikesAttack"] = w4AttackDMG;
+
 
         // Rate in seconds
         WeaponRateSec["AreaAttack"] = w1AttackRateSec;
         WeaponRateSec["BookAttack"] = w2AttackRateSec;
-        WeaponRateSec["ProjectileAttack"] = w3AttackRateSec;
+        WeaponRateSec["SpearAttack"] = w3AttackRateSec;
+        WeaponRateSec["SpikesAttack"] = w4AttackRateSec;
 
         // Attack duration
         WeaponAttDuration["AreaAttack"] = w1AttkDuration;
         WeaponAttDuration["BookAttack"] = w2AttkDuration;
-        WeaponAttDuration["ProjectileAttack"] = w3AttkDuration;
+        WeaponAttDuration["SpearAttack"] = w3AttkDuration;
+        WeaponAttDuration["SpikesAttack"] = w4AttkDuration;
+    }
+    public void UpdateWeaponStats(string weaponType, float newDamage, 
+        float newRateSec, float newDuration) // function used to update weapon stats 
+    {
+        if (WeaponDMG.ContainsKey(weaponType))
+        {
+            WeaponDMG[weaponType] = newDamage;
+        }
+        if (WeaponRateSec.ContainsKey(weaponType))
+        {
+            WeaponRateSec[weaponType] = newRateSec;
+        }
+        if (WeaponAttDuration.ContainsKey(weaponType))
+        {
+            WeaponAttDuration[weaponType] = newDuration;
+        }
     }
 
 }
