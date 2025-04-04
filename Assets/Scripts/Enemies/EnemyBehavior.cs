@@ -58,8 +58,6 @@ public class EnemyBehavior : MonoBehaviour
             Debug.Log("Health:" + playerController.health);
             uiBars.LoseHealthBar(playerController.health);
             //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
-            uiBars.GainXPbar(2f);
-            uiBars.GainUltBar(2f);
         }
 
         if(other.gameObject.CompareTag("Weapon"))
@@ -93,8 +91,10 @@ public class EnemyBehavior : MonoBehaviour
     {
 
         if (health <= 0)
-        Destroy(this.gameObject);
-        
-
+        {
+            uiBars.GainXPbar(2f);
+            uiBars.GainUltBar(2f);
+            Destroy(this.gameObject);
+        }
     }
 }
