@@ -641,8 +641,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 956825058}
+  - component: {fileID: 956825059}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,6 +664,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &956825059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956825057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 335610971352c6a46a471bb22cc24168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterButtons:
+  - {fileID: 1548998814}
+  - {fileID: 2133346324}
+  - {fileID: 1208107703}
+  characterPrices: 000000001e00000046000000
+  playerCoins: 100
 --- !u!1 &1208107701
 GameObject:
   m_ObjectHideFlags: 0
