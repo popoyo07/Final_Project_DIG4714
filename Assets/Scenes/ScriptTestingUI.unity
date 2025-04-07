@@ -688,79 +688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &632830357
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -20.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 96.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1577781047669962012, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2778084974790910197, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_Name
-      value: EnemyElf
-      objectReference: {fileID: 0}
-    - target: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7894270826564670641, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1517887174}
-    - target: {fileID: 7894270826564670641, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
-      propertyPath: thisDMG
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
 --- !u!1001 &715933828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1270,6 +1197,10 @@ PrefabInstance:
     - target: {fileID: 8539057714387156617, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_Name
       value: Santa
+      objectReference: {fileID: 0}
+    - target: {fileID: 8732844343590331078, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2168,7 +2099,6 @@ SceneRoots:
   - {fileID: 1446994079}
   - {fileID: 1020759768}
   - {fileID: 1086701545}
-  - {fileID: 632830357}
   - {fileID: 1722134681}
   - {fileID: 1892431775}
   - {fileID: 715933828}

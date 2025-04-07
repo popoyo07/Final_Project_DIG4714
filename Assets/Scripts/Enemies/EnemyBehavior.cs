@@ -13,12 +13,15 @@ public class EnemyBehavior : MonoBehaviour
 
     // core stats for each enemy
     float speed;
-    float health; 
+    float health;
     int dmg;
 
     private PlayerController playerController;
     private NavMeshAgent agent;
     private UIBars uiBars;
+
+    //tracking if enemy is dead
+    // bool isDead = false;
 
     void Start()
     {
@@ -69,7 +72,15 @@ public class EnemyBehavior : MonoBehaviour
             {
                 health -= weaponBehavior.theDMG;
                 Debug.Log("Remaining health: " + health);
-            }
+                //checking if enemy is at 0 hp
+                if(health == 0)
+                {
+                    // isDead = true;
+                    Add(this.gameObject); //add that game object to the list
+                   
+                }
+                 
+                }
             else
             {
 
@@ -97,4 +108,12 @@ public class EnemyBehavior : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void Add(GameObject g) //method for adding to list
+    {
+        KillTracker.killlist.Add(g);
+    }
+
+    
+   
 }
