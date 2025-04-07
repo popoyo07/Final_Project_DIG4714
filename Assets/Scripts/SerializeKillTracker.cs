@@ -14,6 +14,8 @@ public class SerializeKillTracker : MonoBehaviour
     {
         serializeKills = KillTracker.killsCounted;
         Invoke("XMLSave", 4);
+
+        Invoke("LoadXML", 6);
     }
 
     private void XMLSave()
@@ -36,6 +38,25 @@ public class SerializeKillTracker : MonoBehaviour
         if(File.Exists(Application.dataPath + "/KillTracker.text"))
         {
             Debug.Log("XML Created!");
+        }
+    }
+
+    private void LoadXML()
+    {
+        if(File.Exists(Application.dataPath + "/KillTracker.text"))
+        {
+            //load the data
+            XmlDocument loaddocument = new XmlDocument();
+            loaddocument.Load(Application.dataPath + "/KillTracker.text");
+
+            XmlNodeList kill = loaddocument.GetElementsByTagName("KillCount");
+            int loadkill = int.Parse(kill[0].InnerText);
+            serializeKills = loadkill;
+            Debug.Log("Your file loaded, the value of serializeKills is: " + serializeKills);
+        }
+        else
+        {
+            Debug.Log("Data not found!");
         }
     }
     
