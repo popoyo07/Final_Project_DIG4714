@@ -2,38 +2,42 @@
 using UnityEngine;
 using System.IO;
 using System.Xml.Serialization;
+using System.Xml;
 
 
 [System.Serializable]
 public class SerializeKillTracker : MonoBehaviour
 {
-    private int serializeKills;
+   [SerializeField] private int serializeKills;
     private string path;
-    private void Start()
+    private void Update()
     {
-
-        path = Application.persistentDataPath + "/killdata.xml";
-        // Save data to XML
-
-        XmlSerializer serializer = new XmlSerializer(typeof(SerializeKillTracker));
-        using (FileStream stream = new FileStream(path, FileMode.Create))
-        {
-            serializer.Serialize(stream, serializeKills);
-        }
-        // Load data from XML
-
-        if (File.Exists(path))
-        {
-            using (FileStream stream = new FileStream(path, FileMode.Open))
-            {
-                SerializeKillTracker loadedtracker = (SerializeKillTracker)serializer.Deserialize(stream);
-
-                Debug.Log("kills counted: " + loadedtracker.serializeKills);
-               
-            }
-        }
+        serializeKills = KillTracker.killsCounted;
+        Invoke("XMLSave", 4);
     }
 
+    private void XMLSave()
+    {
+        //SerializeKillTracker tracker = new SerializeKillTracker();
+        XmlDocument document = new XmlDocument();
+
+        XmlElement root = document.CreateElement("Save");
+        root.SetAttribute("FileName", "File_01");
+
+        XmlElement killed = document.CreateElement("KillCount");
+        killed.InnerText = serializeKills.ToString();
+        Debug.Log("This is the value you are saving: " + killed.InnerText);
+        root.AppendChild(killed);
+
+        document.AppendChild(root);
+
+
+        document.Save(Application.dataPath + "/KillTracker.text");
+        if(File.Exists(Application.dataPath + "/KillTracker.text"))
+        {
+            Debug.Log("XML Created!");
+        }
+    }
     
 }
 
