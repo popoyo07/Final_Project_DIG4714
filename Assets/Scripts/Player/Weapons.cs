@@ -5,39 +5,69 @@ using UnityEngine.VFX;
 
 public class Weapons : MonoBehaviour
 {
-    [Header(" BaseAttk ")]   
-    public float bAttackRateSec; // how often in seconds the attack is happening
-    public float bAttackDMG; // how much dmg
+    [Header(" Area Attk ")]   
+    public float w1AttackRateSec; // how often in seconds the attack is happening
+    public float w1AttackDMG; // how much dmg
+    public float w1AttkDuration; // how long will the attack last
     
-    [Header(" weapon 2 Attk")] // might reuse or not 
+    [Header(" Snow flake Attk")] // might reuse or not 
     public float w2AttackRateSec;
     public float w2AttackDMG;
+    public float w2AttkDuration;
     //GameObject weapon2;
-   // Collider c2;
 
-
-    [Header(" weapon 3 Attk")]
+    [Header(" Projectile Attk")]
     public float w3AttackRateSec;
     public float w3AttackDMG;
+    public float w3AttkDuration;
     // GameObject weapon3;
-    //  Collider c3;
+
+    [Header(" Ice Spikes attack")] 
+    public float w4AttackRateSec;
+    public float w4AttackDMG;
+    public float w4AttkDuration;
 
     [Header("Health Settings")]
 
     public Dictionary<string, float> WeaponDMG = new Dictionary<string, float>();
     public Dictionary<string, float> WeaponRateSec = new Dictionary<string, float>();
+    public Dictionary<string, float> WeaponAttDuration = new Dictionary<string, float>();
     void Awake()
     {
-        WeaponDMG["BaseAttack"] = bAttackDMG;
-        WeaponDMG["placeNameHere2"] = w2AttackDMG;
-        WeaponDMG["PlaceNameHere3"] = w3AttackDMG;
+        //DMG
+        WeaponDMG["AreaAttack"] = w1AttackDMG;
+        WeaponDMG["BookAttack"] = w2AttackDMG;
+        WeaponDMG["SpearAttack"] = w3AttackDMG;
+        WeaponDMG["SpikesAttack"] = w4AttackDMG;
 
 
-        WeaponRateSec["BaseAttack"] = bAttackRateSec;
-        WeaponRateSec["placeNameHere2"] = w2AttackRateSec;
-        WeaponRateSec["placeNameHere3"] = w3AttackRateSec;
+        // Rate in seconds
+        WeaponRateSec["AreaAttack"] = w1AttackRateSec;
+        WeaponRateSec["BookAttack"] = w2AttackRateSec;
+        WeaponRateSec["SpearAttack"] = w3AttackRateSec;
+        WeaponRateSec["SpikesAttack"] = w4AttackRateSec;
 
-        Debug.Log("Weapon Rate for BaseAttack: " + WeaponRateSec["BaseAttack"]);
+        // Attack duration
+        WeaponAttDuration["AreaAttack"] = w1AttkDuration;
+        WeaponAttDuration["BookAttack"] = w2AttkDuration;
+        WeaponAttDuration["SpearAttack"] = w3AttkDuration;
+        WeaponAttDuration["SpikesAttack"] = w4AttkDuration;
+    }
+    public void UpdateWeaponStats(string weaponType, float newDamage, 
+        float newRateSec, float newDuration) // function used to update weapon stats 
+    {
+        if (WeaponDMG.ContainsKey(weaponType))
+        {
+            WeaponDMG[weaponType] = newDamage;
+        }
+        if (WeaponRateSec.ContainsKey(weaponType))
+        {
+            WeaponRateSec[weaponType] = newRateSec;
+        }
+        if (WeaponAttDuration.ContainsKey(weaponType))
+        {
+            WeaponAttDuration[weaponType] = newDuration;
+        }
     }
 
 }
