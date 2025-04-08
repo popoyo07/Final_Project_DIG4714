@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon = GameObject.Find("SoearAttack");
+        weapon = GameObject.Find("SpearAttack");
         dmg = weapon.GetComponent<WeaponBehavior>().theDMG;
         FindNearestEnemy();
 
