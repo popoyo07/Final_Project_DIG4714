@@ -43,6 +43,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         Chase(speed);// use the variable inside the Dictionary
         CheckHealth();
+       
     }
 
     public void Chase(float enemySpeed)
@@ -73,14 +74,14 @@ public class EnemyBehavior : MonoBehaviour
                 health -= weaponBehavior.theDMG;
                 Debug.Log("Remaining health: " + health);
                 //checking if enemy is at 0 hp
-                if(health == 0)
+                if (health == 0)
                 {
                     // isDead = true;
-                    Add(this.gameObject); //add that game object to the list
-                   
+                    Add(this.gameObject); //add the dead game object to the list
+
                 }
-                 
-                }
+
+            }
             else
             {
 
