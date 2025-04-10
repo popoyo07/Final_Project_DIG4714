@@ -59,7 +59,7 @@ public class EnemyBehavior : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             playerController.health -= dmg;
-            Debug.Log("Health:" + playerController.health);
+            //Debug.Log("Health:" + playerController.health);
             uiBars.LoseHealthBar(playerController.health);
             //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
         }
@@ -72,7 +72,7 @@ public class EnemyBehavior : MonoBehaviour
             if (weaponBehavior != null)
             {
                 health -= weaponBehavior.theDMG;
-                Debug.Log("Remaining health: " + health);
+                //Debug.Log("Remaining health: " + health);
                 //checking if enemy is at 0 hp
                 if (health == 0)
                 {
@@ -91,7 +91,7 @@ public class EnemyBehavior : MonoBehaviour
             
 
 
-            Debug.Log("Enemy hit!");
+            //Debug.Log("Enemy hit!");
             // Subtract enemy health by weapon's damage
         }
 
