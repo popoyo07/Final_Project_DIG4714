@@ -105,6 +105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Santa Claus
       objectReference: {fileID: 0}
+    - target: {fileID: 5775092303246494712, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6011093661695922765, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_Enabled
       value: 1

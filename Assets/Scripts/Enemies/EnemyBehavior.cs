@@ -69,7 +69,13 @@ public class EnemyBehavior : MonoBehaviour
             
             WeaponBehavior weaponBehavior = other.gameObject.GetComponent<WeaponBehavior>();
             Debug.Log("Remaining health: " + weaponBehavior.theDMG);
-            if (weaponBehavior != null)
+            if(weaponBehavior == null)    
+            {
+
+                Projectile p = other.gameObject.GetComponent<Projectile>();
+                health -= p.dmg;
+            }
+            else if (weaponBehavior != null)
             {
                 health -= weaponBehavior.theDMG;
                 //Debug.Log("Remaining health: " + health);
@@ -82,12 +88,7 @@ public class EnemyBehavior : MonoBehaviour
                 }
 
             }
-            else
-            {
-
-                Projectile p = other.gameObject.GetComponent<Projectile>();
-                health -= p.dmg;
-            }
+            
             
 
 
