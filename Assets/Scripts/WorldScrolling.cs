@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class WorldScrolling : MonoBehaviour
 {
@@ -25,7 +26,15 @@ public class WorldScrolling : MonoBehaviour
 
     private void Start()
     {
+        //StartCoroutine(LateStart(2));
         UpdateTilesOnScreen();
+    }
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        
+        PrintArray(terrainTiles);
     }
 
     private void Update()
@@ -51,7 +60,7 @@ public class WorldScrolling : MonoBehaviour
                 int tileToUpdate_x = CalculatePositionOnAxis(playerTilePosition.x + pov_x, true);
                 int tileToUpdate_z = CalculatePositionOnAxis(playerTilePosition.z + pov_z, true);
 
-                Debug.Log("tileToUpdate_x " + tileToUpdate_x + ", tileToUpdate_z " + tileToUpdate_z);
+                Debug.Log("Tile to update X: " + tileToUpdate_x + ", Tile to update Z: " + tileToUpdate_z);
 
                 GameObject tile = terrainTiles[tileToUpdate_x, tileToUpdate_z];
                 tile.transform.position = CalculateTilePosition(playerTilePosition.x + pov_x, playerTilePosition.z + pov_z);
@@ -69,7 +78,7 @@ public class WorldScrolling : MonoBehaviour
         {
             if(currentValue >= 0)
             {
-                currentValue = currentValue % terrainTileHorizontalCount;
+                currentValue %= terrainTileHorizontalCount;
             }
             else
             {
@@ -80,7 +89,7 @@ public class WorldScrolling : MonoBehaviour
         {
             if (currentValue >= 0)
             {
-                currentValue = currentValue % terrainTileVerticalCount;
+                currentValue %= terrainTileVerticalCount;
             }
             else
             {
@@ -93,6 +102,25 @@ public class WorldScrolling : MonoBehaviour
 
     public void Add(GameObject tileGameObject, Vector3Int tilePosition)
     {
-        terrainTiles[tilePosition.x + 1, tilePosition.z + 1] = tileGameObject;
+        //Debug.Log("Adding " + tileGameObject.name + " from position (" + tilePosition.x + ", " + tilePosition.z + ")");
+        terrainTiles[tilePosition.x + (terrainTileHorizontalCount / 2), tilePosition.z + (terrainTileVerticalCount / 2)] = tileGameObject;
+    }
+
+    private void PrintArray(GameObject[,] arr)
+    {
+        for(int row = 0; row < arr.GetLength(0); row++)
+        {
+            for(int col = 0; col < arr.GetLength(1); col++)
+            {
+                if (arr[row, col] != null)
+                {
+                    print(arr[row, col].name + " at (" + row + ", " + col + ")");
+                }
+                else
+                {
+                    Debug.LogError("Object missing at (" + row + ", " + col + ")");
+                }
+            }
+        }
     }
 }
