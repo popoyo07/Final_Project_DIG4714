@@ -13,29 +13,27 @@ public class EnemyBehavior : MonoBehaviour
 
     // core stats for each enemy
     float speed;
-    float health;
+    float health; 
     int dmg;
 
     private PlayerController playerController;
     private NavMeshAgent agent;
     private UIBars uiBars;
 
-    //tracking if enemy is dead
-    // bool isDead = false;
-
     void Start()
     {
         typeOfEnemy = gameObject.tag;
-        player = GameObject.FindWithTag("Player");
+
         // add any componnets you need in here
         playerController = player.GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
-        uiBars = player.GetComponent<UIBars>(); // Get UI reference
+        uiBars = player.GetComponent<UIBars>();
         weapon = player.GetComponent<Weapons>();
         
         speed = Enemy.theInstance.TheEnemySpeed(typeOfEnemy);
         health = Enemy.theInstance.TheEnemyHealth(typeOfEnemy);
         dmg = Enemy.theInstance.TheEnemyDMG(typeOfEnemy);
+
     }
 
     // Update is called once per frame
@@ -43,7 +41,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         Chase(speed);// use the variable inside the Dictionary
         CheckHealth();
-       
     }
 
     public void Chase(float enemySpeed)
@@ -59,7 +56,7 @@ public class EnemyBehavior : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             playerController.health -= dmg;
-            //Debug.Log("Health:" + playerController.health);
+            Debug.Log("Health:" + playerController.health);
             uiBars.LoseHealthBar(playerController.health);
             //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
         }
@@ -68,36 +65,22 @@ public class EnemyBehavior : MonoBehaviour
         {
             
             WeaponBehavior weaponBehavior = other.gameObject.GetComponent<WeaponBehavior>();
-            Debug.Log("Remaining health: " + weaponBehavior.theDMG);
-            if(weaponBehavior == null)    
+            //Debug.Log("Remaining health: " + weaponBehavior.theDMG);
+            if (weaponBehavior != null)
+            {
+                health -= weaponBehavior.theDMG;
+                Debug.Log("Remaining health: " + health);
+            }
+            else
             {
 
                 Projectile p = other.gameObject.GetComponent<Projectile>();
                 health -= p.dmg;
             }
-            else if (weaponBehavior != null)
-            {
-                health -= weaponBehavior.theDMG;
-                //Debug.Log("Remaining health: " + health);
-                //checking if enemy is at 0 hp
-                if (health == 0)
-                {
-                    // isDead = true;
-                    Add(this.gameObject); //add the dead game object to the list
 
-                }
-
-            }
-            
-            
-
-
-            //Debug.Log("Enemy hit!");
+            Debug.Log("Enemy hit!");
             // Subtract enemy health by weapon's damage
         }
-
-        
-       
     }
 
     void CheckHealth()
@@ -105,17 +88,12 @@ public class EnemyBehavior : MonoBehaviour
 
         if (health <= 0)
         {
-            uiBars.GainXPbar(2f);
             uiBars.GainUltBar(2f);
+            uiBars.GainXPbar(2f);
             Destroy(this.gameObject);
         }
-    }
 
-    public void Add(GameObject g) //method for adding to list
-    {
-        KillTracker.killlist.Add(g);
-    }
+        
 
-    
-   
+    }
 }
