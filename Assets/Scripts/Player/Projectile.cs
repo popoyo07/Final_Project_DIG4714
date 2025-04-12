@@ -14,16 +14,19 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon = GameObject.Find("SoearAttack");
+        weapon = GameObject.Find("SpearAttack");
         dmg = weapon.GetComponent<WeaponBehavior>().theDMG;
         FindNearestEnemy();
 
         if (nearestEnemy != null)
         {
             StartCoroutine(moveToTarget());
+        } else
+        {
+            Destroy(gameObject);
         }
 
-        StartCoroutine(waitToDstroy(1.5f));
+            StartCoroutine(waitToDstroy(1.5f));
 
     }
 
@@ -51,6 +54,8 @@ public class Projectile : MonoBehaviour
         while (nearestEnemy != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, 10f * Time.deltaTime);
+            
+
             if (Vector3.Distance(transform.position, nearestEnemy.transform.position) < 0.1f)
             {
                
@@ -66,9 +71,10 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!other.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Debug.Log("SpearDmg " + dmg);
+            StartCoroutine(waitToDstroy(.1f));
         }
     }
 

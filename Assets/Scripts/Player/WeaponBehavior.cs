@@ -90,8 +90,6 @@ public class WeaponBehavior : MonoBehaviour
         yield return new WaitForSeconds(waitSeconds); // attack cool down 
         canAttk = true;
 
-
-
     }
 
     void Attacking()

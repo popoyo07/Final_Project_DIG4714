@@ -9,10 +9,13 @@ public class Collectable : MonoBehaviour
     private CollectableManager CM;
 
     public GameObject player;
-    
-   
 
-    
+    public JsonSaveExample saveData;
+
+    private void Awake()
+    {
+        saveData = GameObject.FindWithTag("GameManager").GetComponent<JsonSaveExample>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,11 +25,12 @@ public class Collectable : MonoBehaviour
             if (this.gameObject.CompareTag("coin"))
             {
                 CM.AddCount();
+                saveData.lastCoins++;
             }
 
             if (this.gameObject.CompareTag("XP"))
             {
-                CM.AddXP();
+               // CM.AddXP();
             }
 
             Destroy(this.gameObject);

@@ -32,6 +32,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("CreaditPage");
     }
 
+    public void LoadSelection()
+    {
+        SceneManager.LoadScene("SelectScene");
+    }
+
     public void Exit()
     {
         Application.Quit();
