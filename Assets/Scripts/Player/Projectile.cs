@@ -21,12 +21,9 @@ public class Projectile : MonoBehaviour
         if (nearestEnemy != null)
         {
             StartCoroutine(moveToTarget());
-        } else
-        {
-            Destroy(gameObject);
         }
 
-            StartCoroutine(waitToDstroy(1.5f));
+        StartCoroutine(waitToDstroy(1.5f));
 
     }
 
@@ -54,8 +51,6 @@ public class Projectile : MonoBehaviour
         while (nearestEnemy != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, nearestEnemy.transform.position, 10f * Time.deltaTime);
-            
-
             if (Vector3.Distance(transform.position, nearestEnemy.transform.position) < 0.1f)
             {
                
@@ -71,10 +66,9 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
         {
-            Debug.Log("SpearDmg " + dmg);
-            StartCoroutine(waitToDstroy(.1f));
+            Destroy(gameObject);
         }
     }
 

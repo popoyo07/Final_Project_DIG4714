@@ -76,13 +76,6 @@ public class EnemyManager : MonoBehaviour
             Debug.Log($"[EnemyManager] Starting wave coroutine for wave {currentWaveIndex + 1}");
             StartCoroutine(StartRush());
         }
-        else if (state == EnemyWaveStates.Surrounding)
-        {
-            if (waves[currentWaveIndex].isSurroundWave)
-            {
-                SpawnSurroundingEnemies(waves[currentWaveIndex]);
-            }
-        }
         Debug.Log("State changed to: " + state);
     }
 
@@ -90,23 +83,15 @@ public class EnemyManager : MonoBehaviour
     {
         Debug.Log("[EnemyManager] Starting wave sequence");
         yield return new WaitForSeconds(2f); // Short preparation time
+        EventManager.Instance.ChangeState(EnemyWaveStates.Active);
+        WaveData currentWave = waves[currentWaveIndex]; // Use WaveData to get properties
 
-        WaveData currentWave = waves[currentWaveIndex];
+        Debug.Log($"[EnemyManager] Starting wave {currentWaveIndex + 1} with {currentWave.enemyCount} enemies");
 
-        if (currentWave.isSurroundWave)
+        for (int i = 0; i < currentWave.enemyCount; i++)
         {
-            EventManager.Instance.ChangeState(EnemyWaveStates.Surrounding);
-        }
-        else
-        {
-            EventManager.Instance.ChangeState(EnemyWaveStates.Active);
-            Debug.Log($"[EnemyManager] Starting wave {currentWaveIndex + 1} with {currentWave.enemyCount} enemies");
-
-            for (int i = 0; i < currentWave.enemyCount; i++)
-            {
-                SpawnEnemy(currentWave.enemyPrefab);
-                yield return new WaitForSeconds(currentWave.spawnInterval);
-            }
+            SpawnEnemy(currentWave.enemyPrefab);
+            yield return new WaitForSeconds(currentWave.spawnInterval);
         }
 
         Debug.Log($"[EnemyManager] Wave {currentWaveIndex + 1} complete, entering cooldown");
@@ -135,45 +120,5 @@ public class EnemyManager : MonoBehaviour
         {
             enemyBehavior.player = playerTarget;
         }
-    }
-
-    private void SpawnSurroundingEnemies(WaveData waveData)
-    {
-        if (playerTarget == null)
-        {
-            Debug.LogError("[EnemyManager] Player target not set! Please assign in Inspector");
-            return;
-        }
-
-        Debug.Log($"[EnemyManager] Spawning {waveData.enemyCount} surrounding enemies");
-
-        for (int i = 0; i < waveData.enemyCount; i++)
-        {
-            // Spawn enemies in a wider circle initially
-            float angle = (360f / waveData.enemyCount) * i;
-            float radian = angle * Mathf.Deg2Rad;
-            Vector3 spawnPosition = transform.position + new Vector3(
-                Mathf.Cos(radian) * 15f,
-                0,
-                Mathf.Sin(radian) * 15f
-            );
-
-            GameObject enemy = Instantiate(waveData.enemyPrefab, spawnPosition, Quaternion.identity);
-
-            SurroundEnemyBehavior surroundBehavior = enemy.GetComponent<SurroundEnemyBehavior>();
-            if (surroundBehavior != null)
-            {
-                surroundBehavior.player = playerTarget;
-            }
-        }
-
-        // Move to cooldown after spawning all surrounding enemies
-        StartCoroutine(WaitAndCooldown(waveData.cooldownTime));
-    }
-
-    private IEnumerator WaitAndCooldown(float cooldownTime)
-    {
-        yield return new WaitForSeconds(cooldownTime);
-        EventManager.Instance.ChangeState(EnemyWaveStates.Cooldown);
     }
 }

@@ -8,8 +8,4 @@ public class WaveData : ScriptableObject
     public int enemyCount = 10;
     public float spawnInterval = 1f;
     public float cooldownTime = 5f;
-
-    [Header("Wave Type")]
-    [Tooltip("If true, enemies will surround the player in a circle")]
-    public bool isSurroundWave = false;
 }

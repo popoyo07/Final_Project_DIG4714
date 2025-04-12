@@ -26,7 +26,7 @@ public class EnemyBehavior : MonoBehaviour
     void Start()
     {
         typeOfEnemy = gameObject.tag;
-        player = GameObject.FindWithTag("Player");
+
         // add any componnets you need in here
         playerController = player.GetComponent<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
@@ -43,7 +43,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         Chase(speed);// use the variable inside the Dictionary
         CheckHealth();
-       
     }
 
     public void Chase(float enemySpeed)
@@ -59,7 +58,7 @@ public class EnemyBehavior : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             playerController.health -= dmg;
-            //Debug.Log("Health:" + playerController.health);
+            Debug.Log("Health:" + playerController.health);
             uiBars.LoseHealthBar(playerController.health);
             //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
         }
@@ -69,30 +68,29 @@ public class EnemyBehavior : MonoBehaviour
             
             WeaponBehavior weaponBehavior = other.gameObject.GetComponent<WeaponBehavior>();
             Debug.Log("Remaining health: " + weaponBehavior.theDMG);
-            if(weaponBehavior == null)    
+            if (weaponBehavior != null)
+            {
+                health -= weaponBehavior.theDMG;
+                Debug.Log("Remaining health: " + health);
+                //checking if enemy is at 0 hp
+                if(health == 0)
+                {
+                    // isDead = true;
+                    Add(this.gameObject); //add that game object to the list
+                   
+                }
+                 
+                }
+            else
             {
 
                 Projectile p = other.gameObject.GetComponent<Projectile>();
                 health -= p.dmg;
             }
-            else if (weaponBehavior != null)
-            {
-                health -= weaponBehavior.theDMG;
-                //Debug.Log("Remaining health: " + health);
-                //checking if enemy is at 0 hp
-                if (health == 0)
-                {
-                    // isDead = true;
-                    Add(this.gameObject); //add the dead game object to the list
-
-                }
-
-            }
-            
             
 
 
-            //Debug.Log("Enemy hit!");
+            Debug.Log("Enemy hit!");
             // Subtract enemy health by weapon's damage
         }
 

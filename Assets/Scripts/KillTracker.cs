@@ -20,18 +20,16 @@ public class KillTracker : MonoBehaviour
         
     }
 
-    
-
     /*
      * this script is modified by EnemyBehavior script, whenever an enemy's health drops to zero. Add the gameobject to the killlist.
      * save the count of the list to an integer called killsCounted every update
      * see EnemyBehavior script
      */
 
+   
+   
 
-
-
-
+    
 }
 
 

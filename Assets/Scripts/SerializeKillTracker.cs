@@ -13,14 +13,8 @@ public class SerializeKillTracker : MonoBehaviour
     private void Update()
     {
         serializeKills = KillTracker.killsCounted;
-        //Invoke("XMLSave", 4);
-
-        //Invoke("LoadXML", 6);
-    }
-
-    private void LateUpdate()
-    {
         Invoke("XMLSave", 4);
+
         Invoke("LoadXML", 6);
     }
 

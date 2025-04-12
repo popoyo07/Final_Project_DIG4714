@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public enum EnemyWaveStates { BeginPhase, Preparing, Active, Surrounding, Cooldown }
+public enum EnemyWaveStates { BeginPhase, Preparing, Active, Cooldown }
 
 public class EventManager : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class EventManager : MonoBehaviour
     public float waveIntervals = 75f; // Time between waves
     private float elapsedTime = 0f;
 
-
+   
     private void Awake()
     {
         if (Instance == null)
