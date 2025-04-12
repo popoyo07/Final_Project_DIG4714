@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 1208107704}
   - component: {fileID: 1208107703}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Rudolph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -950,7 +950,7 @@ GameObject:
   - component: {fileID: 1548998815}
   - component: {fileID: 1548998814}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Santa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1323,7 @@ GameObject:
   - component: {fileID: 2133346325}
   - component: {fileID: 2133346324}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: MrsClaus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
