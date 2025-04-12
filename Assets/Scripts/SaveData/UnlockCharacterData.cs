@@ -11,7 +11,10 @@ public class CharacterUnlockUI : MonoBehaviour
 
     [Header("Coin Info")]
     public int[] characterPrices = new int[3]; // Price for characters 0,1,2 (0 is free, always unlocked)
-    public int playerCoins = 100; // Simulated coin value, will be replaced by the actually coin in the game in the future
+    //public int playerCoins = 100; 
+    // Simulated coin value, will be replaced by the actually coin in the game in the future
+    public GameSaveData gameSaveData;
+    public int playerCoins;
 
     private string saveFilePath;
     private List<bool> characterUnlocked;
@@ -21,7 +24,6 @@ public class CharacterUnlockUI : MonoBehaviour
         saveFilePath = Application.persistentDataPath + "unlocked_characters.txt";
         //Debug.Log(Application.persistentDataPath); //Check where it saved
         characterUnlocked = new List<bool> { true, false, false }; // Default state
-
         LoadUnlockData();
         UpdateButtonStates();
         HookUpButtonEvents();
@@ -29,6 +31,7 @@ public class CharacterUnlockUI : MonoBehaviour
 
     private void Update()
     {
+        playerCoins = gameSaveData.coinsCollected;
         //Press R to Reset
         if (Input.GetKeyDown(KeyCode.R))
         {
