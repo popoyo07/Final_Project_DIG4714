@@ -880,7 +880,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a8ee65a0149abd43a85f83398f44716, type: 2}
+  - {fileID: 2100000, guid: 08fec118cd31c6647aab437dc43510fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2000,7 +2000,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a8ee65a0149abd43a85f83398f44716, type: 2}
+  - {fileID: 2100000, guid: 08fec118cd31c6647aab437dc43510fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3007,7 +3007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 660949303}
   playerTilePosition: {x: 0, y: 0, z: 0}
-  tileSize: 25
+  tileSize: 50
   terrainTileHorizontalCount: 5
   terrainTileVerticalCount: 5
   fieldOfVisionHeight: 3
@@ -5768,7 +5768,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7a8ee65a0149abd43a85f83398f44716, type: 2}
+  - {fileID: 2100000, guid: 08fec118cd31c6647aab437dc43510fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
