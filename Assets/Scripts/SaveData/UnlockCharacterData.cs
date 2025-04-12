@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterUnlockUI : MonoBehaviour
@@ -87,8 +88,8 @@ public class CharacterUnlockUI : MonoBehaviour
     {
         if (characterUnlocked[index])
         {
-            Debug.Log($"Character {index + 1} selected. Starting game...");
-            //SceneManager.LoadScene(ActualGame);
+            Debug.Log($"Character {index + 1} selected. Starting Level Select");
+            SceneManager.LoadScene("LevelSelect");
             //start the game
         }
         else if (playerCoins >= characterPrices[index])
@@ -97,8 +98,8 @@ public class CharacterUnlockUI : MonoBehaviour
             characterUnlocked[index] = true;
             SaveUnlockData();
             UpdateButtonStates();
-            Debug.Log($"Character {index + 1} unlocked and selected. Starting game...");
-            //SceneManager.LoadScene(ActualGame);
+            Debug.Log($"Character {index + 1} unlocked and selected. Starting Level Select");
+            SceneManager.LoadScene("LevelSelect");
             //start the game
 
         }
