@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SurroundEnemyBehavior : MonoBehaviour
@@ -8,7 +9,7 @@ public class SurroundEnemyBehavior : MonoBehaviour
 
     private Vector3 targetPosition;
     private bool hasReachedPosition = false;
-    private static int totalSurroundingEnemies = 0;
+    public static int totalSurroundingEnemies = 0;
     private int myPositionIndex;
 
     private void Start()
@@ -40,6 +41,8 @@ public class SurroundEnemyBehavior : MonoBehaviour
             hasReachedPosition = true;
             // Look at player
             transform.LookAt(player.transform);
+            SlowlyWalkToPlayer();
+
         }
     }
 
@@ -62,6 +65,10 @@ public class SurroundEnemyBehavior : MonoBehaviour
     {
         totalSurroundingEnemies--;
     }
+    private void SlowlyWalkToPlayer()
+    {
+
+        Vector3 slowMoveDirection = (targetPosition - transform.position);
+        transform.position += slowMoveDirection * (moveSpeed / (moveSpeed + 45)) * Time.deltaTime;
+    }
 }
-
-

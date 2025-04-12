@@ -5,7 +5,6 @@ public enum EnemyWaveStates { BeginPhase, Preparing, Active, Surrounding, Cooldo
 
 public class EventManager : MonoBehaviour
 {
-    // Singleton instance
     public static EventManager Instance { get; private set; }
     public static event Action OnEventManagerReady;
 
@@ -31,7 +30,7 @@ public class EventManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            throw new InvalidOperationException("[EventManager] Multiple instances of EventManager detected. Singleton violation!");
         }
     }
 
