@@ -22,6 +22,8 @@ public class WeaponBehavior : MonoBehaviour
     bool rotating;
     public float rotationSpeed;
 
+    [SerializeField] private AudioClip attkSoundClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,6 +102,7 @@ public class WeaponBehavior : MonoBehaviour
         if (vfxAttk != null)
         {
             vfxAttk.enabled = true;
+            AudioManager.instance.playSFX(attkSoundClip, transform, 1.0f);
             vfxAttk.Play();
         
         }
