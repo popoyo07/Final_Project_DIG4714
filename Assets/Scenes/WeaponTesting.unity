@@ -446,19 +446,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 656658247876685471, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3136448980998505408, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
+      propertyPath: weaponVolume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3136448980998505408, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: attkSoundClip
       value: 
       objectReference: {fileID: 8300000, guid: 35ba70fc1892e6947bca43145fa7fd77, type: 3}
+    - target: {fileID: 3177314688353472272, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
+      propertyPath: weaponVolume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177314688353472272, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
+      propertyPath: attkSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 40bb586f5bf3d43429e86ba914235da5, type: 3}
     - target: {fileID: 3446668360291091807, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3549654574786898711, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
+      propertyPath: weaponVolume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3549654574786898711, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
+      propertyPath: attkSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b216632579b74244f95af10944165495, type: 3}
     - target: {fileID: 4053055136602846898, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4284730716712896786, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_IsActive
@@ -474,11 +494,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7150247462097020795, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7680387825666379816, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7827175317174471995, guid: fd5e7f24384ed924ca2865153ac1d1a3, type: 3}
       propertyPath: m_Enabled

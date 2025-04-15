@@ -40,11 +40,13 @@ public class AudioManager : MonoBehaviour
 
         //Destroy the clip its done playing 
 
-        Destroy(audioSource.gameObject, cliplength);
+        Destroy(audioSource.gameObject, (cliplength-0.7f));
        
 
         
     }
 
-    
+   
+
+
 }
