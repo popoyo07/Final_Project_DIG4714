@@ -262,7 +262,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &44782321
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!4 &61780283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1914468986529291168, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
@@ -680,7 +680,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &222047146
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +821,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1001 &242253187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1149,7 +1149,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &339917239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7894270826564670641, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: player
@@ -1510,6 +1510,7 @@ GameObject:
   - component: {fileID: 439010451}
   - component: {fileID: 439010450}
   - component: {fileID: 439010449}
+  - component: {fileID: 439010453}
   m_Layer: 0
   m_Name: BottomLeft (3)
   m_TagString: Untagged
@@ -1617,6 +1618,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 439010447}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &439010453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439010447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e715f17b2375348950518768ff51de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  props:
+  - {fileID: 838498085}
+  - {fileID: 1091162042}
+  - {fileID: 1874335357}
+  - {fileID: 1430913203}
+  numProps: 4
+  offset: 2
+  tileScale: 5
 --- !u!4 &452988436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5925433674301824424, guid: f593bc20677ebf14abd27a4853408c68, type: 3}
@@ -1770,6 +1791,7 @@ GameObject:
   - component: {fileID: 641335368}
   - component: {fileID: 641335367}
   - component: {fileID: 641335366}
+  - component: {fileID: 641335370}
   m_Layer: 0
   m_Name: TopLeft (2)
   m_TagString: Untagged
@@ -1877,6 +1899,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 641335364}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &641335370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641335364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e715f17b2375348950518768ff51de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  props:
+  - {fileID: 838498085}
+  - {fileID: 1091162042}
+  - {fileID: 1874335357}
+  - {fileID: 1430913203}
+  numProps: 4
+  offset: 2
+  tileScale: 5
 --- !u!1001 &646426897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2203,7 +2245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7894270826564670641, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: player
@@ -2231,6 +2273,7 @@ GameObject:
   - component: {fileID: 737163689}
   - component: {fileID: 737163688}
   - component: {fileID: 737163687}
+  - component: {fileID: 737163691}
   m_Layer: 0
   m_Name: Left (1)
   m_TagString: Untagged
@@ -2338,6 +2381,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737163685}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &737163691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737163685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e715f17b2375348950518768ff51de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  props:
+  - {fileID: 838498085}
+  - {fileID: 1091162042}
+  - {fileID: 1874335357}
+  - {fileID: 1430913203}
+  numProps: 4
+  offset: 2
+  tileScale: 5
 --- !u!1 &767590722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,7 +2884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7894270826564670641, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: player
@@ -3112,7 +3175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9149082200056853833, guid: e917db5323fd7f44fa87980061457394, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3338,7 +3401,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!4 &1234331071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6360628377774826359, guid: 5228c984e5be7284d8d83c18096254dd, type: 3}
@@ -3357,6 +3420,7 @@ GameObject:
   - component: {fileID: 1259916280}
   - component: {fileID: 1259916279}
   - component: {fileID: 1259916278}
+  - component: {fileID: 1259916282}
   m_Layer: 0
   m_Name: Bottom (1)
   m_TagString: Untagged
@@ -3464,6 +3528,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259916276}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1259916282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259916276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e715f17b2375348950518768ff51de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  props:
+  - {fileID: 838498085}
+  - {fileID: 1091162042}
+  - {fileID: 1874335357}
+  - {fileID: 1430913203}
+  numProps: 4
+  offset: 2
+  tileScale: 5
 --- !u!1 &1339322929
 GameObject:
   m_ObjectHideFlags: 0
@@ -3477,6 +3561,7 @@ GameObject:
   - component: {fileID: 1339322933}
   - component: {fileID: 1339322932}
   - component: {fileID: 1339322931}
+  - component: {fileID: 1339322935}
   m_Layer: 0
   m_Name: TopLeft (3)
   m_TagString: Untagged
@@ -3584,6 +3669,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339322929}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1339322935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339322929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e715f17b2375348950518768ff51de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  props:
+  - {fileID: 838498085}
+  - {fileID: 1091162042}
+  - {fileID: 1874335357}
+  - {fileID: 1430913203}
+  numProps: 4
+  offset: 2
+  tileScale: 5
 --- !u!1001 &1364009467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3862,7 +3967,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &1423691442
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,7 +4108,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1001 &1430913202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4289,7 +4394,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &1545430684
 GameObject:
   m_ObjectHideFlags: 0
@@ -4430,7 +4535,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &1546083128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,7 +4910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7894270826564670641, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: player
@@ -4960,7 +5065,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &1818717830
 GameObject:
   m_ObjectHideFlags: 0
@@ -5200,7 +5305,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1001 &1874335356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5337,7 +5442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7485500074914826543, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7894270826564670641, guid: f1b5e6805ffa0b142b0db5ef1bc390e4, type: 3}
       propertyPath: player
@@ -5492,7 +5597,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &1971719395
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,7 +5738,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &1979934721
 GameObject:
   m_ObjectHideFlags: 0
@@ -5774,7 +5879,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &2077487740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,7 +6020,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1 &2092364429
 GameObject:
   m_ObjectHideFlags: 3
@@ -6172,7 +6277,7 @@ MonoBehaviour:
   - {fileID: 1430913203}
   numProps: 4
   offset: 2
-  tileSize: 50
+  tileScale: 5
 --- !u!1001 &5474317377728618710
 PrefabInstance:
   m_ObjectHideFlags: 0
