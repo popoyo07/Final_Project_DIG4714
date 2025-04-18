@@ -24,19 +24,6 @@ public class WorldScrolling : MonoBehaviour
         terrainTiles = new GameObject[terrainTileHorizontalCount, terrainTileVerticalCount];
     }
 
-    private void Start()
-    {
-        //StartCoroutine(LateStart(2));
-        UpdateTilesOnScreen();
-    }
-
-    IEnumerator LateStart(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        
-        PrintArray(terrainTiles);
-    }
-
     private void Update()
     {
         playerTilePosition.x = (int)(playerTransform.position.x / tileSize);
