@@ -10,6 +10,7 @@ public class EnemyBehavior : MonoBehaviour
     //public string typeOfWeapon;
     public string typeOfEnemy;
     public Weapons weapon;
+    Animator elf_animator;
 
     // core stats for each enemy
     float speed;
@@ -25,6 +26,7 @@ public class EnemyBehavior : MonoBehaviour
 
     void Start()
     {
+        elf_animator = GetComponent<Animator>();
         typeOfEnemy = gameObject.tag;
         player = GameObject.FindWithTag("Player");
         // add any componnets you need in here
@@ -53,12 +55,13 @@ public class EnemyBehavior : MonoBehaviour
         //Debug.Log("enemy speed is: " + enemySpeed);
     }
 
-    public void OnTriggerEnter (Collider other)
+    public void OnTriggerEnter (Collider other) //Attacking
     {
         //typeOfWeapon = other.name;
         if(other.gameObject.CompareTag("Player"))
         {
             playerController.health -= dmg;
+            elf_animator.SetBool("isAttacking", true);
             //Debug.Log("Health:" + playerController.health);
             uiBars.LoseHealthBar(playerController.health);
             //Debug.Log("Enemy attacked! Player health reduced." + uiBars.currentHealth);
@@ -116,6 +119,14 @@ public class EnemyBehavior : MonoBehaviour
         KillTracker.killlist.Add(g);
     }
 
-    
-   
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            elf_animator.SetBool("isAttacking", false);
+        }
+    }
+
+
+
 }
