@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d813cc86e16e564d88f2a2fc8c0b087, type: 3}
   m_Name: SurroundingEnemy
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7932586142320658870, guid: 4139439e68a1d4642bf1b65437849c9a, type: 3}
-  enemyCount: 16
-  spawnInterval: 2
-  cooldownTime: 5
+  enemyPrefab: {fileID: 2303450464711099805, guid: c4cbdf4cc89a02c4781d4e9fc724f1db, type: 3}
+  enemyCount: 32
+  spawnInterval: 1
+  cooldownTime: 75
   isSurroundWave: 1

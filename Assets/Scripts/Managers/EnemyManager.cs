@@ -11,12 +11,14 @@ public class EnemyManager : MonoBehaviour
     [Header("Target Settings")]
     public GameObject playerTarget;
 
+    [Header("Object Pool Settings")]
+    public ObjectPooler enemyPool;  // new and improved objecct pooooler
+
     private void Awake()
     {
-        // Try to subscribe immediately if EventManager is already initialized 
         SubscribeToEventManager();
 
-        // Also subscribe to the ready event in case EventManager isn't initialized yet
+      
         EventManager.OnEventManagerReady += OnEventManagerReady;
     }
 
@@ -28,6 +30,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SubscribeToEventManager()
     {
+        //tbh asked chatgpt for help cause i couldn't figure this out. now it works yeehaw
         if (EventManager.Instance != null)
         {
             Debug.Log("[EnemyManager] Successfully subscribed to EventManager events");
@@ -54,26 +57,25 @@ public class EnemyManager : MonoBehaviour
         EventManager.OnEventManagerReady -= OnEventManagerReady;
     }
 
-    // BeginPhase, Preparing, Active, Cooldown
     private void HandleStateChange(EnemyWaveStates state)
     {
-        Debug.Log($"[EnemyManager] Received state change event: {state}");
+        Debug.Log($"[EnemyManager] : {state}");
 
         if (state == EnemyWaveStates.Preparing)
         {
             if (waves == null || waves.Count == 0)
             {
-                Debug.LogError("[EnemyManager] Cannot start wave - no waves configured!");
+                Debug.LogError("[EnemyManager] Cannot start wave cause you forgot to attach the wavedata to the manager!!!!");
                 return;
             }
 
             if (waves[currentWaveIndex].enemyPrefab == null)
             {
-                Debug.LogError($"[EnemyManager] Wave {currentWaveIndex + 1} has no enemy prefab assigned!");
+                Debug.LogError($"[EnemyManager] Wave {currentWaveIndex + 1} have wavedata but no wavedata assets");
                 return;
             }
 
-            Debug.Log($"[EnemyManager] Starting wave coroutine for wave {currentWaveIndex + 1}");
+          
             StartCoroutine(StartRush());
         }
         else if (state == EnemyWaveStates.Surrounding)
@@ -89,7 +91,7 @@ public class EnemyManager : MonoBehaviour
     private IEnumerator StartRush()
     {
         Debug.Log("[EnemyManager] Starting wave sequence");
-        yield return new WaitForSeconds(2f); // Short preparation time
+        yield return new WaitForSeconds(2f); // Short preparation time so that player doesn't wait forever for enemies to come
 
         WaveData currentWave = waves[currentWaveIndex];
 
@@ -104,21 +106,21 @@ public class EnemyManager : MonoBehaviour
 
             for (int i = 0; i < currentWave.enemyCount; i++)
             {
-                SpawnEnemy(currentWave.enemyPrefab);
+                SpawnEnemy();
                 yield return new WaitForSeconds(currentWave.spawnInterval);
             }
         }
 
-        Debug.Log($"[EnemyManager] Wave {currentWaveIndex + 1} complete, entering cooldown");
+        Debug.Log($"[EnemyManager] Wave {currentWaveIndex + 1} complete");
         EventManager.Instance.ChangeState(EnemyWaveStates.Cooldown);
         yield return new WaitForSeconds(currentWave.cooldownTime);
 
-        Debug.Log($"[EnemyManager] Cooldown complete, moving to next wave");
+        Debug.Log($"[EnemyManager] Cooldown complete");
         currentWaveIndex = (currentWaveIndex + 1) % waves.Count; // Move to the next wave
         EventManager.Instance.ChangeState(EnemyWaveStates.BeginPhase);
     }
 
-    private void SpawnEnemy(GameObject enemyPrefab)
+    private void SpawnEnemy()
     {
         if (playerTarget == null)
         {
@@ -126,10 +128,16 @@ public class EnemyManager : MonoBehaviour
             return;
         }
 
-        Vector3 spawnPosition = transform.position + Random.insideUnitSphere * 10f;
-        spawnPosition.y = 0;
-        GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+        // Adjusted to use Object pooler for spawning enemioes
+        GameObject enemy = enemyPool.GetRandomPooledObject();
+        if (enemy == null) return;
 
+        Vector3 spawnPosition = transform.position + Random.insideUnitSphere * 150f; //150 so that it will always be far away from the camera (Small chance to spawn near player though)
+        spawnPosition.y = 0;
+        enemy.transform.position = spawnPosition;
+        enemy.transform.rotation = Quaternion.identity;
+
+      
         EnemyBehavior enemyBehavior = enemy.GetComponent<EnemyBehavior>();
         if (enemyBehavior != null)
         {
@@ -149,13 +157,13 @@ public class EnemyManager : MonoBehaviour
 
         for (int i = 0; i < waveData.enemyCount; i++)
         {
-            // Spawn enemies in a wider circle initially
+            // make the surrounding enemies spawn farther away!! can't figure out the movement speed won't change
             float angle = (360f / waveData.enemyCount) * i;
             float radian = angle * Mathf.Deg2Rad;
             Vector3 spawnPosition = transform.position + new Vector3(
-                Mathf.Cos(radian) * 15f,
+                Mathf.Cos(radian) * 50f,
                 0,
-                Mathf.Sin(radian) * 15f
+                Mathf.Sin(radian) * 50f
             );
 
             GameObject enemy = Instantiate(waveData.enemyPrefab, spawnPosition, Quaternion.identity);
@@ -167,13 +175,15 @@ public class EnemyManager : MonoBehaviour
             }
         }
 
+
         // Move to cooldown after spawning all surrounding enemies
         StartCoroutine(WaitAndCooldown(waveData.cooldownTime));
     }
-
     private IEnumerator WaitAndCooldown(float cooldownTime)
     {
         yield return new WaitForSeconds(cooldownTime);
         EventManager.Instance.ChangeState(EnemyWaveStates.Cooldown);
     }
 }
+
+

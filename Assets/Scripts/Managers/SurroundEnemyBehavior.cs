@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SurroundEnemyBehavior : MonoBehaviour
@@ -5,10 +6,11 @@ public class SurroundEnemyBehavior : MonoBehaviour
     public GameObject player;
     public float surroundRadius = 8f;
     public float moveSpeed = 5f;
+    public float spawnMoveSpeed = 0.05f; // Very slow movement after spawn
 
     private Vector3 targetPosition;
     private bool hasReachedPosition = false;
-    private static int totalSurroundingEnemies = 0;
+    public static int totalSurroundingEnemies = 0;
     private int myPositionIndex;
 
     private void Start()
@@ -32,7 +34,7 @@ public class SurroundEnemyBehavior : MonoBehaviour
 
         // Move towards target position
         Vector3 moveDirection = (targetPosition - transform.position).normalized;
-        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+        transform.position += moveDirection * spawnMoveSpeed * Time.deltaTime;
 
         // Check if we've reached the target position
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
@@ -40,6 +42,8 @@ public class SurroundEnemyBehavior : MonoBehaviour
             hasReachedPosition = true;
             // Look at player
             transform.LookAt(player.transform);
+            SlowlyWalkToPlayer();
+
         }
     }
 
@@ -62,6 +66,10 @@ public class SurroundEnemyBehavior : MonoBehaviour
     {
         totalSurroundingEnemies--;
     }
+    private void SlowlyWalkToPlayer()
+    {
+
+        Vector3 slowMoveDirection = (targetPosition - transform.position);
+        transform.position += slowMoveDirection * (moveSpeed / (moveSpeed + 45)) * Time.deltaTime;
+    }
 }
-
-
