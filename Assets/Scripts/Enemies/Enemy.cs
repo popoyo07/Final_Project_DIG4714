@@ -7,6 +7,11 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     public static Enemy theInstance;
+
+    [Header("Snow Man Enemy")]
+    public int SnowManHealth;
+    public int SnowManDMG;
+    public int SnowManSpeed;
     
 
     [Header(" Elf Enemy")]
@@ -32,15 +37,20 @@ public class Enemy : MonoBehaviour
 
         // For dictionary purposes the enemy tag shoudl be the same name as the Key.
         EnemySpeed["Elf"] = elfSpeed;
-        EnemySpeed["StrongElf"] = strElfSpeed; 
+        EnemySpeed["StrongElf"] = strElfSpeed;
+        EnemySpeed["Snowman"] = SnowManSpeed;
 
         EnemyHealth["Elf"] = elfHealth;
         EnemyHealth["StrongElf"] = strElfHealth;
+        EnemyHealth["Snowman"] = SnowManHealth;
 
         EnemyDMG["Elf"] = elfDMG;
         EnemyDMG["StrongElf"] = strElfDMG;
+        EnemyDMG["Snowman"] = SnowManDMG;
+
+
     }
- 
+
     public float TheEnemySpeed(string enemyType)
     {
         return EnemySpeed[enemyType];

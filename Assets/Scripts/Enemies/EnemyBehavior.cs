@@ -21,8 +21,7 @@ public class EnemyBehavior : MonoBehaviour
     private NavMeshAgent agent;
     private UIBars uiBars;
 
-    //tracking if enemy is dead
-    // bool isDead = false;
+    
 
     void Start()
     {
@@ -38,21 +37,35 @@ public class EnemyBehavior : MonoBehaviour
         speed = Enemy.theInstance.TheEnemySpeed(typeOfEnemy);
         health = Enemy.theInstance.TheEnemyHealth(typeOfEnemy);
         dmg = Enemy.theInstance.TheEnemyDMG(typeOfEnemy);
+
+
+       
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Chase(speed);// use the variable inside the Dictionary
-        CheckHealth();
-       
-    }
+
+         Chase(speed);// use the variable inside the Dictionary
+
+            
+
+          CheckHealth();
+
+     }
 
     public void Chase(float enemySpeed)
     {
         agent.SetDestination(player.transform.position);
         agent.speed = enemySpeed;
-        //Debug.Log("enemy speed is: " + enemySpeed);
+       
+    }
+
+    public void RangeAttack()
+    {
+       
     }
 
     public void OnTriggerEnter (Collider other) //Attacking
