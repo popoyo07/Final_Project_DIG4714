@@ -19,8 +19,8 @@ public class SnowManEnemyBehavior : MonoBehaviour
     public Transform spawnPoint;
     [SerializeField] private float stopDistance;
 
-    
 
+   
    
     [SerializeField] private float enemySpeed = 3f;
 
