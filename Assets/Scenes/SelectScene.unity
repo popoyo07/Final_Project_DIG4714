@@ -421,15 +421,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Santa
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
+  m_sharedMaterial: {fileID: -2082131569123145970, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -847,6 +847,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Money
       objectReference: {fileID: 0}
+    - target: {fileID: 1036570393597136181, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036570393597136181, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2855734286708203358, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -942,6 +950,26 @@ PrefabInstance:
     - target: {fileID: 5692487802213124465, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692487802213124465, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692487802213124465, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c06446d540efdf4499a2bd88d99574e, type: 2}
+    - target: {fileID: 5692487802213124465, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5692487802213124465, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4200217910430821238, guid: 9c06446d540efdf4499a2bd88d99574e, type: 2}
+    - target: {fileID: 5692487802213124465, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1271,8 +1299,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Rudolph the red nose
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
+  m_sharedMaterial: {fileID: -2082131569123145970, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1603,8 +1631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9f3306ce766824f9cb2bec4b191d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 0}
-  money: 0
 --- !u!114 &1653917323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5692487802213124465, guid: 9867a05f4956ef14981b68ff8fd422e5, type: 3}
@@ -1809,8 +1835,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Mrs. Claus
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
+  m_sharedMaterial: {fileID: -2082131569123145970, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

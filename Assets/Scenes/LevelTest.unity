@@ -1803,6 +1803,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2202809873820471340, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3869410196119646983, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1882,34 +1886,6 @@ PrefabInstance:
     - target: {fileID: 3869410196119646983, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6226145020132278941, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6226145020132278941, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6226145020132278941, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -522
-      objectReference: {fileID: 0}
-    - target: {fileID: 7632955521678267095, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7632955521678267095, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7632955521678267095, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 587
-      objectReference: {fileID: 0}
-    - target: {fileID: 7721951034458800218, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: m_Name
-      value: Resume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4365,6 +4341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78210d4bd27c1d40b0fe5b3613631cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SnowManHealth: 0
+  SnowManDMG: 0
+  SnowManSpeed: 0
   elfHealth: 1
   elfDMG: 2
   elfSpeed: 4
@@ -6439,6 +6418,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: XPImage
+      value: 
+      objectReference: {fileID: 1447407594}
+    - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: UltImage
+      value: 
+      objectReference: {fileID: 384248950}
+    - target: {fileID: 6002787235492081424, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: vcam
+      value: 
+      objectReference: {fileID: 44782322}
     - target: {fileID: 199860808671596321, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: vcam
       value: 
@@ -6515,18 +6506,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
-      propertyPath: XPImage
-      value: 
-      objectReference: {fileID: 1447407594}
-    - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
-      propertyPath: UltImage
-      value: 
-      objectReference: {fileID: 384248950}
-    - target: {fileID: 6002787235492081424, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
-      propertyPath: vcam
-      value: 
-      objectReference: {fileID: 44782322}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

@@ -24,6 +24,7 @@ public class UIBars : MonoBehaviour
     private PlayerController playerController;
 
     public bool leveledUp = false;
+    public bool playerAlive;
 
 
     // Start is called before the first frame update
@@ -50,12 +51,19 @@ public class UIBars : MonoBehaviour
         UltImage.fillAmount = currentUlt / MaxUlt;
         playerController = GetComponent<PlayerController>();
 
+        playerAlive = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         currentHealth = playerController.health;
+
+        if (currentHealth < 0f) 
+        {
+            playerAlive = false;
+        }
     }
 
 
@@ -95,5 +103,6 @@ public class UIBars : MonoBehaviour
     {
         HealthImage.fillAmount = currentHealth/MaxHealth;
     }
+
 
 }
