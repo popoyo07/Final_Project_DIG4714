@@ -17,11 +17,11 @@ public class SnowManEnemyBehavior : MonoBehaviour
 
     public GameObject snowball;
     public Transform spawnPoint;
+    [SerializeField] private float stopDistance;
 
-    public int dmg = 1; // Damage projectile does
-    public float shootForce = 100f; // how fast projectile will move
+    
 
-    [SerializeField] private float velocity = 1000.0f;
+   
     [SerializeField] private float enemySpeed = 3f;
 
     private void Awake()
@@ -35,32 +35,35 @@ public class SnowManEnemyBehavior : MonoBehaviour
     {
         snowballtime -= Time.deltaTime;
 
-        if ((player.transform.position - this.gameObject.transform.position).magnitude > 10)
+        if ((player.transform.position - this.gameObject.transform.position).magnitude > stopDistance)
         {
-            // enemySpeed = 3;
+            
             Chase(enemySpeed);
         }
-        if ((player.transform.position - this.gameObject.transform.position).magnitude <= 10 && snowballtime <= 0)
+        if ((player.transform.position - this.gameObject.transform.position).magnitude <= stopDistance)
         {
-            // enemySpeed  = 0;
-            snowballtime = timer;
-            Attack();
+            agent.SetDestination(transform.position);
+            if (snowballtime <= 0)
+            {
+                Attack();
+                snowballtime = timer;
+            }
         }
 
     }
 
+    
     public void Attack()
     {
-        agent.SetDestination((transform.position)); // Make the enemy stop moving and stand where it's at
-
+        
+       // agent.SetDestination((transform.position)); // Make the enemy stop moving and stand where it's at
         GameObject snowball_clone = Instantiate(snowball, spawnPoint.transform.position, spawnPoint.transform.rotation);
-        DamagingSnowball snowballBullet = snowball.GetComponent<DamagingSnowball>(); // Get the bullet script on the projectile prefab
-       // snowballBullet.Initialize(spawnPoint.position, shootForce, dmg); // Calls the function in the Bullet script to add force and damage to the projectile
+        
 
-        Destroy(snowball_clone, 2);
-
+        Destroy(snowball_clone, 2.5f);
+        
     }
-
+    
     public void Chase(float speed)
     {
         agent.SetDestination(player.transform.position);
