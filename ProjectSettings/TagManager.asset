@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - enemy
   - Snowman
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

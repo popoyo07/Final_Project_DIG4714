@@ -7,7 +7,7 @@ using UnityEngine.VFX;
 public class DamagingSnowball : MonoBehaviour
 {
     private PlayerController player;
-    private Transform PlayerPosition;
+    //private Transform PlayerPosition;
     Transform target;
     private UIBars uiBars;
     [SerializeField] private float snowball_dmg;
@@ -25,8 +25,8 @@ public class DamagingSnowball : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
-        PlayerPosition = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        snowball_spawner = GameObject.Find("snowball_spawner").GetComponent<Transform>();
+       // PlayerPosition = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        snowball_spawner = GameObject.FindWithTag("SpawnPoint").GetComponent<Transform>();
         
         uiBars = player.GetComponent<UIBars>();
         s_rigidbody = GetComponent<Rigidbody>();

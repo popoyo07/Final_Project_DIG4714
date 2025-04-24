@@ -63,10 +63,7 @@ public class EnemyBehavior : MonoBehaviour
        
     }
 
-    public void RangeAttack()
-    {
-       
-    }
+   
 
     public void OnTriggerEnter (Collider other) //Attacking
     {

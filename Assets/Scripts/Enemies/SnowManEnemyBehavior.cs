@@ -20,15 +20,16 @@ public class SnowManEnemyBehavior : MonoBehaviour
     [SerializeField] private float stopDistance;
 
 
-   
+    Animator snowman_animator;
    
     [SerializeField] private float enemySpeed = 3f;
+     private float health = 2;
 
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
-
+        snowman_animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -42,10 +43,13 @@ public class SnowManEnemyBehavior : MonoBehaviour
         }
         if ((player.transform.position - this.gameObject.transform.position).magnitude <= stopDistance)
         {
+            snowman_animator.SetBool("isThrowing", true);
             agent.SetDestination(transform.position);
             if (snowballtime <= 0)
             {
-                Attack();
+                   
+                //Attack();
+                Invoke("Attack", 2);
                 snowballtime = timer;
             }
         }
@@ -55,8 +59,8 @@ public class SnowManEnemyBehavior : MonoBehaviour
     
     public void Attack()
     {
-        
-       // agent.SetDestination((transform.position)); // Make the enemy stop moving and stand where it's at
+
+       
         GameObject snowball_clone = Instantiate(snowball, spawnPoint.transform.position, spawnPoint.transform.rotation);
         
 
@@ -66,11 +70,37 @@ public class SnowManEnemyBehavior : MonoBehaviour
     
     public void Chase(float speed)
     {
+        snowman_animator.SetBool("isThrowing", false);
         agent.SetDestination(player.transform.position);
         agent.speed = speed;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Weapon"))
+        {
 
+            WeaponBehavior weaponBehavior = other.gameObject.GetComponent<WeaponBehavior>();
+             Debug.Log("Remaining health: " + weaponBehavior.theDMG);
+            if (weaponBehavior != null)
+            {
+
+                health -= weaponBehavior.theDMG;
+                if (health == 0)
+                {
+                    Debug.Log("the snowman is dead");
+                    Add(this.gameObject); //add the dead game object to the list
+                    Destroy(this.gameObject);
+
+                }
+            }
+        }
+    }
+
+    public void Add(GameObject g) //method for adding to list
+    {
+        KillTracker.killlist.Add(g);
+    }
 
 
 
