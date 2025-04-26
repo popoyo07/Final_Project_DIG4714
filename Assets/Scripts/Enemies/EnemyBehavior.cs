@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
+    public GameObject coins;
     public GameObject player;
     //public string typeOfWeapon;
     public string typeOfEnemy;
@@ -16,21 +17,23 @@ public class EnemyBehavior : MonoBehaviour
     float speed;
     float health;
     int dmg;
+    Rigidbody rb;
 
     private PlayerController playerController;
-    private NavMeshAgent agent;
+    //private NavMeshAgent agent;
     private UIBars uiBars;
 
     
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         elf_animator = GetComponent<Animator>();
         typeOfEnemy = gameObject.tag;
         player = GameObject.FindWithTag("Player");
         // add any componnets you need in here
         playerController = player.GetComponent<PlayerController>();
-        agent = GetComponent<NavMeshAgent>();
+        //gent = GetComponent<NavMeshAgent>();
         uiBars = player.GetComponent<UIBars>(); // Get UI reference
         weapon = player.GetComponent<Weapons>();
         
@@ -58,9 +61,9 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Chase(float enemySpeed)
     {
-        agent.SetDestination(player.transform.position);
-        agent.speed = enemySpeed;
-       
+        Vector3 direction = (player.transform.position - transform.position).normalized;
+        rb.MovePosition(transform.position + direction * enemySpeed * Time.deltaTime);
+        transform.LookAt(player.transform.position);
     }
 
    
@@ -93,17 +96,17 @@ public class EnemyBehavior : MonoBehaviour
                 health -= weaponBehavior.theDMG;
                 //Debug.Log("Remaining health: " + health);
                 //checking if enemy is at 0 hp
-                if (health == 0)
-                {
-                    // isDead = true;
-                    Add(this.gameObject); //add the dead game object to the list
-
-                }
+                
 
             }
-            
-            
 
+
+            if (health <= 0)
+            {
+                // isDead = true;
+                Add(this.gameObject); //add the dead game object to the list
+
+            }
 
             //Debug.Log("Enemy hit!");
             // Subtract enemy health by weapon's damage
@@ -118,6 +121,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if (health <= 0)
         {
+            Instantiate(coins, transform.position, transform.rotation);
             uiBars.GainXPbar(2f);
             uiBars.GainUltBar(2f);
             Destroy(this.gameObject);

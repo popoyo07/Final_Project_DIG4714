@@ -76,6 +76,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c511406a1f2aed4418e6c9f8d9145f44, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3439320982613687645}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c511406a1f2aed4418e6c9f8d9145f44, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7247453008027383833}
   m_SourcePrefab: {fileID: 100100000, guid: c511406a1f2aed4418e6c9f8d9145f44, type: 3}
 --- !u!1 &2167197816489516112 stripped
 GameObject:
@@ -115,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5cfe032c14accb45871b27a5db9b646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coins: {fileID: 78361053904411038, guid: 5ac1083a2aa219f4e8a9a2b8763074c6, type: 3}
   player: {fileID: 0}
   typeOfEnemy: 
   weapon: {fileID: 0}
@@ -125,7 +129,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2167197816489516112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -160,6 +164,33 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &7247453008027383833
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2167197816489516112}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
