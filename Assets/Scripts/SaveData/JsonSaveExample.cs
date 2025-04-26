@@ -16,6 +16,8 @@ public class JsonSaveExample : MonoBehaviour
     private static JsonSaveExample instance;
     public string playerName = "DefaultPlayer";
     public int lastCoins = 0;
+    public bool rudolfUpdate = false; // reference this variable so the game determines if it was unlocked already or not 
+    public bool mrsClauseUpdate = false; // reference this variable so the game determines if it was unlocked already or not 
 
     //public CollectableManager manager;
     private string path;  // Declared at class level
@@ -23,7 +25,14 @@ public class JsonSaveExample : MonoBehaviour
     private string lastPlayerName;
     private int lastHighScore;
     public int totalCoins;
-
+    public void unlockRudolf()
+    {
+        rudolfUpdate = true;
+    }  
+    public void unlocmrsClause()
+    {
+        rudolfUpdate = true;
+    }
     void Awake()
     {
         if (instance != null && instance != this)
@@ -81,7 +90,14 @@ public class JsonSaveExample : MonoBehaviour
             return;
         }
 
-        GameSaveData saveData = new GameSaveData { playerName = playerName, coinsCollected = totalCoins };
+        GameSaveData saveData = new GameSaveData
+        { 
+            playerName = playerName,
+            coinsCollected = totalCoins,
+            // save current state of character unlock
+            rudolf = rudolfUpdate,
+            mrsClause = mrsClauseUpdate,
+        };
         string json = JsonUtility.ToJson(saveData);
         File.WriteAllText(path, json);
 
@@ -102,6 +118,9 @@ public class JsonSaveExample : MonoBehaviour
             GameSaveData loadedData = JsonUtility.FromJson<GameSaveData>(jsonData);
             playerName = loadedData.playerName;
             totalCoins = loadedData.coinsCollected;
+            // Keep track of variables updated
+            mrsClauseUpdate = loadedData.mrsClause; 
+            rudolfUpdate = loadedData.rudolf;
             Debug.Log($"JSON Loaded: {playerName}, {lastCoins}");
         }
     }
