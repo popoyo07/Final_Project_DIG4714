@@ -21,6 +21,7 @@ public class CollectableManager : ScriptableObject
     {
         
       coin_count++;
+
         
     }
 

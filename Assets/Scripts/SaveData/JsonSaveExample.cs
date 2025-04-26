@@ -50,7 +50,7 @@ public class JsonSaveExample : MonoBehaviour
         // Need to add a way to reset data
     }
 
-    void SaveData()
+    public void SaveData()
     {
         if (string.IsNullOrEmpty(path))  // ✅ Safety check
         {

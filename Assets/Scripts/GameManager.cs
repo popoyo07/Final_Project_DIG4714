@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance {  get; private set; }
+    public static GameManager instance;
     // 
     private void Awake()
     {
@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
          * if Instance isn't referencing this script, reference this script
          * if Instance isn't referencing anything, reference this script
          */
-        if(Instance != null && Instance != this)
+        if(instance != null && instance != this)
         {
             Destroy(this);
         }
         else
         {
-            Instance = this;
+            instance = this;
         }
         
     }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 555986106300211753}
   - component: {fileID: 5480978370158450364}
   - component: {fileID: 8898400485780524980}
-  - component: {fileID: 6234207213589964596}
   - component: {fileID: 2781012706025893402}
   - component: {fileID: 2770850079442080061}
   m_Layer: 0
@@ -86,29 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6234207213589964596
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78361053904411038}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!135 &2781012706025893402
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -144,3 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CM: {fileID: 11400000, guid: 46c3a25870635ab4d815fe6557f1a80c, type: 2}
   player: {fileID: 0}
+  saveData: {fileID: 0}

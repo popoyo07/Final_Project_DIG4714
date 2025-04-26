@@ -26,6 +26,7 @@ public class Collectable : MonoBehaviour
             {
                 CM.AddCount();
                 saveData.lastCoins++;
+                saveData.SaveData();
             }
 
             if (this.gameObject.CompareTag("XP"))
