@@ -6985,7 +6985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 208171228653515388, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430892570396788212, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_TagString
@@ -6993,7 +6993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1315843797515325692, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: XPImage
@@ -7009,7 +7009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5323297681215054453, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6002787235492081424, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: vcam
@@ -7017,7 +7017,7 @@ PrefabInstance:
       objectReference: {fileID: 44782322}
     - target: {fileID: 7128484937307788876, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

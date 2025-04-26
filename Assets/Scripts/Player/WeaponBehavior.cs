@@ -88,7 +88,10 @@ public class WeaponBehavior : MonoBehaviour
         rotating = false; // desable rotation
 
         if(c1 != null)
-        c1.enabled = false;
+        {
+            c1.enabled = false;
+
+        }
 
         yield return new WaitForSeconds(waitSeconds); // attack cool down 
         canAttk = true;
@@ -97,13 +100,15 @@ public class WeaponBehavior : MonoBehaviour
 
     void Attacking()
     {
+        Debug.Log("It is attacking ");
         canAttk = false;
         c1.enabled = true;
        
         if (vfxAttk != null)
         {
             vfxAttk.enabled = true;
-            AudioManager.instance.playSFX(attkSoundClip, transform, weaponVolume);
+            
+          //  AudioManager.instance.playSFX(attkSoundClip, transform, weaponVolume);
             vfxAttk.Play();
         
         }
