@@ -123,9 +123,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelUpUI: {fileID: 2202809873820471340}
+  elf: {fileID: 2167197816489516112, guid: 9f8254ab3178850409e085698e873f9f, type: 3}
+  Strongelf: {fileID: 2860740788117018628, guid: e0ffe4522b7eb1a41b914afa3fcd8fb4, type: 3}
   RandomBuff1: {fileID: 1942900969974358050}
   RandomBuff2: {fileID: 2043761527678693376}
   RandomBuff3: {fileID: 1959105279134944056}
+  bookUnlocked: 0
+  spikesUnlocked: 0
+  spearUnlocked: 0
 --- !u!114 &7275791507360429584
 MonoBehaviour:
   m_ObjectHideFlags: 0

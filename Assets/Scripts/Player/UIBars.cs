@@ -20,6 +20,7 @@ public class UIBars : MonoBehaviour
     public float MaxHealth;
 
     public int PlayerLevel = 0;
+    public float xpMultiplier = 1f;
 
     private PlayerController playerController;
 
@@ -79,7 +80,7 @@ public class UIBars : MonoBehaviour
 
     public void GainXPbar(float xp)
     {
-        currentXP += xp;
+        currentXP += xp * xpMultiplier;
         if (currentXP >= MaxXP) // Check if XP exceeds required amount
         {
             PlayerLevel++;

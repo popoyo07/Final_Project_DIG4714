@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -90,26 +90,28 @@ public class CharacterUnlockUI : MonoBehaviour
         if (characterUnlocked[index])
         {
             Debug.Log($"Character {index + 1} selected. Starting Level Select");
+
             SceneManager.LoadScene("LevelSelect");
-            //start the game
         }
         else if (playerCoins >= characterPrices[index])
         {
+            Debug.Log($"Character {index + 1} unlocked and selected. Starting Level Select");
+
             playerCoins -= characterPrices[index];
+            gameSaveData.totalCoins = playerCoins;
+            gameSaveData.SaveData();
             characterUnlocked[index] = true;
             SaveUnlockData();
             UpdateButtonStates();
-            Debug.Log($"Character {index + 1} unlocked and selected. Starting Level Select");
-            SceneManager.LoadScene("LevelSelect");
-            //start the game
 
+            SceneManager.LoadScene("LevelSelect");
         }
         else
         {
             Debug.Log("Not enough coins to unlock this character.");
-            //Show UI feedback
         }
     }
+
 
 
     private void UpdateButtonStates()
@@ -117,8 +119,7 @@ public class CharacterUnlockUI : MonoBehaviour
         for (int i = 0; i < characterButtons.Length; i++)
         {
             // Determine if the button should be interactable:
-            // It's interactable if the character is already unlocked,
-            // OR if the player has enough coins to afford unlocking it
+            // It's interactable if the character is already unlocked,or if the player has enough coins to afford unlocking it
             bool interactable = characterUnlocked[i] || playerCoins >= characterPrices[i];
 
             // Set the interactable state of the button accordingly

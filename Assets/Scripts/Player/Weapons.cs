@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class Weapons : MonoBehaviour
 {
@@ -11,9 +12,12 @@ public class Weapons : MonoBehaviour
     public bool bookAttack ;
     public bool spearAttack;
 
-
     [Header(" Weapon References")]
     public GameObject[] weapons;
+
+    [Header(" Unlock weapons References")]
+    public GameObject Canvas;
+    private LevelUpCanvas levelUpCanvas;
 
     [Header(" Area Attk ")]
     public float w1AttackRateSec; // how often in seconds the attack is happening
@@ -45,6 +49,13 @@ public class Weapons : MonoBehaviour
 
     private void Update()
     {
+        bookAttack = levelUpCanvas.bookUnlocked;
+        //spearAttack = levelUpCanvas.spearUnlocked;
+        spikesAttack = levelUpCanvas.spikesUnlocked;
+       /* Debug.Log("Book " + bookAttack);
+        Debug.Log("spear " + spearAttack);
+        Debug.Log("spikes " + spikesAttack);*/
+
         weapons[0].SetActive(baseAttack);        
         weapons[1].SetActive(bookAttack);        
         weapons[2].SetActive(spikesAttack);        
@@ -70,6 +81,19 @@ public class Weapons : MonoBehaviour
         WeaponAttDuration["BookAttack"] = w2AttkDuration;
         WeaponAttDuration["SpearAttack"] = w3AttkDuration;
         WeaponAttDuration["SpikesAttack"] = w4AttkDuration;
+
+        // Enable Attack
+        baseAttack = true;
+        spikesAttack = false;
+        spearAttack = false;
+        bookAttack = false;
+
+        // Reference Canvas
+        levelUpCanvas = Canvas.GetComponent<LevelUpCanvas>();
+        if (levelUpCanvas == null)
+        {
+            Debug.Log("No canvas");
+        }
     }
     public void UpdateWeaponDMG(string weaponType, float newDamage) // adds more damage to current dmg  
     {
