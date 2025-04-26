@@ -10,6 +10,7 @@ public class GameSaveData
 
 public class JsonSaveExample : MonoBehaviour
 {
+    private static JsonSaveExample instance;
     public string playerName = "DefaultPlayer";
     public int lastCoins = 0;
 
@@ -21,6 +22,14 @@ public class JsonSaveExample : MonoBehaviour
 
     void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
         path = Application.persistentDataPath + "/gamesave.json";  // ✅ Initialize early
     }
 
