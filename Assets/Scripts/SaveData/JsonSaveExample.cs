@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class GameSaveData
 {
     public string playerName;
     public int coinsCollected;
+    public bool rudolf;
+    public bool mrsClause;
 }
 
 public class JsonSaveExample : MonoBehaviour
@@ -19,6 +22,7 @@ public class JsonSaveExample : MonoBehaviour
 
     private string lastPlayerName;
     private int lastHighScore;
+    public int totalCoins;
 
     void Awake()
     {
@@ -29,6 +33,7 @@ public class JsonSaveExample : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
         path = Application.persistentDataPath + "/gamesave.json";  // ✅ Initialize early
     }
@@ -37,14 +42,22 @@ public class JsonSaveExample : MonoBehaviour
     {
         LoadData(); // Load existing data
     }
-
+    public void addCoinsEnd() // reference when player loses to save new coins ammount 
+    {
+        totalCoins += lastCoins;
+    }
     void Update()
     {
-        if (playerName != lastPlayerName || lastCoins != lastHighScore)
+        string theName = SceneManager.GetActiveScene().name;
+        if ( theName == "MainManu" || theName == "SelectScene")
+        {
+            lastCoins = 0;
+        }
+        if (playerName != lastPlayerName) // might remove entirely 
         {
             SaveData();
             lastPlayerName = playerName;
-            lastHighScore = lastCoins;
+            //totalCoins = lastCoins;
         }
 
         if (Input.GetKeyDown(KeyCode.L))
@@ -55,6 +68,7 @@ public class JsonSaveExample : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) // reset game data 
         {
             ResetData();
+            LoadData();
         }
         // Need to add a way to reset data
     }
@@ -67,7 +81,7 @@ public class JsonSaveExample : MonoBehaviour
             return;
         }
 
-        GameSaveData saveData = new GameSaveData { playerName = playerName, coinsCollected = lastCoins };
+        GameSaveData saveData = new GameSaveData { playerName = playerName, coinsCollected = totalCoins };
         string json = JsonUtility.ToJson(saveData);
         File.WriteAllText(path, json);
 
@@ -87,7 +101,7 @@ public class JsonSaveExample : MonoBehaviour
             string jsonData = File.ReadAllText(path);
             GameSaveData loadedData = JsonUtility.FromJson<GameSaveData>(jsonData);
             playerName = loadedData.playerName;
-            lastCoins = loadedData.coinsCollected;
+            totalCoins = loadedData.coinsCollected;
             Debug.Log($"JSON Loaded: {playerName}, {lastCoins}");
         }
     }

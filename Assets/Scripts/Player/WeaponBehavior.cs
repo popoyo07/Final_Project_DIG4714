@@ -26,7 +26,7 @@ public class WeaponBehavior : MonoBehaviour
     [SerializeField] private float weaponVolume;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         attk = gameObject.name;
         player = GameObject.FindWithTag("Player");
@@ -36,7 +36,6 @@ public class WeaponBehavior : MonoBehaviour
         c1 = GetComponent<Collider>();
         canAttk = true; 
 
-        theDMG = w.WeaponDMG[attk];
     }
 
     // Update is called once per frame
@@ -100,6 +99,7 @@ public class WeaponBehavior : MonoBehaviour
 
     void Attacking()
     {
+        theDMG = w.WeaponDMG[attk];
         Debug.Log("It is attacking ");
         canAttk = false;
         c1.enabled = true;

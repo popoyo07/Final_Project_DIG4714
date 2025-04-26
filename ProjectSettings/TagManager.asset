@@ -12,6 +12,8 @@ TagManager:
   - enemy
   - Snowman
   - SpawnPoint
+  - XP
+  - coin
   layers:
   - Default
   - TransparentFX
