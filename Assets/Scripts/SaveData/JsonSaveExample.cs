@@ -31,7 +31,7 @@ public class JsonSaveExample : MonoBehaviour
     }  
     public void unlocmrsClause()
     {
-        rudolfUpdate = true;
+        mrsClauseUpdate = true;
     }
     void Awake()
     {

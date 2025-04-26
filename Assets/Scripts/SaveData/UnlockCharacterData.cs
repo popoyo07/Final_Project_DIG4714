@@ -87,18 +87,33 @@ public class CharacterUnlockUI : MonoBehaviour
 
     private void OnCharacterButtonClicked(int index)
     {
+        // If character is unlocked
         if (characterUnlocked[index])
         {
             Debug.Log($"Character {index + 1} selected. Starting Level Select");
-
             SceneManager.LoadScene("LevelSelect");
         }
+
+        // If there is enough coin to unlock character
         else if (playerCoins >= characterPrices[index])
         {
             Debug.Log($"Character {index + 1} unlocked and selected. Starting Level Select");
 
+            // Player coins calculation
             playerCoins -= characterPrices[index];
             gameSaveData.totalCoins = playerCoins;
+
+            // Update unlock variables based on index
+            if (index == 1)
+            {
+                gameSaveData.unlockRudolf();
+            }
+            else if (index == 2)
+            {
+                gameSaveData.unlocmrsClause();
+            }
+
+            // Save current data
             gameSaveData.SaveData();
             characterUnlocked[index] = true;
             SaveUnlockData();
@@ -106,6 +121,8 @@ public class CharacterUnlockUI : MonoBehaviour
 
             SceneManager.LoadScene("LevelSelect");
         }
+
+        // If not enough coin to unlock
         else
         {
             Debug.Log("Not enough coins to unlock this character.");
