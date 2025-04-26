@@ -22,6 +22,8 @@ public class WorldScrolling : MonoBehaviour
     private void Awake()
     {
         terrainTiles = new GameObject[terrainTileHorizontalCount, terrainTileVerticalCount];
+        print("Array Row Length: " + terrainTiles.GetLength(0));
+        print("Array Column Length: " + terrainTiles.GetLength(1));
     }
 
     private void Update()
@@ -50,7 +52,8 @@ public class WorldScrolling : MonoBehaviour
                 //Debug.Log("Tile to update X: " + tileToUpdate_x + ", Tile to update Z: " + tileToUpdate_z);
 
                 GameObject tile = terrainTiles[tileToUpdate_x, tileToUpdate_z];
-                tile.transform.position = CalculateTilePosition(playerTilePosition.x + pov_x, playerTilePosition.z + pov_z);
+                if(tile != null)
+                    tile.transform.position = CalculateTilePosition(playerTilePosition.x + pov_x, playerTilePosition.z + pov_z);
             }
         }
     }
@@ -89,8 +92,10 @@ public class WorldScrolling : MonoBehaviour
 
     public void Add(GameObject tileGameObject, Vector3Int tilePosition)
     {
-        //Debug.Log("Adding " + tileGameObject.name + " from position (" + tilePosition.x + ", " + tilePosition.z + ")");
-        terrainTiles[tilePosition.x + (terrainTileHorizontalCount / 2), tilePosition.z + (terrainTileVerticalCount / 2)] = tileGameObject;
+        int indexCol = tilePosition.x + (terrainTileHorizontalCount / 2);
+        int indexRow = tilePosition.z + (terrainTileVerticalCount / 2);
+        Debug.Log("Adding " + tileGameObject.name + " from position (" + tilePosition.x + ", " + tilePosition.z + ") to index [" + indexRow + ", " + indexCol + "]");
+        terrainTiles[indexRow, indexCol] = tileGameObject;
     }
 
     private void PrintArray(GameObject[,] arr)
