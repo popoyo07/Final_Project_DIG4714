@@ -24,6 +24,8 @@ public class LevelUpCanvas : MonoBehaviour
     public bool spikesUnlocked;
     public bool spearUnlocked;
 
+    public GameObject[] allPlayers;
+
 
     // List to store the current random buff choices
     private List<Buff> currentBuffChoices;
@@ -66,7 +68,14 @@ public class LevelUpCanvas : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        foreach (GameObject p in allPlayers)
+        {
+            if (p.CompareTag("Player"))
+            {
+                player = p;
+                break;
+            }
+        }
         weapons = player.GetComponent<Weapons>();
         UIBars = player.GetComponent<UIBars>();
         LevelUpUI.SetActive(false);

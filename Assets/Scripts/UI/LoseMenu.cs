@@ -9,11 +9,22 @@ public class LoseMenu : MonoBehaviour
     private GameObject player;
     private JsonSaveExample save;
     bool added;
+
+    public GameObject[] allPlayers;
+
+
     // Start is called before the first frame update
     void Start()
     {
         save = GameObject.FindWithTag("GameManager").GetComponent<JsonSaveExample>();
-        player = GameObject.FindWithTag("Player");
+        foreach (GameObject p in allPlayers)
+        {
+            if (p.CompareTag("Player"))
+            {
+                player = p;
+                break;
+            }
+        }
         UIBars = player.GetComponent<UIBars>();
         LoseScene.SetActive(false);
     }
@@ -23,6 +34,8 @@ public class LoseMenu : MonoBehaviour
     {
         if (UIBars.playerAlive == false)
         {
+            Debug.LogWarning(UIBars.playerAlive);
+
             if (!added)
             {
                 added = true;
