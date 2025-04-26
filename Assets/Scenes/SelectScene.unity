@@ -816,10 +816,12 @@ MonoBehaviour:
   - {fileID: 1548998814}
   - {fileID: 2133346324}
   - {fileID: 1208107703}
-  characterPrices: 0000000064000000c8000000
+  characterPrices: 000000001400000064000000
   gameSaveData:
     playerName: 
     coinsCollected: 0
+    rudolf: 0
+    mrsClause: 0
   playerCoins: 0
 --- !u!114 &956825060
 MonoBehaviour:
