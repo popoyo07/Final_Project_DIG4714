@@ -60,7 +60,7 @@ public class UIBars : MonoBehaviour
     {
         currentHealth = playerController.health;
 
-        if (currentHealth < 0f) 
+        if (currentHealth <= 0f) 
         {
             playerAlive = false;
         }

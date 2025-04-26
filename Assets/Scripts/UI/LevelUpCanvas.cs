@@ -11,7 +11,6 @@ public class LevelUpCanvas : MonoBehaviour
     public GameObject LevelUpUI;
     private UIBars UIBars;
     private GameObject player;
-    public GameObject LoseScene;
 
     public TextMeshProUGUI RandomBuff1;
     public TextMeshProUGUI RandomBuff2;
@@ -49,7 +48,6 @@ public class LevelUpCanvas : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         UIBars = player.GetComponent<UIBars>();
         LevelUpUI.SetActive(false);
-        LoseScene.SetActive(false);
     }
 
     // Update is called once per frame
@@ -60,13 +58,6 @@ public class LevelUpCanvas : MonoBehaviour
             ShowLevelUp();
             RandomBuff();
             UIBars.leveledUp = false;
-        }
-
-        if (!UIBars.playerAlive)
-        {
-            LoseScene.SetActive(true);
-            Time.timeScale = 0f;
-
         }
     }
 
