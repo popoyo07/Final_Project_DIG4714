@@ -11,6 +11,7 @@ public class LoseMenu : MonoBehaviour
     bool added;
 
     public GameObject[] allPlayers;
+    private PlayerController playerController;
 
 
     // Start is called before the first frame update
@@ -26,15 +27,17 @@ public class LoseMenu : MonoBehaviour
             }
         }
         UIBars = player.GetComponent<UIBars>();
+        playerController = player.GetComponent<PlayerController>();
+
         LoseScene.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (UIBars.playerAlive == false)
+/*        if (UIBars.playerAlive == false)
         {
-            Debug.LogWarning(UIBars.playerAlive);
+            Debug.LogWarning(UIBars.playerAlive + "playerController.health current health:" + playerController.health + "UI bar currentHealth:" + UIBars.currentHealth);
 
             if (!added)
             {
@@ -46,6 +49,6 @@ public class LoseMenu : MonoBehaviour
             LoseScene.SetActive(true);
             Time.timeScale = 0f;
 
-        }
+        }*/
     }
 }
