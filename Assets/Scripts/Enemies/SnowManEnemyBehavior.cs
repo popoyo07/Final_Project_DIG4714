@@ -17,6 +17,7 @@ public class SnowManEnemyBehavior : MonoBehaviour
     private float snowballtime;
 
     public GameObject snowball;
+    [SerializeField] GameObject snowballVFXObject;
     public Transform spawnPoint;
     [SerializeField] private float stopDistance;
     private Weapons weapon;
@@ -36,6 +37,11 @@ public class SnowManEnemyBehavior : MonoBehaviour
         snowman_animator = GetComponent<Animator>();
         weapon = player.GetComponent<Weapons>();
 
+    }
+
+    private void Start()
+    {
+        Instantiate(snowballVFXObject, new Vector3(0,1000,0), Quaternion.identity);
     }
 
     private void Update()

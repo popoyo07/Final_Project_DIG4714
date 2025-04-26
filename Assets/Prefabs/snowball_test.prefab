@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowball_dmg: 2.5
   velocity: 2
+  snowburstGameObject: {fileID: 790230409614280360, guid: 8967a28372ee0474ea3bd0f551e26245, type: 3}
 --- !u!54 &8167660356945389510
 Rigidbody:
   m_ObjectHideFlags: 0

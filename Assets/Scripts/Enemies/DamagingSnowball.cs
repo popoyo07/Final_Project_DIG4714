@@ -20,7 +20,7 @@ public class DamagingSnowball : MonoBehaviour
     Vector3 direction;
 
     //particle system
-    GameObject snowburstGameObject;
+   GameObject snowburstGameObject;
     VisualEffect snowburst;
     private void Awake()
     {
@@ -31,10 +31,15 @@ public class DamagingSnowball : MonoBehaviour
         uiBars = player.GetComponent<UIBars>();
         s_rigidbody = GetComponent<Rigidbody>();
 
-        snowburstGameObject = GameObject.Find("SnowBurst");
-        snowburst = snowburstGameObject.GetComponent<VisualEffect>();
+        
 
         target = GameObject.Find("snowballtarget").GetComponent<Transform>();
+    }
+
+    private void Start()
+    {
+        snowburstGameObject = GameObject.Find("SnowBurst(Clone)");
+        snowburst = snowburstGameObject.GetComponent<VisualEffect>();
     }
 
     private void FixedUpdate()
