@@ -39,7 +39,7 @@ public class LoseMenu : MonoBehaviour
     void Update()
     {
 
-        if (UIBars.playerAlive == false)
+/*        if (UIBars.playerAlive == false)
         {
             Debug.LogWarning(UIBars.playerAlive + "playerController.health current health:" + playerController.health + "UI bar currentHealth:" + UIBars.currentHealth);
             musicManager.PauseMusic();
@@ -55,6 +55,6 @@ public class LoseMenu : MonoBehaviour
             coinCollected.text = "Coin Collected: " + save.lastCoins.ToString();
             Time.timeScale = 0f;
 
-        }
+        }*/
     }
 }
