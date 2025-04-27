@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,8 +6,15 @@ public class MusicManager : MonoBehaviour
 {
     private static MusicManager backgroundMusic;
 
-    // List of scene names where the music should continue
-    public string[] allowedScenes;
+    [System.Serializable]
+    public class SceneAudio
+    {
+        public List<string> sceneNames;
+        public AudioSource audioSource;
+    }
+
+
+    public SceneAudio[] sceneAudios;
 
     void Awake()
     {
@@ -31,24 +39,54 @@ public class MusicManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    void Start()
+    {
+        PlayMusicForScene(SceneManager.GetActiveScene().name);
+    }
+
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        bool allowed = false;
+        PlayMusicForScene(scene.name);
+    }
 
-        // Check if the current scene is one of the allowed ones
-        foreach (string sceneName in allowedScenes)
+    private void PlayMusicForScene(string sceneName)
+    {
+        foreach (SceneAudio sa in sceneAudios)
         {
-            if (scene.name == sceneName)
+            if (sa.audioSource == null) continue;
+
+            if (sa.sceneNames.Contains(sceneName)) // now check if list contains
             {
-                allowed = true;
-                break;
+                sa.audioSource.gameObject.SetActive(true);
+                sa.audioSource.Play();
+            }
+            else
+            {
+                sa.audioSource.Stop();
+                sa.audioSource.gameObject.SetActive(false);
             }
         }
+    }
 
-        // If not allowed, destroy the music manager
-        if (!allowed)
+    public void PauseMusic()
+    {
+        foreach (SceneAudio sa in sceneAudios)
         {
-            Destroy(gameObject);
+            if (sa.audioSource != null && sa.audioSource.isPlaying)
+            {
+                sa.audioSource.Pause();
+            }
+        }
+    }
+
+    public void ResumeMusic()
+    {
+        foreach (SceneAudio sa in sceneAudios)
+        {
+            if (sa.audioSource != null && sa.audioSource.gameObject.activeSelf)
+            {
+                sa.audioSource.UnPause();
+            }
         }
     }
 }

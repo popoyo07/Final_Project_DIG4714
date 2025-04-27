@@ -13,7 +13,6 @@ public class LoseMenu : MonoBehaviour
     public GameObject[] allPlayers;
     private PlayerController playerController;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +27,6 @@ public class LoseMenu : MonoBehaviour
         }
         UIBars = player.GetComponent<UIBars>();
         playerController = player.GetComponent<PlayerController>();
-
         LoseScene.SetActive(false);
     }
 

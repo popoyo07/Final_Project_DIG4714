@@ -7,9 +7,11 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public GameObject pauseMenu;
     bool isPaused = false;
+    private MusicManager musicManager;
 
     void Start()
     {
+        musicManager = FindObjectOfType<MusicManager>();
         pauseMenu.SetActive(isPaused);
     }
 
@@ -27,6 +29,7 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         pauseMenu.SetActive(isPaused);
         Time.timeScale = 1.0f;
+        musicManager.ResumeMusic();
     }
 
     void PauseGame()
@@ -34,5 +37,6 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         pauseMenu.SetActive(isPaused);
         Time.timeScale = 0f;
+        musicManager.PauseMusic();
     }
 }

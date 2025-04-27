@@ -1131,9 +1131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091205258a004cd4ca43358f7164bb82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedScenes:
-  - SelectScene
-  - LevelSelect
+  sceneAudios:
+  - sceneName: 
+    audioSource: {fileID: 0}
 --- !u!82 &1294237653
 AudioSource:
   m_ObjectHideFlags: 0

@@ -14,6 +14,8 @@ public class LevelUpCanvas : MonoBehaviour
     private UIBars UIBars;
     private GameObject player;
     private Weapons weapons;
+    private MusicManager musicManager;
+
 
     [Header("3 Random Buffs")]
     public TextMeshProUGUI RandomBuff1;
@@ -81,6 +83,7 @@ public class LevelUpCanvas : MonoBehaviour
         }
         weapons = player.GetComponent<Weapons>();
         UIBars = player.GetComponent<UIBars>();
+        musicManager = FindObjectOfType<MusicManager>();
         LevelUpUI.SetActive(false);
     }
 
@@ -103,12 +106,15 @@ public class LevelUpCanvas : MonoBehaviour
     public void ShowLevelUp()
     {
         LevelUpUI.SetActive(true);
+        musicManager.PauseMusic();
+
         Time.timeScale = 0f;
     }
 
     public void Resume()
     {
         LevelUpUI.SetActive(false);
+        musicManager.ResumeMusic();
         Time.timeScale = 1f;
     }
 
