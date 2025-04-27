@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -41,8 +42,9 @@ public class WeaponBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (rotating) 
+        if (rotating) // only enabled for 1 weapon
         {
+            // rotates on player axis 
             transform.RotateAround(player.transform.position, rotationAxis, rotationSpeed * Time.deltaTime);
         }
 
@@ -57,6 +59,7 @@ public class WeaponBehavior : MonoBehaviour
     }
     IEnumerator AttckRate(float waitSeconds, string attackName, float attackDuuration)
     {
+        // takes in consideration the player name to determine which attack should do
         switch (attackName)
         {
             case "AreaAttack":
@@ -80,6 +83,7 @@ public class WeaponBehavior : MonoBehaviour
 
         if (vfxAttk != null)
         {
+            // stops vfx if aplicable 
             vfxAttk.Stop();
             vfxAttk.enabled = false;
         }
@@ -88,6 +92,7 @@ public class WeaponBehavior : MonoBehaviour
 
         if(c1 != null)
         {
+            // desable collider if aplicable    
             c1.enabled = false;
 
         }
@@ -99,7 +104,8 @@ public class WeaponBehavior : MonoBehaviour
 
     void Attacking()
     {
-        theDMG = w.WeaponDMG[attk];
+        // enable collidera and set dmg
+        theDMG = w.WeaponDMG[attk]; // dmg is set here because it's value can be changed over time
         Debug.Log("It is attacking ");
         canAttk = false;
         c1.enabled = true;

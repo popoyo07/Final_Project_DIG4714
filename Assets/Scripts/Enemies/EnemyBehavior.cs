@@ -8,7 +8,6 @@ public class EnemyBehavior : MonoBehaviour
 {
     public GameObject coins;
     public GameObject player;
-    //public string typeOfWeapon;
     public string typeOfEnemy;
     public Weapons weapon;
     Animator elf_animator;
@@ -31,9 +30,10 @@ public class EnemyBehavior : MonoBehaviour
         elf_animator = GetComponent<Animator>();
         typeOfEnemy = gameObject.tag;
         player = GameObject.FindWithTag("Player");
-        // add any componnets you need in here
+
+        // add any extra componnets you need in here
         playerController = player.GetComponent<PlayerController>();
-        //gent = GetComponent<NavMeshAgent>();
+        
         uiBars = player.GetComponent<UIBars>(); // Get UI reference
         weapon = player.GetComponent<Weapons>();
         
@@ -51,16 +51,17 @@ public class EnemyBehavior : MonoBehaviour
     void Update()
     {
 
-         Chase(speed);// use the variable inside the Dictionary
+         Chase(speed);// use the variable inside the Enemy script attached to enemy manager 
 
             
 
-          CheckHealth();
+          CheckHealth();// determines if enemy shoudl stay allive or die 
 
      }
 
     public void Chase(float enemySpeed)
     {
+        // pull behavior 
         Vector3 direction = (player.transform.position - transform.position).normalized;
         rb.MovePosition(transform.position + direction * enemySpeed * Time.deltaTime);
         transform.LookAt(player.transform.position);
@@ -121,7 +122,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if (health <= 0)
         {
-            Instantiate(coins, transform.position, transform.rotation);
+            Instantiate(coins, transform.position, transform.rotation); // instantiate a coin 
             uiBars.GainXPbar(2f);
             uiBars.GainUltBar(2f);
             Destroy(this.gameObject);
@@ -135,7 +136,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player")) // hange animations 
         {
             elf_animator.SetBool("isAttacking", false);
         }

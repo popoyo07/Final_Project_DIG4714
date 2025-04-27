@@ -5,9 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     GameManager gameManager;
-    //private bool[] playerChoice;
     [SerializeField]GameObject[] players;
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -15,14 +13,13 @@ public class PlayerManager : MonoBehaviour
     }
     void Start()
     {
+        //  depending on which integer player character is chsoen,
+        //  it will determine which player game object will be enabled 
         if (gameManager != null)
         {
             players[0].SetActive(false);
             players[1].SetActive(false);
             players[2].SetActive(false);
-            // playerChoice[1] = false;
-            // playerChoice[2] = false;
-            // playerChoice[gameManager.pChoice] = true;
 
             players[gameManager.pChoice].SetActive(true);
             Debug.LogWarning(players[gameManager.pChoice]);
