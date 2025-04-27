@@ -8,22 +8,24 @@ using System.Linq;
 
 public class LevelUpCanvas : MonoBehaviour
 {
+
+    // References
     public GameObject LevelUpUI;
     private UIBars UIBars;
     private GameObject player;
     private Weapons weapons;
-    private EnemyBehavior elfBehavior;
-    private EnemyBehavior StrongelfBehavior;
 
+    [Header("3 Random Buffs")]
     public TextMeshProUGUI RandomBuff1;
     public TextMeshProUGUI RandomBuff2;
     public TextMeshProUGUI RandomBuff3;
-    
 
+    [Header("3 Different weapons")]
     public bool bookUnlocked;
     public bool spikesUnlocked;
     public bool spearUnlocked;
 
+    [Header("Player")]
     public GameObject[] allPlayers;
 
 
@@ -68,6 +70,7 @@ public class LevelUpCanvas : MonoBehaviour
 
     void Start()
     {
+        // Search each GameObject in the allPlayers array 
         foreach (GameObject p in allPlayers)
         {
             if (p.CompareTag("Player"))
@@ -136,9 +139,7 @@ public class LevelUpCanvas : MonoBehaviour
         // Remove buffs that can't be applied
         allBuffs = allBuffs.Where(buff =>
             // Don't show "Unlock" buffs if already unlocked
-            (buff.type != BuffType.BookUnlock || !bookUnlocked) &&
-            (buff.type != BuffType.SpikesUnlock || !spikesUnlocked) &&
-            (buff.type != BuffType.SpearUnlock || !spearUnlocked) &&
+            (buff.type != BuffType.BookUnlock || !bookUnlocked) && (buff.type != BuffType.SpikesUnlock || !spikesUnlocked) && (buff.type != BuffType.SpearUnlock || !spearUnlocked) &&
 
             // Remove damage, rate, duration buffs if their attack is not unlocked
             (bookUnlocked || !(buff.type == BuffType.BookDamage || buff.type == BuffType.BookRate || buff.type == BuffType.BookDuration)) &&
@@ -146,7 +147,7 @@ public class LevelUpCanvas : MonoBehaviour
             (spearUnlocked || !(buff.type == BuffType.SpearDamage || buff.type == BuffType.SpearRate || buff.type == BuffType.SpearDuration))
         ).ToList();
 
-        // Shuffle :D
+        // Shuffle the buffs in the list
         currentBuffChoices = allBuffs.OrderBy(b => Random.value).Take(3).ToList();
 
         RandomBuff1.text = currentBuffChoices[0].description;
@@ -223,13 +224,12 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UpdateWeaponDuration("AreaAttack", weapons.WeaponAttDuration["AreaAttack"] * 0.03f);
                 break;
 
-
             case BuffType.IncreaseSpeed:
                 break;
 
             case BuffType.BonusXP:
                 Debug.Log("Gained XP Buff");
-                UIBars.xpMultiplier += 0.5f; // +50% XP
+                UIBars.xpMultiplier += 0.1f; // +10% XP
                 break;
 
         }
@@ -241,8 +241,7 @@ public class LevelUpCanvas : MonoBehaviour
         Debug.Log("SelectBuff called with index: " + index);
         Buff selectedBuff = currentBuffChoices[index];
         ApplyBuff(selectedBuff.type);
-
-        Resume(); // << ADD THIS
+        Resume();
     }
 
 
