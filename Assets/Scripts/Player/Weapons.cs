@@ -6,7 +6,7 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class Weapons : MonoBehaviour
 {
-    [Header(" Weapon Enabler")]
+    [Header(" Weapon Enabler")] // reference to enable or disable weapons 
     public bool spikesAttack;
     public bool baseAttack;
     public bool bookAttack ;
@@ -30,7 +30,7 @@ public class Weapons : MonoBehaviour
     public float w2AttkDuration;
     //GameObject weapon2;
 
-    [Header(" Projectile Attk")]
+    [Header(" Projectile Attk")] 
     public float w3AttackRateSec;
     public float w3AttackDMG;
     public float w3AttkDuration;

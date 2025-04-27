@@ -6,23 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    string currentScene;
-    public int pChoice = 4;
+
+    public int pChoice = 4;  // for now is only histing the variable    
     //public bool[] playerChoice;
     // 
-    private void Awake()
-    {
-
-        
-    }
-
-    private void Update()
-    {
-      // currentScene = SceneManager.GetActiveScene().name;
-     
-
-  
-    }
 
 
 

@@ -6,8 +6,10 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public static Enemy theInstance;
+    public static Enemy theInstance; // reference the instance on scripts when you need to acces to this info 
 
+    // the idea is to be able to set all this values on inspector,
+    // so we can keep track of the enemy stars more easily 
     [Header("Snow Man Enemy")]
     public int SnowManHealth;
     public int SnowManDMG;
@@ -51,15 +53,15 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public float TheEnemySpeed(string enemyType)
+    public float TheEnemySpeed(string enemyType) // get enemy speed 
     {
         return EnemySpeed[enemyType];
     }
-    public int TheEnemyHealth(string enemyType)
+    public int TheEnemyHealth(string enemyType)// get enemy Helth 
     {
         return EnemyHealth[enemyType];
     }
-    public int TheEnemyDMG(string enemyType)
+    public int TheEnemyDMG(string enemyType) // get enemy DMG
     {
         return EnemyDMG[enemyType];
     }

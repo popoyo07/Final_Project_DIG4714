@@ -26,7 +26,7 @@ public class Collectable : MonoBehaviour
             {
                 CM.AddCount();
                 saveData.lastCoins++;
-                saveData.SaveData();
+                saveData.SaveData(); // save the game data because a coin was added to the count 
             }
 
             if (this.gameObject.CompareTag("XP"))
