@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LoseMenu : MonoBehaviour
@@ -8,6 +9,9 @@ public class LoseMenu : MonoBehaviour
     public GameObject LoseScene;
     private GameObject player;
     private JsonSaveExample save;
+    public TextMeshProUGUI coinCollected;
+    private MusicManager musicManager;
+
     bool added;
 
     public GameObject[] allPlayers;
@@ -25,6 +29,7 @@ public class LoseMenu : MonoBehaviour
                 break;
             }
         }
+        musicManager = FindObjectOfType<MusicManager>();
         UIBars = player.GetComponent<UIBars>();
         playerController = player.GetComponent<PlayerController>();
         LoseScene.SetActive(false);
@@ -33,9 +38,11 @@ public class LoseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-/*        if (UIBars.playerAlive == false)
+
+        if (UIBars.playerAlive == false)
         {
             Debug.LogWarning(UIBars.playerAlive + "playerController.health current health:" + playerController.health + "UI bar currentHealth:" + UIBars.currentHealth);
+            musicManager.PauseMusic();
 
             if (!added)
             {
@@ -43,10 +50,11 @@ public class LoseMenu : MonoBehaviour
                 save.addCoinsEnd();
                 save.SaveData();
             }
-           
+
             LoseScene.SetActive(true);
+            coinCollected.text = "Coin Collected: " + save.lastCoins.ToString();
             Time.timeScale = 0f;
 
-        }*/
+        }
     }
 }

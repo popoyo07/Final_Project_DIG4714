@@ -1815,10 +1815,6 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 1018062998198749162, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
-      propertyPath: levelup
-      value: 
-      objectReference: {fileID: 8300000, guid: 9263fe92269135a489964cf825a1bb11, type: 3}
-    - target: {fileID: 1018062998198749162, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
       propertyPath: allPlayers.Array.data[0]
       value: 
       objectReference: {fileID: 5474317377728618713}
@@ -1830,6 +1826,10 @@ PrefabInstance:
       propertyPath: allPlayers.Array.data[2]
       value: 
       objectReference: {fileID: 5474317377728618711}
+    - target: {fileID: 3607757799828579839, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
+      propertyPath: coinCollected
+      value: 
+      objectReference: {fileID: 541542519}
     - target: {fileID: 3607757799828579839, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
       propertyPath: allPlayers.Array.data[0]
       value: 
@@ -1927,6 +1927,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
+--- !u!114 &541542519 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7254811788681203465, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
+  m_PrefabInstance: {fileID: 541542518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &541542520 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6949991398768836, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoseScene: {fileID: 1127256670240267953}
+  coinCollected: {fileID: 0}
   allPlayers:
   - {fileID: 0}
   - {fileID: 0}

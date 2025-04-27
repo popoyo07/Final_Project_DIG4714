@@ -21,7 +21,7 @@ public class CoinCountUI : MonoBehaviour
     void Update()
     {
        // ctext.text = "Coin Count: " + CM.coin_count.ToString();
-        ctext.text = "Coin Count: " + gameSaveData.totalCoins.ToString();
+        ctext.text = "Total Coin: " + gameSaveData.totalCoins.ToString();
 
     }
 }
