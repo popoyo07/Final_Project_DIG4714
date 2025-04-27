@@ -12,9 +12,14 @@ public class Collectable : MonoBehaviour
 
     public JsonSaveExample saveData;
 
+    [Header("SFX")]
+    public AudioClip SFXcoin;
+    AudioSource audioSource;
+
     private void Awake()
     {
         saveData = GameObject.FindWithTag("GameManager").GetComponent<JsonSaveExample>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,17 +29,22 @@ public class Collectable : MonoBehaviour
            
             if (this.gameObject.CompareTag("coin"))
             {
+                audioSource.clip = SFXcoin;
+                audioSource.Play();
                 CM.AddCount();
                 saveData.lastCoins++;
                 saveData.SaveData(); // save the game data because a coin was added to the count 
             }
 
-            if (this.gameObject.CompareTag("XP"))
-            {
-               // CM.AddXP();
-            }
 
-            Destroy(this.gameObject);
+
+            StartCoroutine(DestroyAfterSound());
         }
+    }
+
+    private IEnumerator DestroyAfterSound()
+    {
+        yield return new WaitForSeconds(audioSource.clip.length);
+        Destroy(this.gameObject);
     }
 }
