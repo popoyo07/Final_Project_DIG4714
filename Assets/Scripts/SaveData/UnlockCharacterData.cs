@@ -97,8 +97,6 @@ public class CharacterUnlockUI : MonoBehaviour
         // If there is enough coin to unlock character
         else if (playerCoins >= characterPrices[index])
         {
-            Debug.Log($"Character {index + 1} unlocked and selected. Starting Level Select");
-
             // Player coins calculation
             playerCoins -= characterPrices[index];
             gameSaveData.totalCoins = playerCoins;
@@ -106,11 +104,14 @@ public class CharacterUnlockUI : MonoBehaviour
             // Update unlock variables based on index
             if (index == 1)
             {
-                gameSaveData.unlockRudolf();
+                gameSaveData.unlocmrsClause();
+                Debug.Log($"Character mrsClause unlocked and selected. Starting Level Select");
+
             }
             else if (index == 2)
             {
-                gameSaveData.unlocmrsClause();
+                gameSaveData.unlockRudolf();
+                Debug.Log($"Character Rudolf unlocked and selected. Starting Level Select");
             }
 
             // Save current data
