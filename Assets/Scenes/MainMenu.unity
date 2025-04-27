@@ -6887,7 +6887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Creadit
+  m_text: Credit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 693ae1be73ccbda469bc9f11ee0b15e1, type: 2}
   m_sharedMaterial: {fileID: -4815874957982157363, guid: 693ae1be73ccbda469bc9f11ee0b15e1, type: 2}
