@@ -8,10 +8,10 @@ public class PlayerManager : MonoBehaviour
     //private bool[] playerChoice;
     [SerializeField]GameObject[] players;
     // Start is called before the first frame update
+
     private void Awake()
     {
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-       
     }
     void Start()
     {
@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
             // playerChoice[gameManager.pChoice] = true;
 
             players[gameManager.pChoice].SetActive(true);
+            Debug.LogWarning(players[gameManager.pChoice]);
         }
     }
 
