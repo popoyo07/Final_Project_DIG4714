@@ -1815,6 +1815,10 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 1018062998198749162, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
+      propertyPath: levelup
+      value: 
+      objectReference: {fileID: 8300000, guid: 9263fe92269135a489964cf825a1bb11, type: 3}
+    - target: {fileID: 1018062998198749162, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
       propertyPath: allPlayers.Array.data[0]
       value: 
       objectReference: {fileID: 5474317377728618713}

@@ -15,7 +15,10 @@ public class LevelUpCanvas : MonoBehaviour
     private GameObject player;
     private Weapons weapons;
     private MusicManager musicManager;
+    AudioSource audiosource;
 
+    [Header("SFX")]
+    public AudioClip SFXlevelup;
 
     [Header("3 Random Buffs")]
     public TextMeshProUGUI RandomBuff1;
@@ -84,6 +87,8 @@ public class LevelUpCanvas : MonoBehaviour
         weapons = player.GetComponent<Weapons>();
         UIBars = player.GetComponent<UIBars>();
         musicManager = FindObjectOfType<MusicManager>();
+        audiosource = GetComponent<AudioSource>();
+
         LevelUpUI.SetActive(false);
     }
 
@@ -98,6 +103,8 @@ public class LevelUpCanvas : MonoBehaviour
         {
             ShowLevelUp();
             RandomBuff();
+            audiosource.clip = SFXlevelup;
+            audiosource.Play();
             UIBars.leveledUp = false;
         }
     }

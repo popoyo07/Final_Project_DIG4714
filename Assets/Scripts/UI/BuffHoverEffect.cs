@@ -6,9 +6,14 @@ public class BuffHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     // Assign the corresponding text in Inspector
     public TextMeshProUGUI buffDescription;
+    AudioSource audiosource;
+
+    [Header("SFX")]
+    public AudioClip SFXselectBuffs;
 
     void Start()
     {
+        audiosource = GetComponentInParent<AudioSource>();
         // If buffDescription is assigned, initially hide the text
         if (buffDescription != null)
         {
@@ -23,6 +28,8 @@ public class BuffHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExit
         if (buffDescription != null)
         {
             buffDescription.gameObject.SetActive(true);
+            audiosource.clip = SFXselectBuffs;
+            audiosource.Play();
         }
     }
 
