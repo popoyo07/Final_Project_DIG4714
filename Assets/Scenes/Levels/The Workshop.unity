@@ -933,7 +933,7 @@ MonoBehaviour:
   objectPrefabs:
   - {fileID: 2167197816489516112, guid: 9f8254ab3178850409e085698e873f9f, type: 3}
   - {fileID: 2860740788117018628, guid: e0ffe4522b7eb1a41b914afa3fcd8fb4, type: 3}
-  initialPoolSize: 20
+  initialPoolSize: 50
 --- !u!4 &229425048
 Transform:
   m_ObjectHideFlags: 0
@@ -1427,7 +1427,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
-  - {fileID: 11400000, guid: 4c4cd7407e9d65d4dbb5d8557fa760ce, type: 2}
+  - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
+  - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
+  - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
+  - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
   - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
   playerTarget: {fileID: 866013312}
   enemyPool: {fileID: 229425047}
