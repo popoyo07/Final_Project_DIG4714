@@ -49,17 +49,22 @@ public class Weapons : MonoBehaviour
 
     private void Update()
     {
-        bookAttack = levelUpCanvas.bookUnlocked;
+        /*bookAttack = levelUpCanvas.bookUnlocked;
         //spearAttack = levelUpCanvas.spearUnlocked;
         spikesAttack = levelUpCanvas.spikesUnlocked;
-       /* Debug.Log("Book " + bookAttack);
+        Debug.Log("Book " + bookAttack);
         Debug.Log("spear " + spearAttack);
-        Debug.Log("spikes " + spikesAttack);*/
+        Debug.Log("spikes " + spikesAttack);
 
         weapons[0].SetActive(baseAttack);        
-        weapons[1].SetActive(bookAttack);        
-        weapons[2].SetActive(spikesAttack);        
-        weapons[3].SetActive(spearAttack);        
+        weapons[1].SetActive(bookAttack);
+        Debug.LogWarning("BookAttack" + bookAttack);
+        weapons[2].SetActive(spikesAttack);
+        Debug.LogWarning("spikesAttack" + spikesAttack);
+
+        weapons[3].SetActive(spearAttack);
+        Debug.LogWarning("spikesAttack" + spikesAttack);*/
+
     }
     void Awake()
     {
@@ -95,6 +100,25 @@ public class Weapons : MonoBehaviour
             Debug.Log("No canvas");
         }
     }
+
+    public void UnlockBook()
+    {
+        bookAttack = true;
+        weapons[1].SetActive(true);
+    }
+
+    public void UnlockSpike()
+    {
+        spikesAttack = true;
+        weapons[2].SetActive(true);
+    }
+
+    public void UnlockSpear()
+    {
+        spearAttack = true;
+        weapons[3].SetActive(true);
+    }
+
     public void UpdateWeaponDMG(string weaponType, float newDamage) // adds more damage to current dmg  
     {
         if (WeaponDMG.ContainsKey(weaponType))

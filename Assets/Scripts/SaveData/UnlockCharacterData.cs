@@ -3,11 +3,20 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterUnlockUI : MonoBehaviour
 {
     [Header("Buttons for Characters")]
     public Button[] characterButtons; //place buttons
+
+    [Header("Prices for Characters")]
+    public TextMeshProUGUI mrsClausePrice;
+    public TextMeshProUGUI RudolfPrice;
+
+    [Header("SFX")]
+    public AudioClip SFXwrong;
+    AudioSource audioSource;
 
     [Header("Coin Info")]
     public int[] characterPrices = new int[3]; // Price for characters 0,1,2 (0 is free, always unlocked)
@@ -23,6 +32,7 @@ public class CharacterUnlockUI : MonoBehaviour
     {
         gameSaveData = GameObject.FindWithTag("GameManager").GetComponent<JsonSaveExample>();
         saveFilePath = Application.persistentDataPath + "unlocked_characters.txt";
+        audioSource = GetComponentInParent<AudioSource>();
         //Debug.Log(Application.persistentDataPath); //Check where it saved
         characterUnlocked = new List<bool> { true, false, false }; // Default state
         LoadUnlockData();
@@ -126,6 +136,8 @@ public class CharacterUnlockUI : MonoBehaviour
         // If not enough coin to unlock
         else
         {
+            audioSource.clip = SFXwrong;
+            audioSource.Play();
             Debug.Log("Not enough coins to unlock this character.");
         }
     }
@@ -142,6 +154,16 @@ public class CharacterUnlockUI : MonoBehaviour
 
             // Set the interactable state of the button accordingly
             characterButtons[i].interactable = interactable;
+        }
+
+        // ALSO hide the price text if unlocked
+        if (characterUnlocked[1]) // MrsClause
+        {
+            mrsClausePrice.enabled = false;
+        }
+        if (characterUnlocked[2]) // Rudolf
+        {
+            RudolfPrice.enabled = false;
         }
     }
 

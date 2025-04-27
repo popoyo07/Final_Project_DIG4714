@@ -1927,7 +1927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffDescription: {fileID: 1942900969974358050}
-  SFXselectBuffs: {fileID: 8300000, guid: 0fec10a54ecab3a489a429623ca1b925, type: 3}
+  SFXselectBuffs: {fileID: 8300000, guid: 0a9ffea3ac670764e9c7c91c066060da, type: 3}
 --- !u!1 &3116239509419211938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,7 +2736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffDescription: {fileID: 1959105279134944056}
-  SFXselectBuffs: {fileID: 8300000, guid: 0fec10a54ecab3a489a429623ca1b925, type: 3}
+  SFXselectBuffs: {fileID: 8300000, guid: 0a9ffea3ac670764e9c7c91c066060da, type: 3}
 --- !u!1 &5738237732713849585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,7 +3840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffDescription: {fileID: 2043761527678693376}
-  SFXselectBuffs: {fileID: 8300000, guid: 0fec10a54ecab3a489a429623ca1b925, type: 3}
+  SFXselectBuffs: {fileID: 8300000, guid: 0a9ffea3ac670764e9c7c91c066060da, type: 3}
 --- !u!1 &7796929658989085681
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using UnityEngine.EventSystems;
+
 
 
 public class LevelUpCanvas : MonoBehaviour
@@ -101,12 +103,14 @@ public class LevelUpCanvas : MonoBehaviour
 
         if (UIBars.leveledUp)
         {
-            ShowLevelUp();
-            RandomBuff();
+            ShowLevelUp();          // 1. Open UI
+            EventSystem.current.SetSelectedGameObject(null); // 2. THEN clear selection
+            RandomBuff();           // 3. Assign buffs
             audiosource.clip = SFXlevelup;
             audiosource.Play();
             UIBars.leveledUp = false;
         }
+
     }
 
 
@@ -146,7 +150,7 @@ public class LevelUpCanvas : MonoBehaviour
             new Buff("Base Attack rate decreases by 2%", BuffType.BaseRate),
             new Buff("Base Attack duration increases by 3%", BuffType.BaseDuration),
             new Buff("Speed increases 5%", BuffType.IncreaseSpeed),
-            new Buff("Gain 5% more experience from enemies", BuffType.BonusXP)
+            new Buff("Gain 10% more xp from enemies", BuffType.BonusXP)
     };
 
         // Remove buffs that can't be applied
@@ -176,17 +180,17 @@ public class LevelUpCanvas : MonoBehaviour
         {
             case BuffType.BookUnlock:
                 Debug.Log("Unlocked Book Attack");
-                bookUnlocked = true;
+                weapons.UnlockBook();
                 break;
 
             case BuffType.SpikesUnlock:
                 Debug.Log("Unlocked Spikes Attack");
-                spikesUnlocked = true;
+                weapons.UnlockSpike();
                 break;
 
             case BuffType.SpearUnlock:
                 Debug.Log("Unlocked Spear Attack");
-                spearUnlocked = true;
+                weapons.UnlockSpear();
             break;
 
             case BuffType.BookDamage:
@@ -242,7 +246,7 @@ public class LevelUpCanvas : MonoBehaviour
 
             case BuffType.BonusXP:
                 Debug.Log("Gained XP Buff");
-                UIBars.xpMultiplier += 0.1f; // +10% XP
+                UIBars.xpMultiplier += 0.1f;
                 break;
 
         }
