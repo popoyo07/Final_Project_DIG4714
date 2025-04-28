@@ -48,9 +48,12 @@ public class EnemyBehavior : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        // determine how far player is from the enemy 
+        float distancePlayer = Vector3.Distance(transform.position, player.transform.position); 
 
+        if (distancePlayer > 2f )
          Chase(speed);// use the variable inside the Enemy script attached to enemy manager 
 
             
