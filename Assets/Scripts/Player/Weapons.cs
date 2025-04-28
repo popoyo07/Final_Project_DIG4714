@@ -71,11 +71,12 @@ public class Weapons : MonoBehaviour
 
     }
     // check if the value changed and updates the variable 
-    void checkToUpdateVar(Dictionary<string, float> dictornary, string key, float updatedValue) 
+    void checkToUpdateVar(Dictionary<string, float> dictornary, string key, float oldValue) 
     {
-        if (dictornary[key] != updatedValue) 
+        if (dictornary[key] != oldValue) 
         {
-            dictornary[key] = updatedValue;
+            oldValue =  dictornary[key];
+            Debug.Log("old value is now " + oldValue);
             Debug.Log("Now the value is: " +  dictornary[key]);
         }
     }
@@ -138,7 +139,7 @@ public class Weapons : MonoBehaviour
     {
         if (WeaponDMG.ContainsKey(weaponType))
         {
-            WeaponDMG[weaponType] += newDamage;
+            WeaponDMG[weaponType] = newDamage;
         }
 
 
@@ -148,7 +149,7 @@ public class Weapons : MonoBehaviour
     {
         if (WeaponRateSec.ContainsKey(weaponType))
         {
-            WeaponRateSec[weaponType] -= newRate;
+            WeaponRateSec[weaponType] = newRate;
         }
     }
 
@@ -156,7 +157,7 @@ public class Weapons : MonoBehaviour
     {
         if (WeaponAttDuration.ContainsKey(weaponType))
         {
-            WeaponAttDuration[weaponType] += newDuration;
+            WeaponAttDuration[weaponType] = newDuration;
         }
 
 

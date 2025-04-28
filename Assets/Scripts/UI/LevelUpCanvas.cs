@@ -208,6 +208,7 @@ public class LevelUpCanvas : MonoBehaviour
                 break;
 
             case BuffType.BookDuration:
+                
                 weapons.UpdateWeaponDuration("BookAttack", weapons.WeaponAttDuration["BookAttack"] * 1.03f);
                 break;
 
@@ -216,11 +217,21 @@ public class LevelUpCanvas : MonoBehaviour
                 break;
 
             case BuffType.BaseDamage:
-                weapons.UpdateWeaponDMG("AreaAttack", weapons.WeaponDMG["AreaAttack"] * 1.05f);
+                float newDmg = weapons.WeaponDMG["AreaAttack"] * 1.05f;
+                Debug.Log("Damage should be " +  newDmg);
+                weapons.UpdateWeaponDMG("AreaAttack", newDmg);
+                Debug.Log("Dmg is now " + weapons.WeaponDMG["AreaAttack"]);
                 break;
 
             case BuffType.BaseRate:
-                weapons.UpdateWeaponRate("AreaAttack", weapons.WeaponRateSec["AreaAttack"] * 0.98f);
+                float newRate = weapons.WeaponRateSec["AreaAttack"] * 0.98f;
+
+                Debug.Log("Damage should be " + newRate);
+
+                weapons.UpdateWeaponRate("AreaAttack", newRate);
+
+                Debug.Log("Dmg is now " + weapons.WeaponRateSec["AreaAttack"]);
+
                 break;
 
             case BuffType.BaseDuration:
