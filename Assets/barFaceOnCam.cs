@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class barFaceOnCam : MonoBehaviour
 {
+    //this adds a health bar above player
+  
     Vector3 bar;
 
     void Start()

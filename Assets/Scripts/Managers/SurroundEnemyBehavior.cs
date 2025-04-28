@@ -52,7 +52,7 @@ public class SurroundEnemyBehavior : MonoBehaviour
         float angle = (360f / totalSurroundingEnemies) * myPositionIndex;
         float radian = angle * Mathf.Deg2Rad;
 
-        Vector3 offset = new Vector3(
+        Vector3 offset = new Vector3(           //offset so that they stop at a certain point near player
             Mathf.Cos(radian) * surroundRadius,
             0,
             Mathf.Sin(radian) * surroundRadius
@@ -68,7 +68,7 @@ public class SurroundEnemyBehavior : MonoBehaviour
     }
     private void SlowlyWalkToPlayer()
     {
-
+        
         Vector3 slowMoveDirection = (targetPosition - transform.position);
         transform.position += slowMoveDirection * (moveSpeed / (moveSpeed + 45)) * Time.deltaTime;
     }

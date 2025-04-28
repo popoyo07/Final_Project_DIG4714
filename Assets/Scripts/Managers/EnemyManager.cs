@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour
     public List<WaveData> waves;
     private int currentWaveIndex = 0;
 
-    [Header("Target Settings")]
+    [Header("Target Settings")] //assign player tag parent
     public GameObject playerTarget;
 
     [Header("Object Pool Settings")]
@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour
 
     private void SubscribeToEventManager()
     {
-        //tbh asked chatgpt for help cause i couldn't figure this out. now it works yeehaw
+        //Event manager was null and kept deleting. Had to search beyond to find out how to make sure they stay.
         if (EventManager.Instance != null)
         {
             Debug.Log("[EnemyManager] Successfully subscribed to EventManager events");
@@ -71,7 +71,7 @@ public class EnemyManager : MonoBehaviour
 
             if (waves[currentWaveIndex].enemyPrefab == null)
             {
-                Debug.LogError($"[EnemyManager] Wave {currentWaveIndex + 1} have wavedata but no wavedata assets");
+                Debug.LogError($"[EnemyManager] Wave {currentWaveIndex + 1} have wavedata but no wavedata assets, ASSIGN PREFAB TO THE WAVE DATA ASSETS ANY QUESTIONS ASK TIGER!");
                 return;
             }
 
@@ -97,7 +97,7 @@ public class EnemyManager : MonoBehaviour
 
         if (currentWave.isSurroundWave)
         {
-            EventManager.Instance.ChangeState(EnemyWaveStates.Surrounding);
+            EventManager.Instance.ChangeState(EnemyWaveStates.Surrounding); //change enemy state to a surround wave. This is just a single state that slowly has enemy walk to player
         }
         else
         {
@@ -149,7 +149,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (playerTarget == null)
         {
-            Debug.LogError("[EnemyManager] Player target not set! Please assign in Inspector");
+            Debug.LogError("[EnemyManager] Player target not set! Please assign in Inspector"); //this should already automatically find the player at start, but just in case
             return;
         }
 
@@ -157,7 +157,7 @@ public class EnemyManager : MonoBehaviour
 
         for (int i = 0; i < waveData.enemyCount; i++)
         {
-            // make the surrounding enemies spawn farther away!! can't figure out the movement speed won't change
+            // make the surrounding enemies spawn farther away!! can't figure out the movement speed won't change (SOLVED MIGUEL'S ENEMY LIST HAD PREASSIGNED MOVE SPEED)
             float angle = (360f / waveData.enemyCount) * i;
             float radian = angle * Mathf.Deg2Rad;
             Vector3 spawnPosition = transform.position + new Vector3(

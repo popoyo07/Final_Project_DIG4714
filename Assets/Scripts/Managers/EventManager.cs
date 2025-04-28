@@ -1,15 +1,16 @@
 using System;
 using UnityEngine;
 
+//the different states the player will experience
 public enum EnemyWaveStates { BeginPhase, Preparing, Active, Surrounding, Cooldown }
 
 public class EventManager : MonoBehaviour
 {
-    // Singleton instance
+    
     public static EventManager Instance { get; private set; }
-    public static event Action OnEventManagerReady;
+    public static event Action OnEventManagerReady; //so we know if the event is being subscribed to
 
-    // The current state of the enemy waves
+    // The current state of the enemy waves Getting beginphase to start
     public EnemyWaveStates CurrentState { get; private set; } = EnemyWaveStates.BeginPhase;
 
     // Event that is triggered when the state changes
@@ -64,7 +65,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    // Method to change the state and invoke the event
+    //This changes the events and invoke the begining of the new event
     public void ChangeState(EnemyWaveStates newState)
     {
         Debug.Log($"[EventManager] State changing from {CurrentState} to {newState}");
