@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d813cc86e16e564d88f2a2fc8c0b087, type: 3}
   m_Name: SnowmanBarrage
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  enemyCount: 10
+  enemyPrefab: {fileID: 2888694157572958413, guid: e18b9e580d18d3346b8a4a118e1e01f1, type: 3}
+  enemyCount: 15
   spawnInterval: 1
-  cooldownTime: 5
-  isSurroundWave: 0
+  cooldownTime: 30
+  isSurroundWave: 1
