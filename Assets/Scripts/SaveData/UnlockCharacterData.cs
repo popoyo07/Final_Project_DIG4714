@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using static LevelUpCanvas;
 
 public class CharacterUnlockUI : MonoBehaviour
 {
@@ -29,7 +28,7 @@ public class CharacterUnlockUI : MonoBehaviour
 
     private string saveFilePath;
     private List<bool> characterUnlocked;
-    public int characterChosen;
+    public static int characterChosen;
 
     private void Start()
     {
