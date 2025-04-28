@@ -6,6 +6,7 @@ using static UnityEngine.Rendering.DebugUI.Table;
 
 public class WorldScrolling : MonoBehaviour
 {
+    public PlayerManager playerManager;
     [SerializeField] Transform playerTransform;
     Vector3Int currentTilePosition = new Vector3Int(0, 1, 0);
     [SerializeField] Vector3Int playerTilePosition;
@@ -24,6 +25,19 @@ public class WorldScrolling : MonoBehaviour
         terrainTiles = new GameObject[terrainTileHorizontalCount, terrainTileVerticalCount];
         print("Array Row Length: " + terrainTiles.GetLength(0));
         print("Array Column Length: " + terrainTiles.GetLength(1));
+    }
+
+    void Start()
+    {
+        StartCoroutine(LateStart(1));
+    }
+
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        int index = playerManager.active;
+        playerTransform = playerManager.players[index].transform;
     }
 
     private void Update()
