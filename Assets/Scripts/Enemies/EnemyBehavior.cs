@@ -15,7 +15,7 @@ public class EnemyBehavior : MonoBehaviour
     // core stats for each enemy
     float speed;
     float health;
-    int dmg;
+    float dmg;
     Rigidbody rb;
 
     private PlayerController playerController;
@@ -126,7 +126,7 @@ public class EnemyBehavior : MonoBehaviour
         if (health <= 0)
         {
             Instantiate(coins, transform.position, transform.rotation); // instantiate a coin 
-            uiBars.GainXPbar(dmg);
+            uiBars.GainXPbar(5f);
             uiBars.GainUltBar(1f);
             Destroy(this.gameObject);
         }
