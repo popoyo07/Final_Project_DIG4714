@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerManager : MonoBehaviour
 {
     GameManager gameManager;
     [SerializeField]GameObject[] players;
+    CinemachineVirtualCamera virtualCamera;
+
 
     private void Awake()
     {
         gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+        virtualCamera = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
     }
     void Start()
     {
@@ -22,6 +26,7 @@ public class PlayerManager : MonoBehaviour
             players[2].SetActive(false);
 
             players[gameManager.pChoice].SetActive(true);
+            virtualCamera.Follow = players[gameManager.pChoice].transform; // updates the virtual camera to follow the active player
             Debug.LogWarning(players[gameManager.pChoice]);
         }
     }
