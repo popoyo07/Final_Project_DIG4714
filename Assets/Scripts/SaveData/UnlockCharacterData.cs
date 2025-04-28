@@ -102,8 +102,9 @@ public class CharacterUnlockUI : MonoBehaviour
         // If character is unlocked
         if (characterUnlocked[index])
         {
-            Debug.Log($"Character {index + 1} selected. Starting Level Select");
             characterChosen = index;
+            Debug.Log(characterChosen);
+
             SceneManager.LoadScene("LevelSelect");
         }
 

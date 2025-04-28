@@ -18,6 +18,8 @@ public class LevelUpCanvas : MonoBehaviour
     private Weapons weapons;
     private MusicManager musicManager;
     AudioSource audiosource;
+    GameManager gameManager;
+
 
     [Header("SFX")]
     public AudioClip SFXlevelup;
@@ -57,7 +59,7 @@ public class LevelUpCanvas : MonoBehaviour
         BaseDamage,
         BaseRate,
         BaseDuration,
-        IncreaseSpeed,
+        //IncreaseSpeed,
         BonusXP
     }
 
@@ -75,6 +77,12 @@ public class LevelUpCanvas : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
+    }
+
     void Start()
     {
         // Search each GameObject in the allPlayers array 
@@ -86,6 +94,8 @@ public class LevelUpCanvas : MonoBehaviour
                 break;
             }
         }
+        player = allPlayers[gameManager.pChoice];
+
         weapons = player.GetComponent<Weapons>();
         UIBars = player.GetComponent<UIBars>();
         musicManager = FindObjectOfType<MusicManager>();
@@ -149,7 +159,7 @@ public class LevelUpCanvas : MonoBehaviour
             new Buff("Base Attack damage increases by 5%", BuffType.BaseDamage),
             new Buff("Base Attack rate decreases by 2%", BuffType.BaseRate),
             new Buff("Base Attack duration increases by 3%", BuffType.BaseDuration),
-            new Buff("Speed increases 5%", BuffType.IncreaseSpeed),
+            //new Buff("Speed increases 5%", BuffType.IncreaseSpeed),
             new Buff("Gain 10% more xp from enemies", BuffType.BonusXP)
     };
 
@@ -241,9 +251,9 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UpdateWeaponDuration("AreaAttack", weapons.WeaponAttDuration["AreaAttack"] * 0.03f);
                 break;
 
-            case BuffType.IncreaseSpeed:
+/*            case BuffType.IncreaseSpeed:
 
-                break;
+                break;*/
 
             case BuffType.BonusXP:
                 Debug.Log("Gained XP Buff");
