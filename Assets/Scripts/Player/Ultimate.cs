@@ -18,13 +18,15 @@ public class Ultimate : MonoBehaviour
     {
         if (UIBars != null) 
         {
-            if (UIBars.currentUlt == 100 && Input.GetKeyUp(KeyCode.Space)) 
+            if (UIBars.currentUlt == 10 && Input.GetKeyUp(KeyCode.Space)) 
             {
                 playerController.health += 50f;
                 if (playerController.health >= 100f) 
                 {
                     playerController.health = 100f;
                 }
+                UIBars.currentUlt = 0f;
+                UIBars.UltImage.fillAmount = 0f;
             }
         }
     }

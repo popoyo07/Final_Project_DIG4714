@@ -98,9 +98,8 @@ public class UIBars : MonoBehaviour
 
     public void GainUltBar(float xp)
     {
-        currentUlt += xp/2;
-        UltImage.fillAmount = currentUlt/MaxUlt;
-
+        currentUlt = Mathf.Min(currentUlt + xp / 2f, MaxUlt);
+        UltImage.fillAmount = currentUlt / MaxUlt;
     }
 
     public void LoseHealthBar(float currentHealth) 
