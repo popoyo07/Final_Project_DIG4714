@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class Ultimate : MonoBehaviour
@@ -35,7 +36,7 @@ public class Ultimate : MonoBehaviour
         UIBars.HealthImage.fillAmount = playerController.health / 100;
         UIBars.currentUlt = 0f;
         UIBars.UltImage.fillAmount = 0f;
-
+        UIBars.UltImage.color = new Color(0.3137254901960784f, 1f, 0.8980392156862745f);
         Debug.Log("Ultimate activated!");
     }
 }

@@ -106,6 +106,11 @@ public class UIBars : MonoBehaviour
 
         UltImage.fillAmount = currentUlt/MaxUlt;
 
+        if (currentUlt == MaxUlt)
+        {
+            UltImage.color = Color.red;
+        }
+
     }
 
     public void LoseHealthBar(float currentHealth) 
