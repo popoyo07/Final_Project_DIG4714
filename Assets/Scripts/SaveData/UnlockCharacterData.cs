@@ -103,7 +103,7 @@ public class CharacterUnlockUI : MonoBehaviour
         if (characterUnlocked[index])
         {
             characterChosen = index;
-            Debug.Log(characterChosen);
+            //Debug.Log(characterChosen);
 
             SceneManager.LoadScene("LevelSelect");
         }
@@ -119,6 +119,7 @@ public class CharacterUnlockUI : MonoBehaviour
             if (index == 1)
             {
                 gameSaveData.unlocmrsClause();
+
                 Debug.Log($"Character mrsClause unlocked and selected. Starting Level Select");
 
             }
@@ -127,6 +128,8 @@ public class CharacterUnlockUI : MonoBehaviour
                 gameSaveData.unlockRudolf();
                 Debug.Log($"Character Rudolf unlocked and selected. Starting Level Select");
             }
+
+            characterChosen = index;
 
             // Save current data
             gameSaveData.SaveData();
