@@ -49,6 +49,10 @@ public class UIBars : MonoBehaviour
         currentUlt = 0f;
         UltImage.fillAmount = currentUlt / MaxUlt;
         playerController = GetComponent<PlayerController>();
+        if (playerController == null)
+        {
+            Debug.LogWarning("NO PLAYER CONTROLLER");
+        }
 
         playerAlive = true;
 
