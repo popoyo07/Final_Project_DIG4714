@@ -47,9 +47,9 @@ MonoBehaviour:
   waves:
   - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
   - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
-  - {fileID: 11400000, guid: 714136dddb4354e498f036d9637c8fae, type: 2}
   - {fileID: 11400000, guid: 374a1846694cd424fa6eab6ffa38c531, type: 2}
-  - {fileID: 11400000, guid: 71f3bb9337ce15f4aab64559a7ac2e0f, type: 2}
+  - {fileID: 11400000, guid: 714136dddb4354e498f036d9637c8fae, type: 2}
+  - {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
   playerTarget: {fileID: 430892570396788212}
   enemyPool: {fileID: 0}
 --- !u!1 &430892570396788212
@@ -908,7 +908,8 @@ PrefabInstance:
       propertyPath: playerTarget
       value: 
       objectReference: {fileID: 430892570396788212}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3527195958681135453, guid: 8c683c8290f42614091ee0d450379e5f, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3527195958690486937, guid: 8c683c8290f42614091ee0d450379e5f, type: 3}
     - {fileID: 3527195958690486995, guid: 8c683c8290f42614091ee0d450379e5f, type: 3}
@@ -1040,7 +1041,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3703458899254425213, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4851300948762425923, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: MaxUlt
@@ -1136,7 +1137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411545616733349809, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5775092303246494712, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1144,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6011093661695922765, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7218969988902060358, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_IsActive
@@ -1286,7 +1287,8 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6c1152412ccfabd4e8c1eb4a23eb9cb0, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7206081136112235479, guid: 1e234563d6fd2484eb7c8a1eb57904f2, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6526527330404928789, guid: 1e234563d6fd2484eb7c8a1eb57904f2, type: 3}
     m_AddedGameObjects:
