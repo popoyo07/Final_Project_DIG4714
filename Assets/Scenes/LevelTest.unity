@@ -6618,7 +6618,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 208171228653515388, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 430892570396788212, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Name
@@ -6640,6 +6640,10 @@ PrefabInstance:
       propertyPath: vcam
       value: 
       objectReference: {fileID: 44782322}
+    - target: {fileID: 684959478959501100, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1056114247128328220, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: Canvas
       value: 
@@ -6702,7 +6706,7 @@ PrefabInstance:
       objectReference: {fileID: 541542520}
     - target: {fileID: 1914468986529187712, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2464309505113048659, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: enemyPool
@@ -6710,7 +6714,7 @@ PrefabInstance:
       objectReference: {fileID: 229425047}
     - target: {fileID: 2728221721921488455, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2821978942670329914, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: health
@@ -6722,12 +6726,16 @@ PrefabInstance:
       objectReference: {fileID: 229425047}
     - target: {fileID: 3110743834615607921, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3603744746735808349, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: enemyPool
       value: 
       objectReference: {fileID: 229425047}
+    - target: {fileID: 3750881752581310595, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4402308251461327654, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: Canvas
       value: 
