@@ -4050,6 +4050,7 @@ GameObject:
   - component: {fileID: 1302337601157357872}
   - component: {fileID: 3228462751370189546}
   - component: {fileID: 7944157821861706340}
+  - component: {fileID: 4950670963472993946}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4073,7 +4074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 826, y: 19}
+  m_AnchoredPosition: {x: 845, y: 57}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3228462751370189546
@@ -4104,10 +4105,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ab39391dd7bb77f47a04fd13a138febd, type: 2}
-  m_sharedMaterial: {fileID: 2409789660948520851, guid: ab39391dd7bb77f47a04fd13a138febd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9c06446d540efdf4499a2bd88d99574e, type: 2}
+  m_sharedMaterial: {fileID: 4200217910430821238, guid: 9c06446d540efdf4499a2bd88d99574e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4131,14 +4132,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.44
-  m_fontSizeBase: 42.44
+  m_fontSize: 110.4
+  m_fontSizeBase: 110.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4167,12 +4168,25 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -103.44653, y: 0, z: -26.05371, w: -29.95868}
+  m_margin: {x: -192.90784, y: 0, z: -9.430908, w: -5.2890625}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4950670963472993946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7986457223150713214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbef5c74a65b3d4fa10840724ed8f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorChangeSpeed: 3
 --- !u!1 &8045670752673331643
 GameObject:
   m_ObjectHideFlags: 0
