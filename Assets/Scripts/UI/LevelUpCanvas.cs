@@ -60,7 +60,8 @@ public class LevelUpCanvas : MonoBehaviour
         BaseRate,
         BaseDuration,
         //IncreaseSpeed,
-        BonusXP
+        BonusXP,
+        BonusUlt
     }
 
     // Buff class to represent a buff with description and type
@@ -160,7 +161,8 @@ public class LevelUpCanvas : MonoBehaviour
             new Buff("Base Attack rate decreases by 2%", BuffType.BaseRate),
             new Buff("Base Attack duration increases by 3%", BuffType.BaseDuration),
             //new Buff("Speed increases 5%", BuffType.IncreaseSpeed),
-            new Buff("Gain 10% more xp from enemies", BuffType.BonusXP)
+            new Buff("Gain 20% more xp from enemies", BuffType.BonusXP),
+            new Buff("Gain 10% more ult from enemies", BuffType.BonusUlt)
     };
 
         // Remove buffs that can't be applied
@@ -251,13 +253,12 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UpdateWeaponDuration("AreaAttack", weapons.WeaponAttDuration["AreaAttack"] * 0.03f);
                 break;
 
-/*            case BuffType.IncreaseSpeed:
-
-                break;*/
-
             case BuffType.BonusXP:
-                Debug.Log("Gained XP Buff");
-                UIBars.xpMultiplier += 0.1f;
+                UIBars.xpMultiplier += 0.2f;
+                break;
+
+            case BuffType.BonusUlt:
+                UIBars.ultMultiplier += 0.1f;
                 break;
 
         }

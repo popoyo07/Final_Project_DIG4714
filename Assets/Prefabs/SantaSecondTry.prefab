@@ -848,6 +848,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1121725087089944294}
     m_Modifications:
+    - target: {fileID: 1425291234463641818, guid: 8c683c8290f42614091ee0d450379e5f, type: 3}
+      propertyPath: MaxUlt
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 3527195958681135453, guid: 8c683c8290f42614091ee0d450379e5f, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -1039,6 +1043,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4851300948762425923, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
+      propertyPath: MaxUlt
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851300948762425923, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: XPImage
       value: 
       objectReference: {fileID: 0}
@@ -1210,6 +1218,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1121725087089944294}
     m_Modifications:
+    - target: {fileID: 1876597558445445212, guid: 1e234563d6fd2484eb7c8a1eb57904f2, type: 3}
+      propertyPath: MaxUlt
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 6452985973750753268, guid: 1e234563d6fd2484eb7c8a1eb57904f2, type: 3}
       propertyPath: m_Enabled
       value: 0

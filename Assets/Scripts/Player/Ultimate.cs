@@ -19,7 +19,7 @@ public class Ultimate : MonoBehaviour
     {
         if (UIBars != null) 
         {
-            if (UIBars.currentUlt >= 10 && Input.GetKeyUp(KeyCode.Space)) 
+            if (UIBars.currentUlt >= 70 && Input.GetKeyUp(KeyCode.Space)) 
             {
                 UseUltimate();
             }

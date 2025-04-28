@@ -7447,6 +7447,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 497700437990632524, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: MaxUlt
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 497700437990632524, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: XPImage
       value: 
       objectReference: {fileID: 1447407594}
@@ -7513,6 +7517,10 @@ PrefabInstance:
     - target: {fileID: 1121725087089944294, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: MaxUlt
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: XPImage
@@ -7753,6 +7761,10 @@ PrefabInstance:
     - target: {fileID: 7128484937307788876, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614066742217867051, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: MaxUlt
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8614066742217867051, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: XPImage

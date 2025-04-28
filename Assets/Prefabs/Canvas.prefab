@@ -175,7 +175,7 @@ MonoBehaviour:
   coinCollected: {fileID: 7254811788681203465}
   SFXSanta: {fileID: 8300000, guid: 2f379e7124408dd45a302db71a68a037, type: 3}
   SFXMrsClaus: {fileID: 8300000, guid: 5148927932a5f7146a35d60fcca25c01, type: 3}
-  SFXRudolph: {fileID: 8300000, guid: eb3c0b83f75cb614694ae8b9be9d71bd, type: 3}
+  SFXRudolph: {fileID: 8300000, guid: 9bdde2c42865d0f49ad1b2da692256cd, type: 3}
   allPlayers:
   - {fileID: 0}
   - {fileID: 0}

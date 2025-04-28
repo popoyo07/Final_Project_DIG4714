@@ -19,6 +19,7 @@ public class UIBars : MonoBehaviour
 
     public int PlayerLevel = 0;
     public float xpMultiplier = 1f;
+    public float ultMultiplier = 1f;
 
     private PlayerController playerController;
 
@@ -96,9 +97,9 @@ public class UIBars : MonoBehaviour
 
 
 
-    public void GainUltBar(float xp)
+    public void GainUltBar(float ult)
     {
-        currentUlt += xp/2;
+        currentUlt += ult * ultMultiplier;
         if (currentUlt >= MaxUlt)
         {
             currentUlt = MaxUlt;
@@ -108,7 +109,7 @@ public class UIBars : MonoBehaviour
 
         if (currentUlt == MaxUlt)
         {
-            UltImage.color = Color.red;
+            UltImage.color = Color.yellow;
         }
 
     }
