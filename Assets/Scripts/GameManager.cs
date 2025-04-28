@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
-    public int pChoice = 4;  // for now is only histing the variable    
+    // 0 is santa 
+    // 1 is Mrs Clause 
+    // 2 is Rudolph
+    public int pChoice;  // for now is only histing the variable    
     //public bool[] playerChoice;
     // 
 
