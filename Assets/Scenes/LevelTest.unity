@@ -7532,7 +7532,7 @@ PrefabInstance:
       objectReference: {fileID: 541542520}
     - target: {fileID: 1914468986529187712, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2464309505113048659, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: enemyPool
@@ -7752,7 +7752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7128484937307788876, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8614066742217867051, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: XPImage
