@@ -33,7 +33,7 @@ public class UIBars : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (MaxXP <= 0f)
+/*        if (MaxXP <= 0f)
         {
             MaxXP = 100f;
         }
@@ -46,7 +46,7 @@ public class UIBars : MonoBehaviour
         if (MaxHealth <= 0f)
         {
             MaxHealth = 100f;
-        }
+        }*/
 
         currentXP = 0f;
         XPImage.fillAmount = currentXP / MaxXP;
@@ -99,6 +99,11 @@ public class UIBars : MonoBehaviour
     public void GainUltBar(float xp)
     {
         currentUlt += xp/2;
+        if (currentUlt >= MaxUlt)
+        {
+            currentUlt = MaxUlt;
+        }
+
         UltImage.fillAmount = currentUlt/MaxUlt;
 
     }
