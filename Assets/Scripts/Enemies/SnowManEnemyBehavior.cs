@@ -80,7 +80,7 @@ public class SnowManEnemyBehavior : MonoBehaviour
         GameObject snowball_clone = Instantiate(snowball, spawnPoint.transform.position, spawnPoint.transform.rotation);
         
 
-        Destroy(snowball_clone, 2.5f);
+        Destroy(snowball_clone, 1f);
 
         /* create a snowball clone at a position 
          * destory it after a certain amount of time if it hasn't hit anything 
