@@ -41,7 +41,7 @@ public class UIBars : MonoBehaviour
 
         if (MaxHealth <= 0f)
         {
-            MaxHealth = 10f;
+            MaxHealth = 100f;
         }
 
         currentXP = 0f;
@@ -59,10 +59,10 @@ public class UIBars : MonoBehaviour
     {
         currentHealth = playerController.health;
 
-/*       if (currentHealth <= 0f) 
+       if (currentHealth <= 0f) 
        {
             playerAlive = false;
-       }*/
+       }
     }
 
 

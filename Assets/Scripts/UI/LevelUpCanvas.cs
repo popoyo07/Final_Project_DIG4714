@@ -242,6 +242,7 @@ public class LevelUpCanvas : MonoBehaviour
                 break;
 
             case BuffType.IncreaseSpeed:
+
                 break;
 
             case BuffType.BonusXP:
