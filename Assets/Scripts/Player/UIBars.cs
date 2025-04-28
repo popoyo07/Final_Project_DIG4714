@@ -25,6 +25,10 @@ public class UIBars : MonoBehaviour
     public bool leveledUp = false;
     public bool playerAlive;
 
+    private void Awake()
+    {
+        playerAlive = true;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -53,9 +57,6 @@ public class UIBars : MonoBehaviour
         {
             Debug.LogWarning("NO PLAYER CONTROLLER");
         }
-
-        playerAlive = true;
-
     }
 
     // Update is called once per frame
