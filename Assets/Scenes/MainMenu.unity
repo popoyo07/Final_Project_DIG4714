@@ -1006,6 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f706edf81ec53fc468b767e4c0b28307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterSelection: {fileID: 7305279342812571875, guid: 8e0253e08a4476243b6a7751217fa02c, type: 3}
   pChoice: 0
 --- !u!4 &762931053
 Transform:
