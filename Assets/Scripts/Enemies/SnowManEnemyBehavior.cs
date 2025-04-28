@@ -33,36 +33,37 @@ public class SnowManEnemyBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
-       // agent = GetComponent<NavMeshAgent>();
+       
         snowman_animator = GetComponent<Animator>();
         weapon = player.GetComponent<Weapons>();
 
     }
 
     private void Start()
-    {
+    {   //create game object that contains the snowball vfx attached that DamagingSnowball script can reference
         Instantiate(snowballVFXObject, new Vector3(0,1000,0), Quaternion.identity);
     }
 
     private void Update()
     {
-        snowballtime -= Time.deltaTime;
+        snowballtime -= Time.deltaTime; //start timer 
 
         if ((player.transform.position - this.gameObject.transform.position).magnitude > stopDistance)
         {
-            
+            //if the distance between the player and this gameobject is greater than stopDistance, the enemy chases 
             Chase(enemySpeed);
         }
         if ((player.transform.position - this.gameObject.transform.position).magnitude <= stopDistance)
         {
-            snowman_animator.SetBool("isThrowing", true);
+            //if the distance between the player and this gameobject is less than stopDistance. Start attack
+            snowman_animator.SetBool("isThrowing", true); //play animation by setting a boolean in animator to true
            // agent.SetDestination(transform.position);
-            if (snowballtime <= 0)
+            if (snowballtime <= 0) //if time has passed, attack 
             {
                    
                 //Attack();
-                Invoke("Attack", 2);
-                snowballtime = timer;
+                Invoke("Attack", 2); //play attack method with a delay of 2 seconds
+                snowballtime = timer; // set back to timer and start countdown again 
             }
         }
 
@@ -77,15 +78,19 @@ public class SnowManEnemyBehavior : MonoBehaviour
         
 
         Destroy(snowball_clone, 2.5f);
+
+        /* create a snowball clone at a position 
+         * destory it after a certain amount of time if it hasn't hit anything 
+         */
         
     }
     
     public void Chase(float speed)
     {
         snowman_animator.SetBool("isThrowing", false);
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        rb.MovePosition(transform.position + direction * enemySpeed * Time.deltaTime);
-        transform.LookAt(player.transform.position);
+        Vector3 direction = (player.transform.position - transform.position).normalized; //direction the enemy goes
+        rb.MovePosition(transform.position + direction * enemySpeed * Time.deltaTime); //actually moving the game object
+        transform.LookAt(player.transform.position); // have this game object fix its rotation to look at the player
     }
 
     private void OnTriggerEnter(Collider other)
@@ -110,6 +115,12 @@ public class SnowManEnemyBehavior : MonoBehaviour
                 }
             }
         }
+        /* if struck by a weapon
+         * take health from the game object
+         * if health is 0, create a coin in its place
+         * add this game object to kill tracker 
+         * destroy this game object 
+         */
     }
 
     public void Add(GameObject g) //method for adding to list

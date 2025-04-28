@@ -8,13 +8,13 @@ using System.Runtime.CompilerServices;
 
 public class KillTracker : MonoBehaviour
 {
-    public static int killsCounted;
+    public static int killsCounted; 
 
-    public static List<GameObject> killlist = new List<GameObject>();
+    public static List<GameObject> killlist = new List<GameObject>(); 
 
     private void Update()
     {
-        killsCounted = killlist.Count;
+        killsCounted = killlist.Count; //updates killsCounted based on whats in the list
         Debug.Log("Kills counted is: " + killsCounted);
 
         

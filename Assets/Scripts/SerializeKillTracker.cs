@@ -12,7 +12,7 @@ public class SerializeKillTracker : MonoBehaviour
     private string path;
     private void Update()
     {
-        serializeKills = KillTracker.killsCounted;
+        serializeKills = KillTracker.killsCounted; //save killsCounted in a variable that will be serialized
         //Invoke("XMLSave", 4);
 
         //Invoke("LoadXML", 6);
@@ -45,6 +45,11 @@ public class SerializeKillTracker : MonoBehaviour
         {
             Debug.Log("XML Created!");
         }
+
+        /* create a new XML document
+         * create roots, attributes , save serializekills as string to document
+         * save it to a path 'KillTracker.text"
+         */
     }
 
     private void LoadXML()
@@ -64,6 +69,11 @@ public class SerializeKillTracker : MonoBehaviour
         {
             Debug.Log("Data not found!");
         }
+        /* check if file exists 
+         * if it does, load the document with same file path, parse the data 
+         * save 'loadkills' back into serialize kills 
+         * 
+         */
     }
     
 }
