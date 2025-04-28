@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $500
+  m_text: $100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
   m_sharedMaterial: {fileID: -2082131569123145970, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
@@ -2180,7 +2180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $200
+  m_text: $50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
   m_sharedMaterial: {fileID: -2082131569123145970, guid: 1dd0ebade9129724f9265442fdd963d7, type: 2}
@@ -2576,11 +2576,11 @@ PrefabInstance:
       objectReference: {fileID: 1986466554}
     - target: {fileID: 6471830451178185960, guid: 8e0253e08a4476243b6a7751217fa02c, type: 3}
       propertyPath: characterPrices.Array.data[1]
-      value: 2
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6471830451178185960, guid: 8e0253e08a4476243b6a7751217fa02c, type: 3}
       propertyPath: characterPrices.Array.data[2]
-      value: 5
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6471830451178185960, guid: 8e0253e08a4476243b6a7751217fa02c, type: 3}
       propertyPath: characterButtons.Array.data[0]
