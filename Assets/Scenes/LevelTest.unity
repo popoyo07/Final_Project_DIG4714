@@ -7532,7 +7532,7 @@ PrefabInstance:
       objectReference: {fileID: 541542520}
     - target: {fileID: 1914468986529187712, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2464309505113048659, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: enemyPool
@@ -7700,14 +7700,26 @@ PrefabInstance:
       objectReference: {fileID: 229425047}
     - target: {fileID: 2877758512575774205, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: waves.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2877758512575774205, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: waves.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 4c4cd7407e9d65d4dbb5d8557fa760ce, type: 2}
+      objectReference: {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
     - target: {fileID: 2877758512575774205, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: waves.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
+    - target: {fileID: 2877758512575774205, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 374a1846694cd424fa6eab6ffa38c531, type: 2}
+    - target: {fileID: 2877758512575774205, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: waves.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 714136dddb4354e498f036d9637c8fae, type: 2}
+    - target: {fileID: 2877758512575774205, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: waves.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: c43d02a176e41874d81b00613da776ae, type: 2}
     - target: {fileID: 3110743834615607921, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
