@@ -13,6 +13,13 @@ public class LoseMenu : MonoBehaviour
     private MusicManager musicManager;
     GameManager gameManager;
 
+    public AudioClip SFXSanta;
+    public AudioClip SFXMrsClaus;
+    public AudioClip SFXRudolph;
+
+    private AudioSource audioSource;
+
+    bool playedAudio;
     bool added;
 
     public GameObject[] allPlayers;
@@ -34,10 +41,12 @@ public class LoseMenu : MonoBehaviour
                 break;
             }
         }
+
         player = allPlayers[gameManager.pChoice];
         musicManager = FindObjectOfType<MusicManager>();
         UIBars = player.GetComponent<UIBars>();
         playerController = player.GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
         LoseScene.SetActive(false);
     }
 
@@ -48,6 +57,25 @@ public class LoseMenu : MonoBehaviour
         {
             Debug.LogWarning(UIBars.playerAlive + "playerController.health current health:" + playerController.health + "UI bar currentHealth:" + UIBars.currentHealth);
             musicManager.PauseMusic();
+            if (!playedAudio)
+            {
+                playedAudio = true;
+
+                if (gameManager.pChoice == 0)
+                {
+                    audioSource.clip = SFXSanta;
+                }
+                else if (gameManager.pChoice == 1)
+                {
+                    audioSource.clip = SFXMrsClaus;
+                }
+                else if (gameManager.pChoice == 2)
+                {
+                    audioSource.clip = SFXRudolph;
+                }
+
+                audioSource.Play();
+            }
 
             if (!added)
             {

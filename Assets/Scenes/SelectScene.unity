@@ -2555,6 +2555,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1986466554}
     - target: {fileID: 6471830451178185960, guid: 8e0253e08a4476243b6a7751217fa02c, type: 3}
+      propertyPath: characterPrices.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471830451178185960, guid: 8e0253e08a4476243b6a7751217fa02c, type: 3}
+      propertyPath: characterPrices.Array.data[2]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6471830451178185960, guid: 8e0253e08a4476243b6a7751217fa02c, type: 3}
       propertyPath: characterButtons.Array.data[0]
       value: 
       objectReference: {fileID: 1548998814}
