@@ -91,5 +91,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   surroundRadius: 35
-  moveSpeed: 1
-  spawnMoveSpeed: 0.05
+  moveSpeed: 0.5
+  spawnMoveSpeed: 0.5
