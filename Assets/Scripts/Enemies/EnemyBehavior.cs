@@ -131,7 +131,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public void Add(GameObject g) //method for adding to list
     {
-        KillTracker.killlist.Add(g);
+        KillTracker.killlist.Add(g); //reference to killlist found in Killtracker script
     }
 
     private void OnTriggerExit(Collider other)
