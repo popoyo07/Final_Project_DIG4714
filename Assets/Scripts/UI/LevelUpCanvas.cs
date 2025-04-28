@@ -44,16 +44,16 @@ public class LevelUpCanvas : MonoBehaviour
     {
         BookUnlock,
         SpikesUnlock,
-        SpearUnlock,
+        //SpearUnlock,
         BookDamage,
         SpikesDamage,
-        SpearDamage,
+        //SpearDamage,
         BookRate,
         SpikesRate,
-        SpearRate,
+        //SpearRate,
         BookDuration,
         SpikesDuration,
-        SpearDuration,
+        //SpearDuration,
         BaseDamage,
         BaseRate,
         BaseDuration,
@@ -136,16 +136,16 @@ public class LevelUpCanvas : MonoBehaviour
         {
             new Buff("Unlock Book Attack", BuffType.BookUnlock),
             new Buff("Unlock Spikes Attack", BuffType.SpikesUnlock),
-            new Buff("Unlock Spear Attack", BuffType.SpearUnlock),
+            //new Buff("Unlock Spear Attack", BuffType.SpearUnlock),
             new Buff("Book Attack damage increases by 5%", BuffType.BookDamage),
             new Buff("Spikes Attack damage increases by 5%", BuffType.SpikesDamage),
-            new Buff("Spear Attack damage increases by 5%", BuffType.SpearDamage),
+            //new Buff("Spear Attack damage increases by 5%", BuffType.SpearDamage),
             new Buff("Book Attack rate decreases by 2%", BuffType.BookRate),
             new Buff("Spikes Attack rate decreases by 2%", BuffType.SpikesRate),
-            new Buff("Spear Attack rate decreases by 2%", BuffType.SpearRate),
+            //new Buff("Spear Attack rate decreases by 2%", BuffType.SpearRate),
             new Buff("Book Attack duration decreases by 3%", BuffType.BookDuration),
             new Buff("Spikes Attack duration decreases by 3%", BuffType.SpikesDuration),
-            new Buff("Spear Attack duration decreases by 3%", BuffType.SpearDuration),
+            //new Buff("Spear Attack duration decreases by 3%", BuffType.SpearDuration),
             new Buff("Base Attack damage increases by 5%", BuffType.BaseDamage),
             new Buff("Base Attack rate decreases by 2%", BuffType.BaseRate),
             new Buff("Base Attack duration increases by 3%", BuffType.BaseDuration),
@@ -156,12 +156,12 @@ public class LevelUpCanvas : MonoBehaviour
         // Remove buffs that can't be applied
         allBuffs = allBuffs.Where(buff =>
             // Don't show "Unlock" buffs if already unlocked
-            (buff.type != BuffType.BookUnlock || !bookUnlocked) && (buff.type != BuffType.SpikesUnlock || !spikesUnlocked) && (buff.type != BuffType.SpearUnlock || !spearUnlocked) &&
+            (buff.type != BuffType.BookUnlock || !bookUnlocked) && (buff.type != BuffType.SpikesUnlock || !spikesUnlocked) && /*(buff.type != BuffType.SpearUnlock || !spearUnlocked) && */
 
             // Remove damage, rate, duration buffs if their attack is not unlocked
             (bookUnlocked || !(buff.type == BuffType.BookDamage || buff.type == BuffType.BookRate || buff.type == BuffType.BookDuration)) &&
-            (spikesUnlocked || !(buff.type == BuffType.SpikesDamage || buff.type == BuffType.SpikesRate || buff.type == BuffType.SpikesDuration)) &&
-            (spearUnlocked || !(buff.type == BuffType.SpearDamage || buff.type == BuffType.SpearRate || buff.type == BuffType.SpearDuration))
+            (spikesUnlocked || !(buff.type == BuffType.SpikesDamage || buff.type == BuffType.SpikesRate || buff.type == BuffType.SpikesDuration)) /*&&
+            (spearUnlocked || !(buff.type == BuffType.SpearDamage || buff.type == BuffType.SpearRate || buff.type == BuffType.SpearDuration))*/
         ).ToList();
 
         // Shuffle the buffs in the list
@@ -188,10 +188,10 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UnlockSpike();
                 break;
 
-            case BuffType.SpearUnlock:
+/*            case BuffType.SpearUnlock:
                 Debug.Log("Unlocked Spear Attack");
                 weapons.UnlockSpear();
-            break;
+            break;*/
 
             case BuffType.BookDamage:
                 weapons.UpdateWeaponDMG("BookAttack", weapons.WeaponDMG["BookAttack"] * 0.05f);
@@ -201,9 +201,9 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UpdateWeaponDMG("SpikesAttack", weapons.WeaponDMG["SpikesAttack"] * 0.05f);
                 break;
 
-            case BuffType.SpearDamage:
+/*            case BuffType.SpearDamage:
                 weapons.UpdateWeaponDMG("SpearAttack", weapons.WeaponDMG["SpearAttack"] * 0.05f);
-                break;
+                break;*/
 
             case BuffType.BookRate:
                 weapons.UpdateWeaponRate("BookAttack", weapons.WeaponRateSec["BookAttack"] * 0.02f);
@@ -213,10 +213,10 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UpdateWeaponRate("SpikesAttack", weapons.WeaponRateSec["SpikesAttack"] * 0.02f);
                 break;
 
-            case BuffType.SpearRate:
+/*            case BuffType.SpearRate:
                 weapons.UpdateWeaponRate("SpearAttack", weapons.WeaponRateSec["SpearAttack"] * 0.02f);
                 break;
-
+*/
             case BuffType.BookDuration:
                 weapons.UpdateWeaponDuration("BookAttack", weapons.WeaponAttDuration["BookAttack"] * 0.03f);
                 break;
@@ -225,10 +225,10 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UpdateWeaponDuration("SpikesAttack", weapons.WeaponAttDuration["SpikesAttack"] * 0.03f);
                 break;
 
-            case BuffType.SpearDuration:
+/*            case BuffType.SpearDuration:
                 weapons.UpdateWeaponDuration("SpearAttack", weapons.WeaponAttDuration["SpearAttack"] * 0.03f);
                 break;
-
+*/
             case BuffType.BaseDamage:
                 weapons.UpdateWeaponDMG("AreaAttack", weapons.WeaponDMG["AreaAttack"] * 0.05f);
                 break;
