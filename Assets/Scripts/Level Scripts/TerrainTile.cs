@@ -9,6 +9,7 @@ public class TerrainTile : MonoBehaviour
 
     private void Start()
     {
+        //gets the component in parent(worldScrolling) and add gameobject and tile position
         GetComponentInParent<WorldScrolling>().Add(gameObject, tilePosition);
     }
 }
