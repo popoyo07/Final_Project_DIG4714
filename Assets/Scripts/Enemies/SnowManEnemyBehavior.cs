@@ -28,12 +28,14 @@ public class SnowManEnemyBehavior : MonoBehaviour
    
     [SerializeField] private float enemySpeed = 3f;
      private float health = 2;
+    private UIBars uiBars;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
-       
+        uiBars = player.GetComponent<UIBars>(); // Get UI reference
+
         snowman_animator = GetComponent<Animator>();
         weapon = player.GetComponent<Weapons>();
 
@@ -46,6 +48,7 @@ public class SnowManEnemyBehavior : MonoBehaviour
 
     private void Update()
     {
+        CheckHealth();
         snowballtime -= Time.deltaTime; //start timer 
 
         if ((player.transform.position - this.gameObject.transform.position).magnitude > stopDistance)
@@ -104,15 +107,6 @@ public class SnowManEnemyBehavior : MonoBehaviour
             {
 
                 health -= weaponBehavior.theDMG;
-                if (health == 0)
-                {
-                    Debug.Log("the snowman is dead");
-                    Instantiate(coins, transform.position, transform.rotation);
-
-                    Add(this.gameObject); //add the dead game object to the list
-                    Destroy(this.gameObject);
-
-                }
             }
         }
         /* if struck by a weapon
@@ -127,7 +121,18 @@ public class SnowManEnemyBehavior : MonoBehaviour
     {
         KillTracker.killlist.Add(g);
     }
+    void CheckHealth()
+    {
 
+        if (health <= 0)
+        {
+            Instantiate(coins, transform.position, transform.rotation); // instantiate a coin 
+            uiBars.GainXPbar(5f);
+            uiBars.GainUltBar(1f);
+            Add(this.gameObject); //add the dead game object to the list
+            Destroy(this.gameObject);
+        }
+    }
 
 
 }
