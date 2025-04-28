@@ -20,7 +20,11 @@ public class Ultimate : MonoBehaviour
         {
             if (UIBars.currentUlt == 100 && Input.GetKeyUp(KeyCode.Space)) 
             {
-                playerController.health = 100;
+                playerController.health += 50f;
+                if (playerController.health >= 100f) 
+                {
+                    playerController.health = 100f;
+                }
             }
         }
     }
