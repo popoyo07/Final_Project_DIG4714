@@ -917,6 +917,7 @@ MonoBehaviour:
   objectPrefabs:
   - {fileID: 2167197816489516112, guid: 9f8254ab3178850409e085698e873f9f, type: 3}
   - {fileID: 2860740788117018628, guid: e0ffe4522b7eb1a41b914afa3fcd8fb4, type: 3}
+  - {fileID: 2888694157572958413, guid: e18b9e580d18d3346b8a4a118e1e01f1, type: 3}
   initialPoolSize: 20
 --- !u!4 &229425048
 Transform:

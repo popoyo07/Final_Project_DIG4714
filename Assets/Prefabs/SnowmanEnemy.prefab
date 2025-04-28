@@ -134,10 +134,10 @@ MonoBehaviour:
   coins: {fileID: 78361053904411038, guid: 5ac1083a2aa219f4e8a9a2b8763074c6, type: 3}
   timer: 5
   snowball: {fileID: 7375416084836546096, guid: 9f01a3a4b5dad614f831e205571a2213, type: 3}
-  snowballVFXObject: {fileID: 0}
+  snowballVFXObject: {fileID: 790230409614280360, guid: 8967a28372ee0474ea3bd0f551e26245, type: 3}
   spawnPoint: {fileID: 2303202964330545334}
   stopDistance: 10
-  enemySpeed: 3
+  enemySpeed: 8
 --- !u!195 &771586461748764247
 NavMeshAgent:
   m_ObjectHideFlags: 0

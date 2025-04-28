@@ -386,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411545616732994449, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5628452
+      value: -9.51
       objectReference: {fileID: 0}
     - target: {fileID: 5411545616732994449, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -394,7 +394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411545616732994449, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.2674017
+      value: 11.61
       objectReference: {fileID: 0}
     - target: {fileID: 5411545616732994449, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1328,10 +1328,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 665452024}
-    - target: {fileID: 4721715849566025921, guid: e18b9e580d18d3346b8a4a118e1e01f1, type: 3}
-      propertyPath: snowballVFXObject
-      value: 
-      objectReference: {fileID: 790230409614280360, guid: 8967a28372ee0474ea3bd0f551e26245, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
