@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using static LevelUpCanvas;
 
 public class CharacterUnlockUI : MonoBehaviour
 {
@@ -25,8 +26,10 @@ public class CharacterUnlockUI : MonoBehaviour
     public JsonSaveExample gameSaveData;
     public int playerCoins;
 
+
     private string saveFilePath;
     private List<bool> characterUnlocked;
+    public int characterChosen;
 
     private void Start()
     {
@@ -101,6 +104,7 @@ public class CharacterUnlockUI : MonoBehaviour
         if (characterUnlocked[index])
         {
             Debug.Log($"Character {index + 1} selected. Starting Level Select");
+            characterChosen = index;
             SceneManager.LoadScene("LevelSelect");
         }
 
