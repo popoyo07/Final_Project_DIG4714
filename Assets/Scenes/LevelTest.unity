@@ -476,6 +476,51 @@ MonoBehaviour:
   numProps: 4
   offset: 2
   tileScale: 5
+--- !u!1 &59158983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59158985}
+  - component: {fileID: 59158984}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &59158984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59158983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91374ee6bf2e6ed469ad937d6195b32d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxobject: {fileID: 4114567786194457103, guid: c379e18ee19b7de449c0a5a6c091c2c5, type: 3}
+--- !u!4 &59158985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59158983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -125.10927, y: -35.136955, z: -118.72595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &61780283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1914468986529291168, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
@@ -6573,7 +6618,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 208171228653515388, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430892570396788212, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_Name
@@ -6653,7 +6698,7 @@ PrefabInstance:
       objectReference: {fileID: 541542520}
     - target: {fileID: 1914468986529187712, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2464309505113048659, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: enemyPool
@@ -6683,6 +6728,14 @@ PrefabInstance:
       propertyPath: vcam
       value: 
       objectReference: {fileID: 44782322}
+    - target: {fileID: 6073538683680213594, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6275574873888034608, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: weaponVolume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8614066742217867051, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: XPImage
       value: 
@@ -6739,3 +6792,4 @@ SceneRoots:
   - {fileID: 541542518}
   - {fileID: 229425048}
   - {fileID: 1739799165}
+  - {fileID: 59158985}

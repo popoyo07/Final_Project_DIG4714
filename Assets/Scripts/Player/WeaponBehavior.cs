@@ -114,7 +114,7 @@ public class WeaponBehavior : MonoBehaviour
         {
             vfxAttk.enabled = true;
             
-          //  AudioManager.instance.playSFX(attkSoundClip, transform, weaponVolume);
+            AudioManager.instance.playSFX(attkSoundClip, transform, weaponVolume);
             vfxAttk.Play();
         
         }
