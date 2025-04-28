@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9245ac4b6332ac5409202636f690ca83, type: 3}
-  m_Name: WaveData 1
+  m_Script: {fileID: 11500000, guid: 5d813cc86e16e564d88f2a2fc8c0b087, type: 3}
+  m_Name: SnowmanBarrage
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4040545918539713344, guid: f36d7a4bcf190fc4a9a811acc4f91b37, type: 3}
+  enemyPrefab: {fileID: 0}
   enemyCount: 10
-  spawnInterval: 2
+  spawnInterval: 1
   cooldownTime: 5
+  isSurroundWave: 0
