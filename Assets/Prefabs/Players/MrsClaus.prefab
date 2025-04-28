@@ -1148,6 +1148,7 @@ MonoBehaviour:
   HealthImage: {fileID: 3426917967612016924}
   currentXP: 0
   currentUlt: 0
+  currentHealth: 0
   MaxXP: 10
   MaxUlt: 10
   MaxHealth: 10
@@ -1177,16 +1178,16 @@ MonoBehaviour:
   - {fileID: 419586677621245558}
   - {fileID: 8587932971766275833}
   Canvas: {fileID: 0}
-  w1AttackRateSec: 1
+  w1AttackRateSec: 8
   w1AttackDMG: 2
   w1AttkDuration: 0.3
-  w2AttackRateSec: 3
-  w2AttackDMG: 5
+  w2AttackRateSec: 10
+  w2AttackDMG: 2
   w2AttkDuration: 5
-  w3AttackRateSec: 1
+  w3AttackRateSec: 11
   w3AttackDMG: 2
   w3AttkDuration: 0.1
-  w4AttackRateSec: 1
+  w4AttackRateSec: 15
   w4AttackDMG: 1
   w4AttkDuration: 1
 --- !u!65 &1251433929932662358

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 using static Cinemachine.DocumentationSortingAttribute;
@@ -49,23 +50,36 @@ public class Weapons : MonoBehaviour
 
     private void Update()
     {
-        /*bookAttack = levelUpCanvas.bookUnlocked;
-        //spearAttack = levelUpCanvas.spearUnlocked;
-        spikesAttack = levelUpCanvas.spikesUnlocked;
-        Debug.Log("Book " + bookAttack);
-        Debug.Log("spear " + spearAttack);
-        Debug.Log("spikes " + spikesAttack);
+        // DMG
+        checkToUpdateVar(WeaponDMG, "AreaAttack", w1AttackDMG);
+        checkToUpdateVar(WeaponDMG, "BookAttack", w2AttackDMG);
+        checkToUpdateVar(WeaponDMG, "SpearAttack", w3AttackDMG);
+        checkToUpdateVar(WeaponDMG, "SpikesAttack", w4AttackDMG);
 
-        weapons[0].SetActive(baseAttack);        
-        weapons[1].SetActive(bookAttack);
-        Debug.LogWarning("BookAttack" + bookAttack);
-        weapons[2].SetActive(spikesAttack);
-        Debug.LogWarning("spikesAttack" + spikesAttack);
+        // Rate in seconds
+        checkToUpdateVar(WeaponRateSec, "AreaAttack", w1AttackRateSec);
+        checkToUpdateVar(WeaponRateSec, "BookAttack", w2AttackRateSec);
+        checkToUpdateVar(WeaponRateSec, "SpearAttack", w3AttackRateSec);
+        checkToUpdateVar(WeaponRateSec, "SpikesAttack", w4AttackRateSec);
 
-        weapons[3].SetActive(spearAttack);
-        Debug.LogWarning("spikesAttack" + spikesAttack);*/
+        // Attack duration
+        checkToUpdateVar(WeaponAttDuration, "AreaAttack", w1AttkDuration);
+        checkToUpdateVar(WeaponAttDuration, "BookAttack", w2AttkDuration);
+        checkToUpdateVar(WeaponAttDuration, "SpearAttack", w3AttkDuration);
+        checkToUpdateVar(WeaponAttDuration, "SpikesAttack", w4AttkDuration);
+
 
     }
+    // check if the value changed and updates the variable 
+    void checkToUpdateVar(Dictionary<string, float> dictornary, string key, float updatedValue) 
+    {
+        if (dictornary[key] != updatedValue) 
+        {
+            dictornary[key] = updatedValue;
+            Debug.Log("Now the value is: " +  dictornary[key]);
+        }
+    }
+
     void Awake()
     {
         //DMG
@@ -100,6 +114,7 @@ public class Weapons : MonoBehaviour
             Debug.Log("No canvas");
         }
     }
+
 
     public void UnlockBook()
     {
