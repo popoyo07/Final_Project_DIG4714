@@ -6692,6 +6692,10 @@ PrefabInstance:
       propertyPath: UltImage
       value: 
       objectReference: {fileID: 384248950}
+    - target: {fileID: 1358798412825909874, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: MaxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1648809010315181570, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: Canvas
       value: 
@@ -6707,6 +6711,10 @@ PrefabInstance:
     - target: {fileID: 2728221721921488455, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2821978942670329914, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
+      propertyPath: health
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2877758512575774205, guid: ef44b3408dc164e4285145c93fe9239c, type: 3}
       propertyPath: enemyPool
