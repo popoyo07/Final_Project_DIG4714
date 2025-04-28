@@ -1056,7 +1056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotationSpeed: 45
-  health: 20
+  health: 100
 --- !u!114 &199860808671596321
 MonoBehaviour:
   m_ObjectHideFlags: 0
