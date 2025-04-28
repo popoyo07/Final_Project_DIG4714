@@ -116,6 +116,7 @@ public class CharacterUnlockUI : MonoBehaviour
             gameSaveData.totalCoins = playerCoins;
 
             // Update unlock variables based on index
+            characterChosen = index;
             if (index == 1)
             {
                 gameSaveData.unlocmrsClause();
