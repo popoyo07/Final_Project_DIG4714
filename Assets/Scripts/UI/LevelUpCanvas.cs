@@ -142,15 +142,15 @@ public class LevelUpCanvas : MonoBehaviour
         {
             new Buff("Unlock Book Attack", BuffType.BookUnlock),
             new Buff("Unlock Spikes Attack", BuffType.SpikesUnlock),
-            new Buff("Book Attack damage increases by 5%", BuffType.BookDamage),
-            new Buff("Spikes Attack damage increases by 5%", BuffType.SpikesDamage),
-            new Buff("Book Attack rate decreases by 2%", BuffType.BookRate),
-            new Buff("Spikes Attack rate decreases by 2%", BuffType.SpikesRate),
-            new Buff("Book Attack duration increases by 3%", BuffType.BookDuration),
-            new Buff("Spikes Attack duration increases by 3%", BuffType.SpikesDuration),
-            new Buff("Base Attack damage increases by 5%", BuffType.BaseDamage),
-            new Buff("Base Attack rate decreases by 2%", BuffType.BaseRate),
-            new Buff("Base Attack duration increases by 3%", BuffType.BaseDuration),
+            new Buff("Book Attack damage increases by 0.5", BuffType.BookDamage),
+            new Buff("Spikes Attack damage increases by 0.5", BuffType.SpikesDamage),
+            new Buff("Book Attack rate decreases by 0.25", BuffType.BookRate),
+            new Buff("Spikes Attack rate decreases by 0.25", BuffType.SpikesRate),
+            new Buff("Book Attack duration increases by 0.25", BuffType.BookDuration),
+            new Buff("Spikes Attack duration increases by 0.25", BuffType.SpikesDuration),
+            new Buff("Base Attack damage increases by 0.5", BuffType.BaseDamage),
+            new Buff("Base Attack rate decreases by 0.25", BuffType.BaseRate),
+            new Buff("Base Attack duration increases by 0.25", BuffType.BaseDuration),
             new Buff("Gain 20% more xp from enemies", BuffType.BonusXP),
             new Buff("Gain 10% more ult from enemies", BuffType.BonusUlt)
     };
@@ -191,40 +191,40 @@ public class LevelUpCanvas : MonoBehaviour
                 break;
 
             case BuffType.BookDamage:
-                weapons.UpdateWeaponDMG("BookAttack", weapons.WeaponDMG["BookAttack"] * 1.05f);
+                weapons.UpdateWeaponDMG("BookAttack", weapons.WeaponDMG["BookAttack"] + .5f);
                 break;
 
             case BuffType.SpikesDamage:
-                weapons.UpdateWeaponDMG("SpikesAttack", weapons.WeaponDMG["SpikesAttack"] * 1.05f);
+                weapons.UpdateWeaponDMG("SpikesAttack", weapons.WeaponDMG["SpikesAttack"] + .5f);
                 break;
 
 
             case BuffType.BookRate:
-                weapons.UpdateWeaponRate("BookAttack", weapons.WeaponRateSec["BookAttack"] * 0.98f);
+                weapons.UpdateWeaponRate("BookAttack", weapons.WeaponRateSec["BookAttack"] - .25f);
                 break;
 
             case BuffType.SpikesRate:
-                weapons.UpdateWeaponRate("SpikesAttack", weapons.WeaponRateSec["SpikesAttack"] * 0.98f);
+                weapons.UpdateWeaponRate("SpikesAttack", weapons.WeaponRateSec["SpikesAttack"] - .25f);
                 break;
 
             case BuffType.BookDuration:
                 
-                weapons.UpdateWeaponDuration("BookAttack", weapons.WeaponAttDuration["BookAttack"] * 1.03f);
+                weapons.UpdateWeaponDuration("BookAttack", weapons.WeaponAttDuration["BookAttack"] + .25f);
                 break;
 
             case BuffType.SpikesDuration:
-                weapons.UpdateWeaponDuration("SpikesAttack", weapons.WeaponAttDuration["SpikesAttack"] * 1.03f);
+                weapons.UpdateWeaponDuration("SpikesAttack", weapons.WeaponAttDuration["SpikesAttack"] + .25f);
                 break;
 
             case BuffType.BaseDamage:
-                float newDmg = weapons.WeaponDMG["AreaAttack"] * 1.05f;
+                float newDmg = weapons.WeaponDMG["AreaAttack"] + .5f;
                 Debug.Log("Damage should be " +  newDmg);
                 weapons.UpdateWeaponDMG("AreaAttack", newDmg);
                 Debug.Log("Dmg is now " + weapons.WeaponDMG["AreaAttack"]);
                 break;
 
             case BuffType.BaseRate:
-                float newRate = weapons.WeaponRateSec["AreaAttack"] * 0.98f;
+                float newRate = weapons.WeaponRateSec["AreaAttack"] - .25f;
 
                 Debug.Log("Damage should be " + newRate);
 
@@ -235,7 +235,7 @@ public class LevelUpCanvas : MonoBehaviour
                 break;
 
             case BuffType.BaseDuration:
-                weapons.UpdateWeaponDuration("AreaAttack", weapons.WeaponAttDuration["AreaAttack"] * 1.03f);
+                weapons.UpdateWeaponDuration("AreaAttack", weapons.WeaponAttDuration["AreaAttack"] + .25f);
                 break;
 
             case BuffType.BonusXP:
