@@ -52,23 +52,25 @@ public class DamagingSnowball : MonoBehaviour
         //and get its componenet Visual Effect 
     }
 
-    private void FixedUpdate()
+    private void OnEnable()
     {
-         snowball_pos = this.gameObject.GetComponent<Transform>();
+        snowball_pos = this.gameObject.GetComponent<Transform>();
 
-        if (snowball_spawner != null)
+        if (snowball_pos != null || target != null)
         {
             direction = (target.position - snowball_pos.position).normalized;
-             s_rigidbody.AddForce(direction * velocity, ForceMode.Impulse);
-
             
         }
-        
 
-        /* get the snowball's position 
-         * the direction is between the target position and the spawn position (the snowman's hand)
-         * add a force to the snowball
-         */ 
+        //get snowball position, get a vector between snowball position and target
+    }
+
+    private void FixedUpdate()
+    {
+         
+        s_rigidbody.AddForce(direction * velocity, ForceMode.Impulse);
+
+       // apply a force in 'direction' with a velocity 
     }
 
     private void OnTriggerEnter(Collider other)
