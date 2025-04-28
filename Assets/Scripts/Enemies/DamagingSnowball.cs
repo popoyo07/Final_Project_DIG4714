@@ -8,13 +8,15 @@ public class DamagingSnowball : MonoBehaviour
 {
     private PlayerController player; //player ref
     //private Transform PlayerPosition;
-    Transform target; //where the snowball will go 
+     Transform target; //where the snowball will go 
     private UIBars uiBars; // ui bar ref
 
     //stats 
     [SerializeField] private float snowball_dmg;
 
     [SerializeField] private float velocity;
+
+  
 
     //rigid body and transforms and vectors 
     Rigidbody s_rigidbody;
@@ -53,11 +55,15 @@ public class DamagingSnowball : MonoBehaviour
     private void FixedUpdate()
     {
          snowball_pos = this.gameObject.GetComponent<Transform>();
-        if (snowball_pos != null)
+
+        if (snowball_spawner != null)
         {
-            direction = (target.position - snowball_spawner.position).normalized;
-            s_rigidbody.AddForce(direction * velocity, ForceMode.Impulse);
+            direction = (target.position - snowball_pos.position).normalized;
+             s_rigidbody.AddForce(direction * velocity, ForceMode.Impulse);
+
+            
         }
+        
 
         /* get the snowball's position 
          * the direction is between the target position and the spawn position (the snowman's hand)
