@@ -53,8 +53,11 @@ public class DamagingSnowball : MonoBehaviour
     private void FixedUpdate()
     {
          snowball_pos = this.gameObject.GetComponent<Transform>();
-         direction = (target.position - snowball_spawner.position).normalized;   
-        s_rigidbody.AddForce(direction * velocity, ForceMode.Impulse);
+        if (snowball_pos != null)
+        {
+            direction = (target.position - snowball_spawner.position).normalized;
+            s_rigidbody.AddForce(direction * velocity, ForceMode.Impulse);
+        }
 
         /* get the snowball's position 
          * the direction is between the target position and the spawn position (the snowman's hand)
