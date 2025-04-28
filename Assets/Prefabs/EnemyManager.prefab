@@ -46,10 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnowManHealth: 0
   SnowManDMG: 0
-  SnowManSpeed: 15
+  SnowManSpeed: 10
   elfHealth: 1
   elfDMG: 2
-  elfSpeed: 20
+  elfSpeed: 3.5
   strElfHealth: 5
   strElfDMG: 2
-  strElfSpeed: 15
+  strElfSpeed: 1.75
