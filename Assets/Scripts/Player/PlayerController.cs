@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (movement != Vector3.zero)
         {
             animator.SetBool("isMoving", true);
-            Debug.Log("The bool was updated and is moving should be true = " + animator.GetBool("isMoving"));
+            //Debug.Log("The bool was updated and is moving should be true = " + animator.GetBool("isMoving"));
             rb.MovePosition(transform.position + movement * moveSpeed * Time.fixedDeltaTime);
             transform.rotation = Quaternion.LookRotation(movement);
 

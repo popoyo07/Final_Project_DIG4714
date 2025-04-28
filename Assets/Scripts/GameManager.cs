@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         pChoice = CharacterUnlockUI.characterChosen;
-        Debug.LogWarning(pChoice);
+        //Debug.LogWarning(pChoice);
     }
 
 

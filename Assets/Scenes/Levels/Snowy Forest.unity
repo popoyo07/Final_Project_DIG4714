@@ -2273,6 +2273,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf15b59117f42644290e8ba1ff124ef2, type: 3}
+--- !u!114 &563654340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7575243232501880149, guid: cf15b59117f42644290e8ba1ff124ef2, type: 3}
+  m_PrefabInstance: {fileID: 563654339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a517f9d0694487408ee561175070d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &593818330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3097,6 +3108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cf5273123304644a080194d16a262a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 563654340}
   playerTransform: {fileID: 61780283}
   playerTilePosition: {x: 0, y: 0, z: 0}
   tileSize: 50
