@@ -18,6 +18,8 @@ public class LevelUpCanvas : MonoBehaviour
     private Weapons weapons;
     private MusicManager musicManager;
     AudioSource audiosource;
+    GameManager gameManager;
+
 
     [Header("SFX")]
     public AudioClip SFXlevelup;
@@ -75,6 +77,12 @@ public class LevelUpCanvas : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
+    }
+
     void Start()
     {
         // Search each GameObject in the allPlayers array 
@@ -86,6 +94,8 @@ public class LevelUpCanvas : MonoBehaviour
                 break;
             }
         }
+        player = allPlayers[gameManager.pChoice];
+
         weapons = player.GetComponent<Weapons>();
         UIBars = player.GetComponent<UIBars>();
         musicManager = FindObjectOfType<MusicManager>();
