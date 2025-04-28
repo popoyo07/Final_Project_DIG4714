@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b42743f7c51cf343aca0d7abb55a57e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 3.2
   rotationSpeed: 45
   health: 100
 --- !u!114 &1360449996302654850
@@ -1151,7 +1151,7 @@ MonoBehaviour:
   currentHealth: 0
   MaxXP: 10
   MaxUlt: 10
-  MaxHealth: 10
+  MaxHealth: 100
   PlayerLevel: 0
   xpMultiplier: 1
   leveledUp: 0

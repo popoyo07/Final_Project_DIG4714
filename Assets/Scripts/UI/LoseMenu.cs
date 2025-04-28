@@ -11,12 +11,17 @@ public class LoseMenu : MonoBehaviour
     private JsonSaveExample save;
     public TextMeshProUGUI coinCollected;
     private MusicManager musicManager;
+    GameManager gameManager;
 
     bool added;
 
     public GameObject[] allPlayers;
     private PlayerController playerController;
+    private void Awake()
+    {
+        gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
 
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,7 @@ public class LoseMenu : MonoBehaviour
                 break;
             }
         }
+        player = allPlayers[gameManager.pChoice];
         musicManager = FindObjectOfType<MusicManager>();
         UIBars = player.GetComponent<UIBars>();
         playerController = player.GetComponent<PlayerController>();

@@ -1095,7 +1095,7 @@ MonoBehaviour:
   currentHealth: 0
   MaxXP: 10
   MaxUlt: 10
-  MaxHealth: 10
+  MaxHealth: 100
   PlayerLevel: 0
   xpMultiplier: 1
   leveledUp: 0
