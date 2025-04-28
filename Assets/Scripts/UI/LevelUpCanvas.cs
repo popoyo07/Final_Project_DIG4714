@@ -46,20 +46,15 @@ public class LevelUpCanvas : MonoBehaviour
     {
         BookUnlock,
         SpikesUnlock,
-        //SpearUnlock,
         BookDamage,
         SpikesDamage,
-        //SpearDamage,
         BookRate,
         SpikesRate,
-        //SpearRate,
         BookDuration,
         SpikesDuration,
-        //SpearDuration,
         BaseDamage,
         BaseRate,
         BaseDuration,
-        //IncreaseSpeed,
         BonusXP,
         BonusUlt
     }
@@ -114,9 +109,9 @@ public class LevelUpCanvas : MonoBehaviour
 
         if (UIBars.leveledUp)
         {
-            ShowLevelUp();          // 1. Open UI
-            EventSystem.current.SetSelectedGameObject(null); // 2. THEN clear selection
-            RandomBuff();           // 3. Assign buffs
+            ShowLevelUp();
+            EventSystem.current.SetSelectedGameObject(null);
+            RandomBuff();
             audiosource.clip = SFXlevelup;
             audiosource.Play();
             UIBars.leveledUp = false;
@@ -147,20 +142,15 @@ public class LevelUpCanvas : MonoBehaviour
         {
             new Buff("Unlock Book Attack", BuffType.BookUnlock),
             new Buff("Unlock Spikes Attack", BuffType.SpikesUnlock),
-            //new Buff("Unlock Spear Attack", BuffType.SpearUnlock),
             new Buff("Book Attack damage increases by 5%", BuffType.BookDamage),
             new Buff("Spikes Attack damage increases by 5%", BuffType.SpikesDamage),
-            //new Buff("Spear Attack damage increases by 5%", BuffType.SpearDamage),
             new Buff("Book Attack rate decreases by 2%", BuffType.BookRate),
             new Buff("Spikes Attack rate decreases by 2%", BuffType.SpikesRate),
-            //new Buff("Spear Attack rate decreases by 2%", BuffType.SpearRate),
-            new Buff("Book Attack duration decreases by 3%", BuffType.BookDuration),
-            new Buff("Spikes Attack duration decreases by 3%", BuffType.SpikesDuration),
-            //new Buff("Spear Attack duration decreases by 3%", BuffType.SpearDuration),
+            new Buff("Book Attack duration increases by 3%", BuffType.BookDuration),
+            new Buff("Spikes Attack duration increases by 3%", BuffType.SpikesDuration),
             new Buff("Base Attack damage increases by 5%", BuffType.BaseDamage),
             new Buff("Base Attack rate decreases by 2%", BuffType.BaseRate),
             new Buff("Base Attack duration increases by 3%", BuffType.BaseDuration),
-            //new Buff("Speed increases 5%", BuffType.IncreaseSpeed),
             new Buff("Gain 20% more xp from enemies", BuffType.BonusXP),
             new Buff("Gain 10% more ult from enemies", BuffType.BonusUlt)
     };
@@ -200,57 +190,41 @@ public class LevelUpCanvas : MonoBehaviour
                 weapons.UnlockSpike();
                 break;
 
-/*            case BuffType.SpearUnlock:
-                Debug.Log("Unlocked Spear Attack");
-                weapons.UnlockSpear();
-            break;*/
-
             case BuffType.BookDamage:
-                weapons.UpdateWeaponDMG("BookAttack", weapons.WeaponDMG["BookAttack"] * 0.05f);
+                weapons.UpdateWeaponDMG("BookAttack", weapons.WeaponDMG["BookAttack"] * 1.05f);
                 break;
 
             case BuffType.SpikesDamage:
-                weapons.UpdateWeaponDMG("SpikesAttack", weapons.WeaponDMG["SpikesAttack"] * 0.05f);
+                weapons.UpdateWeaponDMG("SpikesAttack", weapons.WeaponDMG["SpikesAttack"] * 1.05f);
                 break;
 
-/*            case BuffType.SpearDamage:
-                weapons.UpdateWeaponDMG("SpearAttack", weapons.WeaponDMG["SpearAttack"] * 0.05f);
-                break;*/
 
             case BuffType.BookRate:
-                weapons.UpdateWeaponRate("BookAttack", weapons.WeaponRateSec["BookAttack"] * 0.02f);
+                weapons.UpdateWeaponRate("BookAttack", weapons.WeaponRateSec["BookAttack"] * 0.98f);
                 break;
 
             case BuffType.SpikesRate:
-                weapons.UpdateWeaponRate("SpikesAttack", weapons.WeaponRateSec["SpikesAttack"] * 0.02f);
+                weapons.UpdateWeaponRate("SpikesAttack", weapons.WeaponRateSec["SpikesAttack"] * 0.98f);
                 break;
 
-/*            case BuffType.SpearRate:
-                weapons.UpdateWeaponRate("SpearAttack", weapons.WeaponRateSec["SpearAttack"] * 0.02f);
-                break;
-*/
             case BuffType.BookDuration:
-                weapons.UpdateWeaponDuration("BookAttack", weapons.WeaponAttDuration["BookAttack"] * 0.03f);
+                weapons.UpdateWeaponDuration("BookAttack", weapons.WeaponAttDuration["BookAttack"] * 1.03f);
                 break;
 
             case BuffType.SpikesDuration:
-                weapons.UpdateWeaponDuration("SpikesAttack", weapons.WeaponAttDuration["SpikesAttack"] * 0.03f);
+                weapons.UpdateWeaponDuration("SpikesAttack", weapons.WeaponAttDuration["SpikesAttack"] * 1.03f);
                 break;
 
-/*            case BuffType.SpearDuration:
-                weapons.UpdateWeaponDuration("SpearAttack", weapons.WeaponAttDuration["SpearAttack"] * 0.03f);
-                break;
-*/
             case BuffType.BaseDamage:
-                weapons.UpdateWeaponDMG("AreaAttack", weapons.WeaponDMG["AreaAttack"] * 0.05f);
+                weapons.UpdateWeaponDMG("AreaAttack", weapons.WeaponDMG["AreaAttack"] * 1.05f);
                 break;
 
             case BuffType.BaseRate:
-                weapons.UpdateWeaponRate("AreaAttack", weapons.WeaponRateSec["AreaAttack"] * 0.02f);
+                weapons.UpdateWeaponRate("AreaAttack", weapons.WeaponRateSec["AreaAttack"] * 0.98f);
                 break;
 
             case BuffType.BaseDuration:
-                weapons.UpdateWeaponDuration("AreaAttack", weapons.WeaponAttDuration["AreaAttack"] * 0.03f);
+                weapons.UpdateWeaponDuration("AreaAttack", weapons.WeaponAttDuration["AreaAttack"] * 1.03f);
                 break;
 
             case BuffType.BonusXP:
