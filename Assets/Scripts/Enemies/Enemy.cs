@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
 
 
     }
+    
 
     public float TheEnemySpeed(string enemyType) // get enemy speed 
     {
