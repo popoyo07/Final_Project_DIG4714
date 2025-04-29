@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snowball_dmg: 2.5
-  velocity: 1
+  velocity: 1.5
 --- !u!54 &8167660356945389510
 Rigidbody:
   m_ObjectHideFlags: 0

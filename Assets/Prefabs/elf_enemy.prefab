@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c511406a1f2aed4418e6c9f8d9145f44, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.92
+      value: 6.449748
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c511406a1f2aed4418e6c9f8d9145f44, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42299998
+      value: 0.3300004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c511406a1f2aed4418e6c9f8d9145f44, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.34
+      value: -2.2718506
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c511406a1f2aed4418e6c9f8d9145f44, type: 3}
       propertyPath: m_LocalRotation.w
@@ -175,7 +175,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2167197816489516112}
   serializedVersion: 4
-  m_Mass: 10
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -192,5 +192,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
