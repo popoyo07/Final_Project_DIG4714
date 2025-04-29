@@ -156,12 +156,7 @@ public class CharacterUnlockUI : MonoBehaviour
     {
         for (int i = 0; i < characterButtons.Length; i++)
         {
-            // Determine if the button should be interactable:
-            // It's interactable if the character is already unlocked,or if the player has enough coins to afford unlocking it
-            bool interactable = characterUnlocked[i] || playerCoins >= characterPrices[i];
-
-            // Set the interactable state of the button accordingly
-            characterButtons[i].interactable = interactable;
+            characterButtons[i].interactable = true;
         }
 
         // ALSO hide the price text if unlocked
