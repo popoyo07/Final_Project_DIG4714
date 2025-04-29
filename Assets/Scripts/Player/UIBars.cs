@@ -21,10 +21,11 @@ public class UIBars : MonoBehaviour
     public float xpMultiplier = 1f;
     public float ultMultiplier = 1f;
 
-    private PlayerController playerController;
-
     public bool leveledUp = false;
     public bool playerAlive;
+
+    // References
+    private PlayerController playerController;
 
     private void Awake()
     {
@@ -34,30 +35,15 @@ public class UIBars : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-/*        if (MaxXP <= 0f)
-        {
-            MaxXP = 100f;
-        }
-
-        if (MaxUlt <= 0f)
-        {
-            MaxUlt = 100f;
-        }
-
-        if (MaxHealth <= 0f)
-        {
-            MaxHealth = 100f;
-        }*/
-
         currentXP = 0f;
         XPImage.fillAmount = currentXP / MaxXP;
         currentUlt = 0f;
         UltImage.fillAmount = currentUlt / MaxUlt;
         playerController = GetComponent<PlayerController>();
-        if (playerController == null)
+        /*        if (playerController == null)
         {
             Debug.LogWarning("NO PLAYER CONTROLLER");
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -65,6 +51,7 @@ public class UIBars : MonoBehaviour
     {
         currentHealth = playerController.health;
 
+        // If player's hp less than or equal to 0, player dies
        if (currentHealth <= 0f) 
        {
             playerAlive = false;
@@ -72,13 +59,12 @@ public class UIBars : MonoBehaviour
     }
 
 
-
     public void LevelUP ()
     {
         currentXP -= MaxXP;
         MaxXP = MaxXP * 2f;
         leveledUp = true;
-        Debug.Log("MaxXP:" + MaxXP);
+        //Debug.Log("MaxXP:" + MaxXP);
     }
 
 
@@ -90,23 +76,22 @@ public class UIBars : MonoBehaviour
             PlayerLevel++;
             LevelUP();
         }
-
-        XPImage.fillAmount = currentXP / MaxXP; // Update XP bar after leveling
+        XPImage.fillAmount = currentXP / MaxXP;
         Debug.Log("Player's level: " + PlayerLevel + "Fill Amount: " + XPImage.fillAmount);
     }
-
 
 
     public void GainUltBar(float ult)
     {
         currentUlt += ult * ultMultiplier;
+        // If current ultimate is higher or equal to ultimate, current ultimate will stay as maxiumin ultimate amount 
         if (currentUlt >= MaxUlt)
         {
             currentUlt = MaxUlt;
         }
 
         UltImage.fillAmount = currentUlt/MaxUlt;
-
+        // If ultimate is ready, change the color of the bar
         if (currentUlt == MaxUlt)
         {
             UltImage.color = Color.yellow;

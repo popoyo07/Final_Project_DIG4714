@@ -11,13 +11,15 @@ public class TextColorFloat : MonoBehaviour
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
 
+        // Check if textMeshPro exist or not
         if (textMeshPro != null)
         {
-            targetColor = GetRandomColor(); // Set the first target color
+            // Set the first target color
+            targetColor = GetRandomColor();
         }
         else
         {
-            Debug.Log("textMeshPro = NULLLLLLL");
+            Debug.Log("No textMeshPro");
         }
     }
 

@@ -37,7 +37,6 @@ public class TimeCounter : MonoBehaviour
         }
 
         // Update UI
-        //timerText.text = hourCount + "h:" + minuteCount.ToString("00") + "m:" + ((int)secondsCount).ToString("00") + "s";
         timerText.text = hourCount + ":" + minuteCount.ToString("00") + ":" + ((int)secondsCount).ToString("00");
 
     }

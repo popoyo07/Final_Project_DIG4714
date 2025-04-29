@@ -6,10 +6,11 @@ public class BuffHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     // Assign the corresponding text in Inspector
     public TextMeshProUGUI buffDescription;
-    AudioSource audiosource;
 
     [Header("SFX")]
     public AudioClip SFXselectBuffs;
+    AudioSource audiosource;
+
 
     void Start()
     {
