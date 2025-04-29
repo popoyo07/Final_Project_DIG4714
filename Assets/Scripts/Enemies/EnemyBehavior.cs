@@ -125,7 +125,8 @@ public class EnemyBehavior : MonoBehaviour
 
         if (health <= 0)
         {
-            Instantiate(coins, transform.position, transform.rotation); // instantiate a coin 
+            Vector3 t = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            Instantiate(coins, t, transform.rotation); // instantiate a coin 
             uiBars.GainXPbar(5f);
             uiBars.GainUltBar(1f);
             Destroy(this.gameObject);
