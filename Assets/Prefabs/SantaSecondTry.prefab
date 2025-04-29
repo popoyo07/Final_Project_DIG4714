@@ -852,6 +852,10 @@ PrefabInstance:
       propertyPath: MaxUlt
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 1983725088750580874, guid: 8c683c8290f42614091ee0d450379e5f, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 6949991398768836, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
     - target: {fileID: 3527195958681135453, guid: 8c683c8290f42614091ee0d450379e5f, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -1068,6 +1072,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5145816089982737971, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 6949991398768836, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
+    - target: {fileID: 5145816089982737971, guid: 3cc5094b79455154daa7472aaf7738c6, type: 3}
       propertyPath: baseAttack
       value: 1
       objectReference: {fileID: 0}
@@ -1223,6 +1231,10 @@ PrefabInstance:
       propertyPath: MaxUlt
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 5807523243086115921, guid: 1e234563d6fd2484eb7c8a1eb57904f2, type: 3}
+      propertyPath: Canvas
+      value: 
+      objectReference: {fileID: 6949991398768836, guid: 9d5e582d9afc1d4448f46ebfab21370e, type: 3}
     - target: {fileID: 6452985973750753268, guid: 1e234563d6fd2484eb7c8a1eb57904f2, type: 3}
       propertyPath: m_Enabled
       value: 0

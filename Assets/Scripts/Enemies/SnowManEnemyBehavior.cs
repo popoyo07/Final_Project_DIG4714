@@ -30,7 +30,7 @@ public class SnowManEnemyBehavior : MonoBehaviour
      private float health = 2;
     private UIBars uiBars;
 
-    private void Awake()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindWithTag("Player");
@@ -38,12 +38,8 @@ public class SnowManEnemyBehavior : MonoBehaviour
 
         snowman_animator = GetComponent<Animator>();
         weapon = player.GetComponent<Weapons>();
+        Instantiate(snowballVFXObject, new Vector3(0, 1000, 0), Quaternion.identity);
 
-    }
-
-    private void Start()
-    {   //create game object that contains the snowball vfx attached that DamagingSnowball script can reference
-        Instantiate(snowballVFXObject, new Vector3(0,1000,0), Quaternion.identity);
     }
 
     private void Update()
